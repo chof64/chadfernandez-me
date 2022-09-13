@@ -3,15 +3,10 @@ import Layout from "/src/components/alpha/Layout";
 import Image from "next/image";
 
 function Index() {
-  const socialLinks = [
-    { name: "GitHub", href: "https://github.com/chof64" },
-    { name: "Polywork", href: "https://polywork.chadfernandez.me" },
-  ];
-
   return (
     <div className="flex flex-col items-center">
       <div className="mt-32 w-[90vw] md:w-[75vw] lg:w-[60vw]">
-        <div className="flex max-w-md flex-col gap-y-4">
+        <div className="flex flex-col max-w-md gap-y-4">
           <div className="flex items-center text-neutral-800">
             <h1 className="text-lg font-semibold md:text-2xl">
               👋Hi, I&apos;m Chad Fernandez
@@ -20,7 +15,7 @@ function Index() {
               he/him
             </span>
           </div>
-          <div className="flex flex-col gap-y-4 leading-relaxed">
+          <div className="flex flex-col leading-relaxed gap-y-4">
             <p className="font-medium md:text-lg">
               I&apos;m an aspiring Python programmer and Web Developer.
             </p>
