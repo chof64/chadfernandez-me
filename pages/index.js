@@ -1,8 +1,7 @@
 import LayoutGlobal from "/src/components/LayoutGlobal";
 import Layout from "/src/components/alpha/Layout";
-import Image from "next/image";
 
-function Index() {
+export default function index() {
   return (
     <div className="flex flex-col items-center">
       <div className="mt-32 w-[90vw] md:w-[75vw] lg:w-[60vw]">
@@ -30,12 +29,10 @@ function Index() {
   );
 }
 
-Index.getLayout = function getLayout(page) {
+index.getLayout = function getLayout(page) {
   return (
     <LayoutGlobal>
       <Layout>{page}</Layout>
     </LayoutGlobal>
   );
 };
-
-export default Index;

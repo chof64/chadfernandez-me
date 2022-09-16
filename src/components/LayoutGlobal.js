@@ -6,7 +6,7 @@
 
 import Head from "next/head";
 
-function LayoutGlobal({ title, children }) {
+export default function LayoutGlobal({ title, children }) {
   // if title is defined, add  "defined" in the end, if not, add "undefined".
   const titleText = title ? `${title} - defined` : `undefined - defined`;
 
@@ -50,5 +50,3 @@ function LayoutGlobal({ title, children }) {
     </>
   );
 }
-
-export default LayoutGlobal;
