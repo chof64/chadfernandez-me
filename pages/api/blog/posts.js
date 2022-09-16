@@ -1,15 +1,11 @@
-import { Client } from "@notionhq/client";
+import { getPublishedPosts } from "/src/lib/blog/NotionDatabase";
 
-const notion = new Client({
-  auth: process.env.NOTION_TOKEN,
-});
+// export default async function posts(req, res) {
+//   // const posts = await notion.databases.query({
+//   //   database_id: process.env.NOTION_DATABASE_ID,
+//   // });
 
-async function posts(req, res) {
-  const posts = await notion.databases.query({
-    database_id: process.env.NOTION_DATABASE_ID,
-  });
+//   const database = await getPublishedPosts(process.env.NOTION_BLOG_DB);
 
-  res.status(200).json(posts);
-}
-
-export default posts;
+//   res.status(200).json(database);
+// }
