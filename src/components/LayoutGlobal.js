@@ -25,7 +25,7 @@ export default function LayoutGlobal({ title, children }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         {/* //? Site favicon/icons */}
-        <link rel="shortcut icon" href="/favicons/favicon.png" />
+        <link rel="shortcut icon" href="/favicons/favicon.ico" />
         <link rel="manifest" href="/favicons/site.webmanifest" />
         <link
           rel="icon"
