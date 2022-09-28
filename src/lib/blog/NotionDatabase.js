@@ -1,4 +1,5 @@
 import { Client } from "@notionhq/client";
+import slugify from "slugify";
 
 const notion = new Client({
   auth: process.env.NOTION_TOKEN,
@@ -44,6 +45,11 @@ export const getPublishedPosts = async (databaseId) => {
   });
 
   response.results.forEach((item) => {
+    item.slug = slugify(item.properties.Name.title[0].plain_text, {
+      lower: true,
+      strict: true,
+    });
+
     if (item.created_time != null) {
       item.created_time_parsed = new Date(item.created_time).toDateString();
     }

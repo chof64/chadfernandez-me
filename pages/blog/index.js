@@ -1,11 +1,12 @@
 import React from "react";
 import LayoutGlobal from "/src/components/LayoutGlobal";
 import Layout from "/src/components/alpha/Layout";
+
 import {
   getDatabaseObject,
   getPublishedPosts,
 } from "/src/lib/blog/NotionDatabase";
-import BlogPostsList from "/src/components/alpha/BlogPostsList";
+import BlogPostsList from "/src/lib/blog/components/BlogPostsList";
 import { TextParser } from "../../src/utils/NotionUtilities";
 
 export const getStaticProps = async () => {
