@@ -9,6 +9,7 @@ const nextConfig = {
       "www.notion.so",
       "s3.us-west-2.amazonaws.com",
       "images.unsplash.com",
+      "i.imgur.com",
     ],
   },
 };
