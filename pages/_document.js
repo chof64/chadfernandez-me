@@ -1,4 +1,5 @@
 import { Html, Head, Main, NextScript } from "next/document";
+import Script from "next/script";
 
 export default function document() {
   return (
@@ -12,11 +13,12 @@ export default function document() {
       <body>
         <Main />
         <NextScript />
-        <script
-          defer
+
+        <Script
+          strategy="lazyOnload"
           src="https://static.cloudflareinsights.com/beacon.min.js"
           data-cf-beacon='{"token": "48a5adb3c6d24c20a06e99d74e1c6761"}'
-        ></script>
+        />
       </body>
     </Html>
   );
