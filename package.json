@@ -24,6 +24,7 @@
     "eslint-config-next": "12.2.3",
     "notion-to-md": "^2.5.5",
     "prettier": "^2.7.1",
-    "prettier-plugin-tailwindcss": "^0.1.13"
+    "prettier-plugin-tailwindcss": "^0.1.13",
+    "slugify": "^1.6.5"
   }
 }
