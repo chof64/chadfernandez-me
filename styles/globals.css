@@ -1,4 +1,13 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+h1,
+h2,
+h3 {
+  @apply text-neutral-800;
+}
+
+p {
+  @apply text-gray-700;
+}

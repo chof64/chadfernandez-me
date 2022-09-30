@@ -1,6 +1,6 @@
 import LayoutGlobal from "/src/components/LayoutGlobal";
 
-function Template() {
+export default function template() {
   return (
     <>
       <div>
@@ -10,12 +10,10 @@ function Template() {
   );
 }
 
-Template.getLayout = function getLayout(page) {
+template.getLayout = function getLayout(page) {
   return (
     <LayoutGlobal>
       <>{page}</>
     </LayoutGlobal>
   );
 };
-
-export default Template;

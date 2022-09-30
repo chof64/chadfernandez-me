@@ -1,4 +1,4 @@
-import { classMerge } from "/src/utils/tailwind-utils";
+import { classMerge } from "/src/utils/TailwindUtilities";
 import { forwardRef } from "react";
 import { Menu } from "@headlessui/react";
 import {
@@ -11,14 +11,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-function Navigation() {
-  const navigation = [
+export default function Navigation() {
+  const NAVIGATION = [
     { name: "Home", href: "/", pin: true },
+    { name: "Blog", href: "/blog", pin: false },
     { name: "About", href: "/#about", pin: false },
     { name: "Contact", href: "/#contact", pin: true },
   ];
 
-  const socials = [
+  const SOCIALS = [
     {
       name: "Github",
       href: "https://github.com/chof64",
@@ -63,23 +64,20 @@ function Navigation() {
                 </h1>
               </Link>
               <nav className="flex items-center gap-x-0.5">
-                {/* Filter navigation, only list if pin is true and map it out */}
-                {navigation
-                  .filter((item) => item.pin)
-                  .map((item) => (
-                    <MenuLink
-                      className={classMerge(
-                        "hidden rounded-lg px-4 py-1.5 font-mono text-sm font-bold hover:bg-gray-200 md:block ",
-                        isActive(item.href)
-                          ? "text-blue-500"
-                          : "text-neutral-700 hover:text-neutral-800 md:text-neutral-500"
-                      )}
-                      href={item.href}
-                      key={item.name}
-                    >
-                      {item.name}
-                    </MenuLink>
-                  ))}
+                {NAVIGATION.filter((item) => item.pin).map((item) => (
+                  <MenuLink
+                    className={classMerge(
+                      "hidden rounded-lg px-4 py-1.5 font-mono text-sm font-bold hover:bg-gray-200 md:block ",
+                      isActive(item.href)
+                        ? "text-blue-500"
+                        : "text-neutral-700 hover:text-neutral-800 md:text-neutral-500"
+                    )}
+                    href={item.href}
+                    key={item.name}
+                  >
+                    {item.name}
+                  </MenuLink>
+                ))}
                 <Menu.Button
                   as="div"
                   className="flex cursor-pointer items-center justify-center rounded-lg bg-gray-200 p-1 md:bg-transparent md:p-1.5 md:hover:bg-gray-200"
@@ -108,7 +106,7 @@ function Navigation() {
                   <p className="font-mono text-xs text-neutral-400 md:text-xs">
                     Pages
                   </p>
-                  {navigation.map((item, index) => (
+                  {NAVIGATION.map((item, index) => (
                     <Menu.Item key={index}>
                       <MenuLink
                         className={classMerge(
@@ -129,7 +127,7 @@ function Navigation() {
                   <p className="font-mono text-xs text-neutral-400 md:text-xs">
                     Socials
                   </p>
-                  {socials.map((item, index) => (
+                  {SOCIALS.map((item, index) => (
                     <Menu.Item key={index}>
                       <MenuLink
                         className="flex items-center px-4 py-3 text-sm font-medium tracking-wide rounded-lg bg-gray-50 text-neutral-700 hover:bg-gray-200 hover:text-neutral-800 md:text-base md:text-neutral-500"
@@ -138,7 +136,11 @@ function Navigation() {
                         rel="noreferrer"
                       >
                         <div className="relative w-4 h-4 mr-2">
-                          <Image src={item.icon} layout="fill" alt={item.name}/>
+                          <Image
+                            src={item.icon}
+                            layout="fill"
+                            alt={item.name}
+                          />
                         </div>
                         {item.name}
                         <ExternalLinkIcon className="w-3 h-3 ml-1 stroke-sky-500" />
@@ -154,5 +156,3 @@ function Navigation() {
     </Menu>
   );
 }
-
-export default Navigation;

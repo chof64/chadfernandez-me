@@ -1,17 +1,11 @@
 import LayoutGlobal from "/src/components/LayoutGlobal";
-import Layout from "/src/components/alpha/Layout";
-import Image from "next/image";
+import Layout from "/src/components/main/Layout";
 
-function Index() {
-  const socialLinks = [
-    { name: "GitHub", href: "https://github.com/chof64" },
-    { name: "Polywork", href: "https://polywork.chadfernandez.me" },
-  ];
-
+export default function index() {
   return (
     <div className="flex flex-col items-center">
       <div className="mt-32 w-[90vw] md:w-[75vw] lg:w-[60vw]">
-        <div className="flex max-w-md flex-col gap-y-4">
+        <div className="flex flex-col max-w-md gap-y-4">
           <div className="flex items-center text-neutral-800">
             <h1 className="text-lg font-semibold md:text-2xl">
               👋Hi, I&apos;m Chad Fernandez
@@ -20,7 +14,7 @@ function Index() {
               he/him
             </span>
           </div>
-          <div className="flex flex-col gap-y-4 leading-relaxed">
+          <div className="flex flex-col leading-relaxed gap-y-4">
             <p className="font-medium md:text-lg">
               I&apos;m an aspiring Python programmer and Web Developer.
             </p>
@@ -35,12 +29,10 @@ function Index() {
   );
 }
 
-Index.getLayout = function getLayout(page) {
+index.getLayout = function getLayout(page) {
   return (
     <LayoutGlobal>
       <Layout>{page}</Layout>
     </LayoutGlobal>
   );
 };
-
-export default Index;

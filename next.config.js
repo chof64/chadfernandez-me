@@ -6,8 +6,12 @@ const nextConfig = {
   images: {
     domains: [
       "emojipedia-us.s3.dualstack.us-west-1.amazonaws.com",
-    ]
-  }
-}
+      "www.notion.so",
+      "s3.us-west-2.amazonaws.com",
+      "images.unsplash.com",
+      "i.imgur.com",
+    ],
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
