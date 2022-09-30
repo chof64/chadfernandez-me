@@ -1,121 +1,124 @@
-//*
-
+// IMPORTS: External
 import React, { Fragment } from "react";
-
 import Image from "next/image";
-
-import LayoutGlobal from "/src/components/LayoutGlobal";
-import Layout from "/src/components/alpha/Layout";
-import { getPublishedPosts } from "../../src/lib/blog/NotionDatabase";
-import { getPostById, getPageBlocks } from "../../src/lib/blog/NotionPage";
 import {
-  notionBlockAdapter,
-  NotionTextFormatter,
-} from "../../src/utils/NotionBlockParser";
+  CalendarClock as CalendarClockIcon,
+  FileClock as FileClockIcon,
+} from "lucide-react";
 
+// IMPORTS: Layout
+import LayoutGlobal from "/src/components/LayoutGlobal";
+import Layout from "/src/components/main/Layout";
+import Platform from "/src/components/main/Platform";
+
+// IMPORTS: Components
+import { RichTextRender, blockRenderer } from "/src/modules/blog/TextAdapter";
+
+// IMPORTS: Utilities
+import { getPostedDatabaseItems } from "/src/modules/blog/DatabaseDefault";
+import { getPostContent } from "../../src/modules/blog/PostsDefault";
+
+// GET STATIC PATHS
 export async function getStaticPaths() {
-  const DB_POSTS = await getPublishedPosts(process.env.NOTION_BLOG_DB);
-
-  //! As the site grows, pre-render only 10 latest posts
-  //! including pinned posts.
-  const POSTS_SLUG = DB_POSTS.results.map((post) => ({
+  // TODO: Get 10 pinned and latest posts to be pre-rendered.
+  const POSTED_ITEMS = await getPostedDatabaseItems(process.env.NOTION_BLOG_DB);
+  const POSTED_SLUG = POSTED_ITEMS.results.map((post) => ({
     params: { slug: post.slug },
   }));
 
   return {
-    paths: POSTS_SLUG,
+    paths: POSTED_SLUG,
     fallback: true,
   };
 }
 
+// GET STATIC PROPS
 export async function getStaticProps(context) {
   const { slug } = context.params;
 
-  const DB_PUBLISHED = await getPublishedPosts(process.env.NOTION_BLOG_DB);
-  const DB_QUERY_POST = DB_PUBLISHED.results.find((post) => post.slug === slug);
+  const POSTED_ITEMS = await getPostedDatabaseItems(process.env.NOTION_BLOG_DB);
+  const POST = POSTED_ITEMS.results.find((post) => post.slug === slug);
 
-  if (!DB_QUERY_POST) {
+  if (!POST) {
     return {
       notFound: true,
     };
   }
 
-  const PAGE = await getPostById(DB_QUERY_POST.id);
-  const BLOCKS = await getPageBlocks(DB_QUERY_POST.id);
-
-  //! Integrate on
-  // GET CHILDREN BLOCKS
-  const childBlocks = await Promise.all(
-    BLOCKS.filter((block) => block.has_children).map(async (block) => {
-      return {
-        id: block.id,
-        children: await getPageBlocks(block.id),
-      };
-    })
-  );
-  // CHECKS IF CHILDREN BLOCKS ARE ALREADY HANDLED, IF NOT, RUN childBlocks.
-  const blocksWithChildren = BLOCKS.map((block) => {
-    // Add child blocks if the block should contain children but none exists
-    if (block.has_children && !block[block.type].children) {
-      block[block.type]["children"] = childBlocks.find(
-        (x) => x.id === block.id
-      )?.children;
-    }
-    return block;
-  });
+  const POST_CONTENT = await getPostContent(POST.id);
 
   return {
-    props: { slug: slug, page: PAGE, blocks: blocksWithChildren },
-    revalidate: 1,
+    props: {
+      slug: slug,
+      metadata: POST,
+      content: POST_CONTENT,
+    },
+    revalidate: 30,
   };
 }
 
-export default function post({ slug, page, blocks }) {
-  if (!page || !blocks) {
+// DEFAULT EXPORT
+export default function post({ slug, metadata, content }) {
+  if (!metadata || !content) {
     return <p>Content error</p>;
   }
 
   return (
-    <div className="flex flex-col items-center">
-      <div className="mt-5 w-[90vw] md:w-[75vw] lg:w-[60vw]">
-        {page.cover != null ? (
-          <div className="relative aspect-[16/7.5] w-full">
+    <>
+      <Platform className="mt-10 mb-5">
+        {metadata.cover !== null ? (
+          <div className="relative mb-2 aspect-video w-full rounded-lg md:aspect-[16/7]">
             <Image
               className="rounded-lg"
-              src={page.cover.url}
+              src={metadata.cover.url}
+              alt={metadata.cover.url}
               layout="fill"
               objectFit="cover"
-              alt={page.cover.url}
+              priority
             />
           </div>
         ) : (
           ""
         )}
-        <h1 className="text-4xl font-bold">
-          {page.properties.Name.title[0].plain_text}
-        </h1>
-        <div className="inline-flex text-sm gap-x-2">
-          <p>Published: {page.created_time_parsed}</p>
-          <p>(Updated: {page.last_edited_time_parsed})</p>
+        <div>
+          <p className="font-mono text-sm uppercase">
+            {metadata.properties.Category.select.name}
+          </p>
+          <h1 className="text-2xl font-bold md:text-3xl">
+            {metadata.properties.Name.title[0].plain_text}
+          </h1>
         </div>
-        <p className="p-4 font-semibold text-md">
-          <NotionTextFormatter text={page.properties.Excerpt.rich_text} />
-        </p>
-      </div>
-      <section className="w-[90vw] md:w-[75vw] lg:w-[60vw]">
-        {blocks.map((block) => (
-          <Fragment key={block.id}>{notionBlockAdapter(block)}</Fragment>
-        ))}
+        <div>
+          <div className="p-1 border border-b-0 rounded-t-md bg-gray-50 md:flex md:items-center md:gap-3 md:border-0 md:bg-transparent">
+            <p className="flex items-center font-mono text-sm text-gray-400">
+              <CalendarClockIcon className="h-4 aspect-square" />
+              {metadata.parsed_created_time}
+            </p>
+            <p className="flex items-center font-mono text-sm text-gray-400">
+              <FileClockIcon className="h-4 aspect-square" />
+              {metadata.parsed_last_edited_time}
+            </p>
+          </div>
+          <div className="p-1 border border-t-0 rounded-b-md bg-gray-50 md:rounded-md md:border">
+            <span className="font-mono text-xs font-bold text-gray-400">
+              EXCERPT
+            </span>
+            <p className="text-gray-600">
+              <RichTextRender
+                richText={metadata.properties.Excerpt.rich_text}
+              />
+            </p>
+          </div>
+        </div>
+      </Platform>
+      <section>
+        <Platform>
+          {content.map((block, index) => (
+            <Fragment key={index}>{blockRenderer(block)}</Fragment>
+          ))}
+        </Platform>
       </section>
-      <div>
-        <hr className="my-5" />
-
-        <div>{slug}</div>
-        <div>{JSON.stringify(page, null, 1)}</div>
-        <h1 className="my-10">This is a barrier</h1>
-        <div>{JSON.stringify(blocks, null, 1)}</div>
-      </div>
-    </div>
+    </>
   );
 }
 
