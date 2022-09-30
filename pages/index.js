@@ -1,5 +1,5 @@
 import LayoutGlobal from "/src/components/LayoutGlobal";
-import Layout from "/src/components/alpha/Layout";
+import Layout from "/src/components/main/Layout";
 
 export default function index() {
   return (
