@@ -3,11 +3,7 @@
   <a href="https://chadfernandez.me">chadfernandez.me</a> is my website, created with Next.js and Tailwind CSS.
 </p>
 <br />
-<p align="center">
-  <img src="https://bettercodehub.com/edge/badge/chof64/chof64?branch=main" alt="Better Code Hub Repository Badge">
-  <br />
-  <br />
-</p>
+<br />
 
 ## Technologies Used.
 

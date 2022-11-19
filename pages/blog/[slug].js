@@ -65,7 +65,7 @@ export default function post({ slug, metadata, content }) {
 
   return (
     <>
-      <Platform className="mt-10 mb-5">
+      <Platform className="mt-10 mb-3">
         {metadata.cover !== null ? (
           <div className="relative mb-2 aspect-video w-full rounded-lg md:aspect-[16/7]">
             <Image
@@ -80,11 +80,11 @@ export default function post({ slug, metadata, content }) {
         ) : (
           ""
         )}
-        <div>
+        <div className="mb-2 md:mb-0.5">
           <p className="font-mono text-sm uppercase">
             {metadata.properties.Category.select.name}
           </p>
-          <h1 className="text-2xl font-bold md:text-3xl">
+          <h1 className="text-2xl font-extrabold md:text-3xl">
             {metadata.properties.Name.title[0].plain_text}
           </h1>
         </div>

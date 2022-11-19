@@ -41,28 +41,28 @@ export const blockRenderer = (block) => {
   switch (type) {
     case "paragraph":
       return (
-        <p id={id}>
+        <p className="mt-1 mb-5" id={id}>
           <RichTextRender richText={value.rich_text} />
         </p>
       );
     case "heading_1":
       // TODO: Add support for toggleable heading 1.
       return (
-        <h1 id={id}>
+        <h1 className="mt-6 mb-1 text-2xl font-bold md:text-3xl" id={id}>
           <RichTextRender richText={value.rich_text} />
         </h1>
       );
     case "heading_2":
       // TODO: Add support for toggleable heading 2.
       return (
-        <h2 id={id}>
+        <h2 className="mt-6 mb-1 text-xl font-bold md:text-2xl" id={id}>
           <RichTextRender richText={value.rich_text} />
         </h2>
       );
     case "heading_3":
       // TODO: Add support for toggleable heading 3.
       return (
-        <h3 id={id}>
+        <h3 className="mt-6 mb-1 text-lg font-bold md:text-xl" id={id}>
           <RichTextRender richText={value.rich_text} />
         </h3>
       );
@@ -72,6 +72,10 @@ export const blockRenderer = (block) => {
         <li id={id}>
           <RichTextRender richText={value.rich_text} />
         </li>
+      );
+    case "divider":
+      return (
+        <hr className="mx-auto my-4 h-0.5 w-full border-0 bg-gray-200 md:my-6" />
       );
     default:
       return `❌ UnsupportedBlock: ${
