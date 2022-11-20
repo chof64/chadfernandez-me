@@ -91,12 +91,8 @@ export default function post({ slug, metadata, content }) {
         <div>
           <div className="p-1 border border-b-0 rounded-t-md bg-gray-50 md:flex md:items-center md:gap-3 md:border-0 md:bg-transparent">
             <p className="flex items-center font-mono text-sm text-gray-400">
-              <CalendarClockIcon className="h-4 aspect-square" />
+              {/* <CalendarClockIcon className="h-4 aspect-square" /> */}
               {metadata.parsed_created_time}
-            </p>
-            <p className="flex items-center font-mono text-sm text-gray-400">
-              <FileClockIcon className="h-4 aspect-square" />
-              {metadata.parsed_last_edited_time}
             </p>
           </div>
           <div className="p-1 border border-t-0 rounded-b-md bg-gray-50 md:rounded-md md:border">
