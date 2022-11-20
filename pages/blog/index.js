@@ -20,6 +20,7 @@ import {
   getDatabaseMetadata,
   getPostedDatabaseItems,
 } from "/src/modules/blog/DatabaseDefault";
+import { classMerge } from "/src/utils/TailwindUtilities";
 
 // GET STATIC PROPS
 export const getStaticProps = async () => {
@@ -38,7 +39,7 @@ export const getStaticProps = async () => {
       metadata: DATABASE_METADATA,
       items: DATABASE_ITEMS,
     },
-    revalidate: 30,
+    revalidate: 5,
   };
 };
 
@@ -47,54 +48,37 @@ export default function blog({ metadata, items }) {
   return (
     <>
       <Platform className="my-5">
-        <h1 className="text-3xl font-bold">{metadata.title[0].plain_text}</h1>
-        <p className="">
+        <h1 className="text-2xl font-bold">{metadata.title[0].plain_text}</h1>
+        <p>
           <RichTextRender richText={metadata.description} />
         </p>
       </Platform>
-      <Platform className="my-10 mb-16">
-        <div className="grid gap-4 md:grid-cols-2">
+      <Platform className="mt-16 mb-5">
+        <div className="flex flex-col">
           {items.results.map((item, index) => (
-            <Link key={index} href={"/blog/" + item.slug}>
-              <a className="mb-4">
-                <div className="flex mx-1">
-                  <p className="px-0.5 py-0.5 font-mono text-sm uppercase">
-                    {item.properties.Category.select.name}
-                  </p>
-                </div>
-                {item.cover !== null ? (
-                  <div className="relative w-full rounded-lg aspect-video">
-                    <Image
-                      className="rounded-lg"
-                      src={item.cover.url}
-                      alt={item.cover.url}
-                      layout="fill"
-                      objectFit="cover"
-                      priority
-                    />
-                  </div>
-                ) : (
-                  ""
+            <Link key={index} href={`/blog/${item.slug}`}>
+              <a
+                className={classMerge(
+                  "border-t py-3 px-1 last:border-b",
+                  item.properties.Status.status.name === "Pin"
+                    ? "border-yellow-600 hover:bg-yellow-100"
+                    : "border-neutral-600 hover:bg-neutral-100"
                 )}
-                <h1 className="flex mt-2 text-xl font-semibold leading-tight">
-                  {item.properties.Status.status.name === "Pin" ? (
-                    <StarIcon className="h-4 mt-1 aspect-square fill-yellow-600 stroke-yellow-600" />
-                  ) : (
-                    ""
-                  )}
+              >
+                <p className="font-mono text-xs font-medium uppercase text-neutral-600">
+                  {item.properties.Category.select.name}
+                </p>
+                <h1 className="text-xl font-semibold">
                   {item.properties.Name.title[0].plain_text}
                 </h1>
-                <p className="mt-1">
+                <p className="text-sm">
                   <RichTextRender
                     richText={item.properties.Excerpt.rich_text}
                   />
                 </p>
-                <div className="mt-1.5 flex gap-x-1 font-mono text-xs font-bold text-gray-400">
-                  <p className="flex items-center">
-                    <CalendarClockIcon className="aspect-square h-3.5" />
-                    {item.parsed_created_time}
-                  </p>
-                </div>
+                <p className="mt-3 font-mono text-xs font-medium text-neutral-600">
+                  {item.parsed_created_time}
+                </p>
               </a>
             </Link>
           ))}
