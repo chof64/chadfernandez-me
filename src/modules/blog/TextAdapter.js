@@ -41,31 +41,64 @@ export const blockRenderer = (block) => {
   switch (type) {
     case "paragraph":
       return (
-        <p className="mt-1 mb-5" id={id}>
+        <p className="mt-2 mb-4" id={id}>
           <RichTextRender richText={value.rich_text} />
         </p>
       );
     case "heading_1":
       // TODO: Add support for toggleable heading 1.
       return (
-        <h1 className="mt-6 mb-1 text-2xl font-bold md:text-3xl" id={id}>
+        <h1 className="mt-6 mb-2 text-2xl font-bold md:text-3xl" id={id}>
           <RichTextRender richText={value.rich_text} />
         </h1>
       );
     case "heading_2":
       // TODO: Add support for toggleable heading 2.
       return (
-        <h2 className="mt-6 mb-1 text-xl font-bold md:text-2xl" id={id}>
+        <h2 className="mt-6 mb-2 text-xl font-bold md:text-2xl" id={id}>
           <RichTextRender richText={value.rich_text} />
         </h2>
       );
     case "heading_3":
       // TODO: Add support for toggleable heading 3.
       return (
-        <h3 className="mt-6 mb-1 text-lg font-bold md:text-xl" id={id}>
+        <h3 className="mt-6 mb-2 text-lg font-bold md:text-xl" id={id}>
           <RichTextRender richText={value.rich_text} />
         </h3>
       );
+    case "image":
+      const src =
+        value.type === "external" ? value.external.url : value.file.url;
+      const caption = value.caption ? value.caption[0]?.plain_text : "";
+
+      // use <img> to render image as full width but keep aspect ratio
+      return (
+        <div className="mt-6 mb-2">
+          <div className="flex max-h-[28rem] min-h-min w-full flex-col items-center justify-center overflow-clip rounded-lg">
+            <img src={src} alt={caption} className="w-full aspect-auto" />
+          </div>
+          <p className="text-sm text-gray-500">{caption}</p>
+        </div>
+      );
+
+    // // render image as full width but keep aspect ratio
+    // return (
+    //   <div className="mt-6 mb-6">
+    //     <div className="relative aspect-video w-full rounded-lg md:aspect-[16/9]">
+    //       <Image
+    //         className="rounded-lg"
+    //         src={src}
+    //         alt={caption}
+    //         layout="fill"
+    //         objectFit="cover"
+    //         priority
+    //       />
+    //     </div>
+    //     {caption ? (
+    //       <p className="mt-1 text-sm text-gray-400">{caption}</p>
+    //     ) : null}
+    //   </div>
+    // );
     case "bulleted_list_item":
     case "numbered_list_item":
       return (
