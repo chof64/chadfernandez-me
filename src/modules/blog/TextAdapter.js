@@ -1,3 +1,5 @@
+import { ExternalLink as ExternalLinkIcon } from "lucide-react";
+
 import { classMerge } from "/src/utils/TailwindUtilities";
 
 export const RichTextRender = ({ richText }) => {
@@ -23,7 +25,14 @@ export const RichTextRender = ({ richText }) => {
           colorMapper(color)
         )}
       >
-        {item.link ? <a href={item.link.url}>{text.content}</a> : text.content}
+        {text.link ? (
+          <a href={text.link.url}>
+            {text.content}
+            <ExternalLinkIcon className="ml-0.5 inline-flex h-3 w-3 items-center justify-center text-cyan-700" />
+          </a>
+        ) : (
+          text.content
+        )}
       </span>
     );
   });
