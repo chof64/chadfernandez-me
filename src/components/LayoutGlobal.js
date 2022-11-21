@@ -6,7 +6,7 @@
 
 import Head from "next/head";
 
-function LayoutGlobal({ title, children }) {
+export default function LayoutGlobal({ title, children }) {
   // if title is defined, add  "defined" in the end, if not, add "undefined".
   const titleText = title ? `${title} - defined` : `undefined - defined`;
 
@@ -25,7 +25,7 @@ function LayoutGlobal({ title, children }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         {/* //? Site favicon/icons */}
-        <link rel="shortcut icon" href="/favicons/favicon.png" />
+        <link rel="shortcut icon" href="/favicons/favicon.ico" />
         <link rel="manifest" href="/favicons/site.webmanifest" />
         <link
           rel="icon"
@@ -50,5 +50,3 @@ function LayoutGlobal({ title, children }) {
     </>
   );
 }
-
-export default LayoutGlobal;
