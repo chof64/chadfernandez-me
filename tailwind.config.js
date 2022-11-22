@@ -5,7 +5,9 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ["Inter", "Roboto"],
-        mono: ["JetBrains Mono", "Space Mono"],
+        mono: ["JetBrains Mono"],
+        display: ["Nanum Pen Script"],
+        hand: ["Waiting for the Sunrise"],
       },
       colors: {
         //? NOTION COLORS
