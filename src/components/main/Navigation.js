@@ -109,12 +109,15 @@ export default function Navigation() {
                   className="flex flex-col p-4 overflow-auto bg-white border rounded-lg shadow-md gap-y-2 border-neutral-300 shadow-gray-200/50 focus:outline-none"
                 >
                   <div className="flex flex-col gap-y-0.5">
-                    <p className="font-mono text-xs text-neutral-500">Pages</p>
+                    <p className="relative font-mono text-xs text-neutral-500">
+                      Pages
+                      <span className="absolute -top-1.5 ml-2 -rotate-1 select-none font-display text-lg text-blue-600/80">{`<a id="internal" />`}</span>
+                    </p>
                     {NAVIGATION.map((item, index) => (
                       <Menu.Item key={index}>
                         <MenuLink
                           className={classMerge(
-                            "inline-flex items-center rounded border px-4 py-2.5 align-middle font-mono text-sm font-semibold tracking-wide md:text-base",
+                            "inline-flex items-center rounded border px-4 py-2.5 align-middle text-sm font-semibold tracking-wide md:text-base",
                             isActive(item.href)
                               ? "border-blue-800 bg-blue-800 text-white shadow"
                               : "border-blue-500/0 text-neutral-500 hover:border-blue-700 hover:bg-blue-100 hover:text-blue-700"
@@ -128,13 +131,14 @@ export default function Navigation() {
                     ))}
                   </div>
                   <div className="flex flex-col gap-y-0.5">
-                    <p className="font-mono text-xs text-neutral-500">
+                    <p className="relative font-mono text-xs text-neutral-500">
                       Socials
+                      <span className="absolute -top-1.5 ml-2 -rotate-1 select-none font-display text-lg text-blue-600/80">{`<a id="external" />`}</span>
                     </p>
                     {SOCIALS.map((item, index) => (
                       <Menu.Item key={index}>
                         <MenuLink
-                          className="inline-flex items-center rounded px-4 py-2.5 align-middle text-sm font-medium tracking-wide hover:bg-blue-200 md:text-base"
+                          className="inline-flex items-center rounded border border-blue-700/0 px-4 py-2.5 align-middle text-sm font-medium tracking-wide hover:border-blue-700 hover:bg-blue-200 md:text-base"
                           href={item.href}
                           target="_blank"
                           rel="noreferrer"
