@@ -99,7 +99,7 @@ export default function Navigation() {
           <div
             className={classMerge(
               "absolute select-none",
-              open ? "h-[92.125vh] w-full bg-gray-100/10 backdrop-blur" : null
+              open ? "h-[90vh] w-full bg-gray-100/10 backdrop-blur" : null
             )}
           >
             <div className="absolute mt-10 flex max-h-[60vh] w-full justify-center">
