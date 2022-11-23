@@ -63,7 +63,7 @@ export default function Navigation() {
             <Platform>
               <div className="flex items-center justify-between py-3">
                 <Link href="/">
-                  <h1 className="font-semibold cursor-pointer text-neutral-700 hover:text-neutral-800 md:text-lg md:text-neutral-500">
+                  <h1 className="font-mono text-lg font-black cursor-pointer hover:text-blue-700">
                     Chad Fernandez
                   </h1>
                 </Link>
@@ -71,10 +71,10 @@ export default function Navigation() {
                   {NAVIGATION.filter((item) => item.pin).map((item) => (
                     <MenuLink
                       className={classMerge(
-                        "hidden rounded-lg px-4 py-1.5 font-mono text-sm font-bold hover:bg-gray-200 md:block ",
+                        "hidden rounded-lg px-4 py-1.5 text-sm font-bold md:block ",
                         isActive(item.href)
-                          ? "text-blue-500"
-                          : "text-neutral-700 hover:text-neutral-800 md:text-neutral-500"
+                          ? "text-blue-500 hover:text-blue-700"
+                          : "text-neutral-500 hover:text-neutral-700"
                       )}
                       href={item.href}
                       key={item.name}
@@ -84,12 +84,12 @@ export default function Navigation() {
                   ))}
                   <Menu.Button
                     as="div"
-                    className="flex cursor-pointer items-center justify-center rounded-lg bg-gray-200 p-1 md:bg-transparent md:p-1.5 md:hover:bg-gray-200"
+                    className="flex cursor-pointer items-center justify-center rounded-md border border-blue-500 p-1 text-blue-500 hover:border-blue-700 hover:text-blue-700 md:p-0.5"
                   >
                     {open ? (
-                      <XIcon className="h-5 w-5 stroke-neutral-700 stroke-[2.25]" />
+                      <XIcon className="h-7 w-7 stroke-[3] text-red-500" />
                     ) : (
-                      <MenuIcon className="h-5 w-5 stroke-neutral-700 stroke-[2.25]" />
+                      <MenuIcon className="h-7 w-7 stroke-[2]" />
                     )}
                   </Menu.Button>
                 </nav>
@@ -99,7 +99,7 @@ export default function Navigation() {
           <div
             className={classMerge(
               "absolute select-none",
-              open ? "h-[92.405vh] w-full bg-gray-100/10 backdrop-blur" : null
+              open ? "h-[92.125vh] w-full bg-gray-100/10 backdrop-blur" : null
             )}
           >
             <div className="absolute mt-10 flex max-h-[60vh] w-full justify-center">
@@ -109,34 +109,32 @@ export default function Navigation() {
                   className="flex flex-col p-4 overflow-auto bg-white border rounded-lg shadow-md gap-y-2 border-neutral-300 shadow-gray-200/50 focus:outline-none"
                 >
                   <div className="flex flex-col gap-y-0.5">
-                    <p className="font-mono text-xs text-neutral-400 md:text-xs">
-                      Pages
-                    </p>
+                    <p className="font-mono text-xs text-neutral-500">Pages</p>
                     {NAVIGATION.map((item, index) => (
                       <Menu.Item key={index}>
                         <MenuLink
                           className={classMerge(
-                            "flex items-center rounded-lg px-4 py-3 text-sm font-medium tracking-wide md:text-base",
+                            "inline-flex items-center rounded border px-4 py-2.5 align-middle font-mono text-sm font-semibold tracking-wide md:text-base",
                             isActive(item.href)
-                              ? "bg-blue-50 text-blue-500 hover:bg-gray-200"
-                              : "bg-gray-50 text-neutral-700 hover:bg-gray-200 hover:text-neutral-800 md:text-neutral-500"
+                              ? "border-blue-800 bg-blue-800 text-white shadow"
+                              : "border-blue-500/0 text-neutral-500 hover:border-blue-700 hover:bg-blue-100 hover:text-blue-700"
                           )}
                           href={item.href}
                         >
-                          <ArrowRightIcon className="mr-2 h-4 w-4 stroke-neutral-500 stroke-[3]" />
+                          {/* <ArrowRightIcon className="mr-2 h-4 w-4 stroke-[3]" /> */}
                           {item.name}
                         </MenuLink>
                       </Menu.Item>
                     ))}
                   </div>
                   <div className="flex flex-col gap-y-0.5">
-                    <p className="font-mono text-xs text-neutral-400 md:text-xs">
+                    <p className="font-mono text-xs text-neutral-500">
                       Socials
                     </p>
                     {SOCIALS.map((item, index) => (
                       <Menu.Item key={index}>
                         <MenuLink
-                          className="flex items-center px-4 py-3 text-sm font-medium tracking-wide rounded-lg bg-gray-50 text-neutral-700 hover:bg-gray-200 hover:text-neutral-800 md:text-base md:text-neutral-500"
+                          className="inline-flex items-center rounded px-4 py-2.5 align-middle text-sm font-medium tracking-wide hover:bg-blue-200 md:text-base"
                           href={item.href}
                           target="_blank"
                           rel="noreferrer"
