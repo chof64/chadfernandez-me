@@ -47,36 +47,40 @@ export const getStaticProps = async () => {
 export default function blog({ metadata, items }) {
   return (
     <>
-      <Platform className="my-5">
+      <Platform className="my-5 mt-10">
+        <div
+          id="blog-posts"
+          className="mb-2 text-xl select-none -rotate-1 font-display text-blue-600/80"
+        >{`<div id="blog-posts" />`}</div>
         <h1 className="text-2xl font-bold">{metadata.title[0].plain_text}</h1>
-        <p>
+        <p className="text-sm text-neutral-700">
           <RichTextRender richText={metadata.description} />
         </p>
       </Platform>
-      <Platform className="mt-16 mb-5">
-        <div className="flex flex-col">
+      <Platform className="mt-16 mb-10">
+        <div className="flex flex-col gap-y-3">
           {items.results.map((item, index) => (
             <Link key={index} href={`/blog/${item.slug}`}>
               <a
                 className={classMerge(
-                  "border-t py-3 px-1 last:border-b",
+                  "rounded-md border py-3 px-2 shadow-md",
                   item.properties.Status.status.name === "Pin"
-                    ? "border-yellow-600 hover:bg-yellow-100"
-                    : "border-neutral-600 hover:bg-neutral-100"
+                    ? "border-blue-500 hover:bg-blue-100 hover:backdrop-blur-md"
+                    : "border-neutral-500 hover:bg-neutral-100 hover:backdrop-blur-md"
                 )}
               >
-                <p className="font-mono text-xs font-medium uppercase text-neutral-600">
+                <p className="font-mono text-xs uppercase text-neutral-500">
                   {item.properties.Category.select.name}
                 </p>
                 <h1 className="text-xl font-semibold">
                   {item.properties.Name.title[0].plain_text}
                 </h1>
-                <p className="text-sm">
+                <p className="text-sm text-neutral-700">
                   <RichTextRender
                     richText={item.properties.Excerpt.rich_text}
                   />
                 </p>
-                <p className="mt-3 font-mono text-xs font-medium text-neutral-600">
+                <p className="mt-3 font-mono text-xs font-medium text-neutral-500">
                   {item.parsed_created_time}
                 </p>
               </a>

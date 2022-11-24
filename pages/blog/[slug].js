@@ -66,6 +66,11 @@ export default function post({ slug, metadata, content }) {
   return (
     <>
       <Platform className="mt-10 mb-3">
+        <div
+          id="post"
+          className="mb-2 text-xl select-none -rotate-1 font-display text-blue-600/80"
+        >{`<div id="post" />`}</div>
+
         {metadata.cover !== null ? (
           <div className="relative mb-2 aspect-video w-full rounded-lg md:aspect-[16/7]">
             <Image
@@ -80,8 +85,8 @@ export default function post({ slug, metadata, content }) {
         ) : (
           ""
         )}
-        <div className="mb-2 md:mb-0.5">
-          <p className="font-mono text-sm uppercase">
+        <div className="">
+          <p className="font-mono text-sm uppercase text-neutral-500">
             {metadata.properties.Category.select.name}
           </p>
           <h1 className="text-2xl font-extrabold md:text-3xl">
@@ -89,31 +94,16 @@ export default function post({ slug, metadata, content }) {
           </h1>
         </div>
         <div>
-          <div className="p-1 border border-b-0 rounded-t-md bg-gray-50 md:flex md:items-center md:gap-3 md:border-0 md:bg-transparent">
-            <p className="flex items-center font-mono text-sm text-gray-400">
-              {/* <CalendarClockIcon className="h-4 aspect-square" /> */}
-              {metadata.parsed_created_time}
-            </p>
-          </div>
-          <div className="p-1 border border-t-0 rounded-b-md bg-gray-50 md:rounded-md md:border">
-            <span className="font-mono text-xs font-bold text-gray-400">
-              EXCERPT
-            </span>
-            <p className="text-gray-600">
-              <RichTextRender
-                richText={metadata.properties.Excerpt.rich_text}
-              />
-            </p>
-          </div>
+          <p className="font-mono text-xs text-neutral-500">
+            {metadata.parsed_created_time}
+          </p>
         </div>
       </Platform>
-      <section>
-        <Platform>
-          {content.map((block, index) => (
-            <Fragment key={index}>{blockRenderer(block)}</Fragment>
-          ))}
-        </Platform>
-      </section>
+      <Platform className="mt-5 mb-10 text-neutral-700">
+        {content.map((block, index) => (
+          <Fragment key={index}>{blockRenderer(block)}</Fragment>
+        ))}
+      </Platform>
     </>
   );
 }
