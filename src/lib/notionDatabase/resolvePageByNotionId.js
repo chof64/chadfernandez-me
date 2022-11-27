@@ -1,5 +1,3 @@
-import useSWR from "swr";
-
 import { getPostMetadata } from "./getPostMetadata";
 import { getPostContent } from "./getPostContent";
 
