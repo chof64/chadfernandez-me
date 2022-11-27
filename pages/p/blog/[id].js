@@ -5,12 +5,12 @@ import LayoutGlobal from "/src/components/LayoutGlobal";
 import Layout from "/src/components/main/Layout";
 import PostHeader from "/src/components/blog/PostHeader";
 import PostContent from "/src/components/blog/PostContent";
-import { resolvePageByNotionId } from "/src/lib/notionDatabase/resolvePageByNotionId";
+import { getPageByNotionId } from "/src/lib/notionDatabase/getPageByNotionId";
 
 export async function getServerSideProps(context) {
   const { id } = context.params;
 
-  const { metadata, content } = await resolvePageByNotionId(id);
+  const { metadata, content } = await getPageByNotionId(id);
 
   return {
     props: {
