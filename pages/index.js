@@ -1,6 +1,9 @@
+import React from "react";
+
 import LayoutGlobal from "/src/components/LayoutGlobal";
-import Layout from "/src/components/main/Layout";
-import Platform from "/src/components/main/Platform";
+import Layout from "/src/components/Layout";
+import Platform from "/src/components/Platform";
+import ContactCard from "/src/components/contact/ContactCard";
 
 export default function index() {
   return (
@@ -10,7 +13,7 @@ export default function index() {
         <Platform className="mt-36">
           <div
             id="introduction"
-            className="mb-2 text-xl select-none -rotate-1 font-display text-blue-600/80"
+            className="mb-2 -rotate-1 select-none font-display text-xl text-blue-600/80"
           >{`<div id="introduction" />`}</div>
           <div className="max-w-md">
             <h1 className="text-2xl font-bold text-black">
@@ -22,7 +25,7 @@ export default function index() {
             <div className="text-neutral-700">
               <p>
                 I&apos;m an all around{" "}
-                <span className="text-lg font-bold text-blue-700 font-hand">
+                <span className="font-hand text-lg font-bold text-blue-700">
                   tech savvy
                 </span>{" "}
                 earthling.
@@ -39,6 +42,7 @@ export default function index() {
             </div>
           </div>
         </Platform>
+        <ContactCard />
       </div>
     </>
   );
