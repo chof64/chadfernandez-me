@@ -1,15 +1,14 @@
 import React from "react";
-import Image from "next/image";
-import { Contact as ContactIcon, Mail as MailIcon } from "lucide-react";
 
 import Platform from "../Platform";
+import { classMerge } from "/src/utils/classMerge";
 
-export default function ContactCard() {
+export default function ContactCard({ className }) {
   const circuitBoardSvg = "/assets/circuit-board.svg";
 
   return (
     // TODO: Edit top margin when more content is added
-    <Platform className="mt-20">
+    <Platform className={classMerge("", className)}>
       <div id="contact" />
       <div className="block justify-between md:flex">
         <div className="mb-1 md:mb-0">
