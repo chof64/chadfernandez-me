@@ -11,10 +11,14 @@ export default function PostHeader({ className, data }) {
   }
 
   return (
-    <Platform className={classMerge("mt-10 mb-3", className)}>
-      <p className="font-mono text-sm uppercase text-neutral-500">{category}</p>
-      <h1 className="text-2xl font-extrabold md:text-3xl">{title}</h1>
-      <p className="font-mono text-xs text-neutral-500">{createdTime}</p>
+    <Platform className={classMerge("", className)}>
+      <h1 className="text-3xl font-extrabold md:text-4xl">{title}</h1>
+      <div className="mt-2 inline-flex space-x-2">
+        <p className="rounded-lg border border-blue-700 bg-blue-100 px-1.5 align-middle text-sm font-medium uppercase text-blue-700">
+          {category}
+        </p>
+        <p className="align-middle text-sm text-neutral-700">{createdTime}</p>
+      </div>
     </Platform>
   );
 }
