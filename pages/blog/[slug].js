@@ -8,8 +8,8 @@ import {
 
 // IMPORTS: Layout
 import LayoutGlobal from "/src/components/LayoutGlobal";
-import Layout from "/src/components/main/Layout";
-import Platform from "/src/components/main/Platform";
+import Layout from "/src/components/Layout";
+import Platform from "/src/components/Platform";
 
 // IMPORTS: Components
 import { RichTextRender, blockRenderer } from "/src/modules/blog/TextAdapter";
@@ -68,7 +68,7 @@ export default function post({ slug, metadata, content }) {
       <Platform className="mt-10 mb-3">
         <div
           id="post"
-          className="mb-2 text-xl select-none -rotate-1 font-display text-blue-600/80"
+          className="mb-2 -rotate-1 select-none font-display text-xl text-blue-600/80"
         >{`<div id="post" />`}</div>
 
         {metadata.cover !== null ? (

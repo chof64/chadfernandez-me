@@ -9,8 +9,8 @@ import {
 
 // IMPORTS: Layout
 import LayoutGlobal from "/src/components/LayoutGlobal";
-import Layout from "/src/components/main/Layout";
-import Platform from "/src/components/main/Platform";
+import Layout from "/src/components/Layout";
+import Platform from "/src/components/Platform";
 
 // IMPORTS: Components
 import { RichTextRender } from "/src/modules/blog/TextAdapter";
@@ -50,7 +50,7 @@ export default function blog({ metadata, items }) {
       <Platform className="my-5 mt-10">
         <div
           id="blog-posts"
-          className="mb-2 text-xl select-none -rotate-1 font-display text-blue-600/80"
+          className="mb-2 -rotate-1 select-none font-display text-xl text-blue-600/80"
         >{`<div id="blog-posts" />`}</div>
         <h1 className="text-2xl font-bold">{metadata.title[0].plain_text}</h1>
         <p className="text-sm text-neutral-700">

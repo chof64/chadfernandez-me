@@ -2,7 +2,7 @@ import React from "react";
 import { useRouter } from "next/router";
 
 import LayoutGlobal from "/src/components/LayoutGlobal";
-import Layout from "/src/components/main/Layout";
+import Layout from "/src/components/Layout";
 import PostHeader from "/src/components/blog/PostHeader";
 import PostContent from "/src/components/blog/PostContent";
 import { getPageByNotionId } from "/src/lib/notionDatabase/getPageByNotionId";

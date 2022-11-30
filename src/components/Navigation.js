@@ -10,7 +10,7 @@ import {
   ExternalLink as ExternalLinkIcon,
 } from "lucide-react";
 
-import Platform from "/src/components/main/Platform";
+import Platform from "./Platform";
 
 import { classMerge } from "/src/utils/TailwindUtilities";
 
