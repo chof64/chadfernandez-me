@@ -1,6 +1,6 @@
 import { Client } from "@notionhq/client";
 
-import { generateSlug } from "/src/utils/slugifyUtils";
+import { generateSlug } from "/src/utils/generateSlug";
 import { dateIsoToEnglish } from "/src/utils/dateUtils";
 
 const _notion = new Client({ auth: process.env.NOTION_TOKEN });
