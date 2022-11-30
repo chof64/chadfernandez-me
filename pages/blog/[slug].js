@@ -1,5 +1,4 @@
-import React, { Fragment } from "react";
-import Image from "next/image";
+import React from "react";
 
 import LayoutGlobal from "/src/components/LayoutGlobal";
 import Layout from "/src/components/Layout";
@@ -9,7 +8,6 @@ import PostContent from "/src/components/blog/PostContent";
 import { getPostedDatabaseItems } from "/src/modules/blog/DatabaseDefault";
 import { getPostContent } from "../../src/modules/blog/PostsDefault";
 
-// GET STATIC PATHS
 export async function getStaticPaths() {
   // TODO: Get 10 pinned and latest posts to be pre-rendered.
   const POSTED_ITEMS = await getPostedDatabaseItems(process.env.NOTION_BLOG_DB);
@@ -23,7 +21,6 @@ export async function getStaticPaths() {
   };
 }
 
-// GET STATIC PROPS
 export async function getStaticProps(context) {
   const { slug } = context.params;
 
@@ -48,7 +45,6 @@ export async function getStaticProps(context) {
   };
 }
 
-// DEFAULT EXPORT
 export default function BlogPost({ slug, metadata, content }) {
   if (!metadata || !content) {
     return <p>Content error</p>;

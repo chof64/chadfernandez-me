@@ -2,7 +2,6 @@ import React from "react";
 
 import LayoutGlobal from "/src/components/LayoutGlobal";
 import Layout from "/src/components/Layout";
-import Platform from "/src/components/Platform";
 import Introduction from "/src/components/index/Introduction";
 import ContactCard from "/src/components/contact/ContactCard";
 
