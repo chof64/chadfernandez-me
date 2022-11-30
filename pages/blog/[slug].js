@@ -53,12 +53,12 @@ export async function getStaticProps(context) {
       metadata: POST,
       content: POST_CONTENT,
     },
-    revalidate: 30,
+    revalidate: 10,
   };
 }
 
 // DEFAULT EXPORT
-export default function post({ slug, metadata, content }) {
+export default function BlogPost({ slug, metadata, content }) {
   if (!metadata || !content) {
     return <p>Content error</p>;
   }
@@ -108,7 +108,7 @@ export default function post({ slug, metadata, content }) {
   );
 }
 
-post.getLayout = function getLayout(page) {
+BlogPost.getLayout = function getLayout(page) {
   return (
     <LayoutGlobal>
       <Layout>{page}</Layout>
