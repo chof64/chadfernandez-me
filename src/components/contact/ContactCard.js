@@ -4,15 +4,12 @@ import Platform from "../Platform";
 import { classMerge } from "/src/utils/classMerge";
 
 export default function ContactCard({ className }) {
-  const circuitBoardSvg = "/assets/circuit-board.svg";
-
   return (
-    // TODO: Edit top margin when more content is added
     <Platform className={classMerge("", className)}>
       <div id="contact" />
       <div className="block justify-between md:flex">
         <div className="mb-1 md:mb-0">
-          <h1 className="font-semibold text-neutral-500">Contact</h1>
+          <h1 className="text-xl font-bold text-neutral-500">Contact</h1>
         </div>
         <div className="w-full max-w-md rounded-md bg-gradient-to-r from-blue-600 to-cyan-400 p-0.5 shadow-xl shadow-gray-200">
           <div className="relative rounded bg-gradient-to-r from-white via-white to-white/80 bg-repeat p-2 px-4 backdrop-blur-md">
@@ -28,9 +25,6 @@ export default function ContactCard({ className }) {
                 </a>
               </p>
             </div>
-            <p className="absolute bottom-0 right-2 text-xs text-neutral-700">
-              <a href="http://chadfernandez.me">chadfernandez.me</a>
-            </p>
           </div>
         </div>
       </div>
