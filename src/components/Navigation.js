@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 
 import Platform from "./Platform";
-import { classMerge } from "/src/utils/TailwindUtilities";
+import { classMerge } from "/src/utils/classMerge";
 
 export default function Navigation() {
   const NAVIGATION = [

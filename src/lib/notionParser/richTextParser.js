@@ -1,6 +1,6 @@
 import { ExternalLink as ExternalLinkIcon } from "lucide-react";
 
-import { classMerge } from "/src/utils/TailwindUtilities";
+import { classMerge } from "/src/utils/classMerge";
 
 export const richTextParser = (data) => {
   if (!data) {
