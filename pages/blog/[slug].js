@@ -1,20 +1,11 @@
-// IMPORTS: External
 import React, { Fragment } from "react";
 import Image from "next/image";
-import {
-  CalendarClock as CalendarClockIcon,
-  FileClock as FileClockIcon,
-} from "lucide-react";
 
-// IMPORTS: Layout
 import LayoutGlobal from "/src/components/LayoutGlobal";
 import Layout from "/src/components/Layout";
-import Platform from "/src/components/Platform";
+import PostHeader from "/src/components/blog/PostHeader";
+import PostContent from "/src/components/blog/PostContent";
 
-// IMPORTS: Components
-import { RichTextRender, blockRenderer } from "/src/modules/blog/TextAdapter";
-
-// IMPORTS: Utilities
 import { getPostedDatabaseItems } from "/src/modules/blog/DatabaseDefault";
 import { getPostContent } from "../../src/modules/blog/PostsDefault";
 
@@ -65,45 +56,14 @@ export default function BlogPost({ slug, metadata, content }) {
 
   return (
     <>
-      <Platform className="mt-10 mb-3">
-        <div
-          id="post"
-          className="mb-2 -rotate-1 select-none font-display text-xl text-blue-600/80"
-        >{`<div id="post" />`}</div>
-
-        {metadata.cover !== null ? (
-          <div className="relative mb-2 aspect-video w-full rounded-lg md:aspect-[16/7]">
-            <Image
-              className="rounded-lg"
-              src={metadata.cover.url}
-              alt={metadata.cover.url}
-              layout="fill"
-              objectFit="cover"
-              priority
-            />
-          </div>
-        ) : (
-          ""
-        )}
-        <div className="">
-          <p className="font-mono text-sm uppercase text-neutral-500">
-            {metadata.properties.Category.select.name}
-          </p>
-          <h1 className="text-2xl font-extrabold md:text-3xl">
-            {metadata.properties.Name.title[0].plain_text}
-          </h1>
-        </div>
-        <div>
-          <p className="font-mono text-xs text-neutral-500">
-            {metadata.parsed_created_time}
-          </p>
-        </div>
-      </Platform>
-      <Platform className="mt-5 mb-10 text-neutral-700">
-        {content.map((block, index) => (
-          <Fragment key={index}>{blockRenderer(block)}</Fragment>
-        ))}
-      </Platform>
+      <PostHeader
+        data={{
+          title: metadata.properties.Name.title[0].plain_text,
+          category: metadata.properties.Category.select.name,
+          created_time: metadata.parsed_created_time,
+        }}
+      />
+      <PostContent data={content} />
     </>
   );
 }
