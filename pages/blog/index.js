@@ -48,10 +48,6 @@ export default function blog({ metadata, items }) {
   return (
     <>
       <Platform className="my-5 mt-10">
-        <div
-          id="blog-posts"
-          className="mb-2 -rotate-1 select-none font-display text-xl text-blue-600/80"
-        >{`<div id="blog-posts" />`}</div>
         <h1 className="text-2xl font-bold">{metadata.title[0].plain_text}</h1>
         <p className="text-sm text-neutral-700">
           <RichTextRender richText={metadata.description} />

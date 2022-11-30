@@ -11,7 +11,6 @@ import {
 } from "lucide-react";
 
 import Platform from "./Platform";
-
 import { classMerge } from "/src/utils/TailwindUtilities";
 
 export default function Navigation() {
@@ -111,7 +110,6 @@ export default function Navigation() {
                   <div className="flex flex-col gap-y-0.5">
                     <p className="relative font-mono text-xs text-neutral-500">
                       Pages
-                      <span className="absolute -top-1.5 ml-2 -rotate-1 select-none font-display text-lg text-blue-600/80">{`<a id="internal" />`}</span>
                     </p>
                     {NAVIGATION.map((item, index) => (
                       <Menu.Item key={index}>
@@ -133,7 +131,6 @@ export default function Navigation() {
                   <div className="flex flex-col gap-y-0.5">
                     <p className="relative font-mono text-xs text-neutral-500">
                       Socials
-                      <span className="absolute -top-1.5 ml-2 -rotate-1 select-none font-display text-lg text-blue-600/80">{`<a id="external" />`}</span>
                     </p>
                     {SOCIALS.map((item, index) => (
                       <Menu.Item key={index}>
