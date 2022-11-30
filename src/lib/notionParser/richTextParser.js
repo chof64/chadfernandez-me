@@ -16,7 +16,7 @@ export const richTextParser = (data) => {
     // TODO: Add check if internal or external link.
     return (
       <span
-        key={item.content}
+        key={text.content}
         className={classMerge(
           bold ? "font-bold" : null,
           italic ? "italic" : null,
