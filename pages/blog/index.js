@@ -4,26 +4,15 @@ import LayoutGlobal from "/src/components/LayoutGlobal";
 import Layout from "/src/components/Layout";
 import Header from "/src/components/blog/Header";
 import PostList from "/src/components/blog/PostList";
-
-import {
-  getDatabaseMetadata,
-  getPostedDatabaseItems,
-} from "/src/modules/blog/DatabaseDefault";
+import { getDbPostList } from "/src/lib/notionDatabase/getDbPostList";
 
 export const getStaticProps = async () => {
-  // get database metadata. page information.
-  const DATABASE_METADATA = await getDatabaseMetadata(
-    process.env.NOTION_BLOG_DB
-  );
-
-  const DATABASE_ITEMS = await getPostedDatabaseItems(
-    process.env.NOTION_BLOG_DB
-  );
+  const posts = await getDbPostList("blog");
 
   return {
     props: {
-      metadata: DATABASE_METADATA,
-      items: DATABASE_ITEMS,
+      metadata: posts.metadata,
+      items: posts.items,
     },
     revalidate: 10,
   };

@@ -5,7 +5,7 @@ import Platform from "./../Platform";
 import { classMerge } from "/src/utils/classMerge";
 import { richTextParser } from "/src/lib/notionParser/richTextParser";
 
-export default function PostList({ className, data, test }) {
+export default function PostList({ className, data }) {
   return (
     <Platform className={classMerge("", className)}>
       <div className="flex flex-col gap-y-3">
