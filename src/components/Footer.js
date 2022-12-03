@@ -2,10 +2,11 @@ import React from "react";
 import { Heart as HeartIcon, Copyright as CopyrightIcon } from "lucide-react";
 
 import Platform from "./Platform";
+import { classMerge } from "/src/utils/classMerge";
 
-export default function Footer() {
+export default function Footer({ className }) {
   return (
-    <Platform className="mt-8 mb-2">
+    <Platform className={classMerge("mb-4", className)}>
       <hr className="mb-4" />
       <div>
         <h1 className="font-bold">Chad Fernandez</h1>

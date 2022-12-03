@@ -6,37 +6,22 @@ import { Menu } from "@headlessui/react";
 import {
   Menu as MenuIcon,
   X as XIcon,
-  ArrowRight as ArrowRightIcon,
   ExternalLink as ExternalLinkIcon,
 } from "lucide-react";
 
-import Platform from "/src/components/main/Platform";
+import { items } from "/config/items.navigation.config.js";
+import Platform from "./Platform";
+import { classMerge } from "/src/utils/classMerge";
+import { getConfig } from "/src/utils/getConfig";
 
-import { classMerge } from "/src/utils/TailwindUtilities";
+const _navigationItems = items;
+const _navigationInternal = getConfig({
+  key: "group",
+  value: "Pages",
+  config: items,
+});
 
 export default function Navigation() {
-  const NAVIGATION = [
-    { name: "Home", href: "/", pin: true },
-    { name: "Blog", href: "/blog", pin: false },
-    { name: "About", href: "/#about", pin: false },
-    { name: "Contact", href: "/#contact", pin: true },
-  ];
-
-  const SOCIALS = [
-    {
-      name: "Github",
-      href: "https://github.com/chof64",
-      icon: "/icons/socials/github.svg",
-      external: true,
-    },
-    {
-      name: "Polywork",
-      href: "https://polywork.chadfernandez.me",
-      icon: "/icons/socials/polywork.svg",
-      external: true,
-    },
-  ];
-
   const router = useRouter();
   const isActive = (href) => {
     return router.asPath === href;
@@ -63,25 +48,27 @@ export default function Navigation() {
             <Platform>
               <div className="flex items-center justify-between py-3">
                 <Link href="/">
-                  <h1 className="cursor-pointer font-mono text-lg font-black hover:text-blue-700">
+                  <h1 className="cursor-pointer text-lg font-semibold hover:text-blue-700">
                     Chad Fernandez
                   </h1>
                 </Link>
-                <nav className="flex items-center gap-x-0.5">
-                  {NAVIGATION.filter((item) => item.pin).map((item) => (
-                    <MenuLink
-                      className={classMerge(
-                        "hidden rounded-lg px-4 py-1.5 text-sm font-bold md:block ",
-                        isActive(item.href)
-                          ? "text-blue-500 hover:text-blue-700"
-                          : "text-neutral-500 hover:text-neutral-700"
-                      )}
-                      href={item.href}
-                      key={item.name}
-                    >
-                      {item.name}
-                    </MenuLink>
-                  ))}
+                <nav className="flex items-center gap-x-5">
+                  {_navigationInternal.items
+                    .filter((item) => item.pin)
+                    .map((item) => (
+                      <MenuLink
+                        className={classMerge(
+                          "hidden rounded-lg text-sm font-bold md:block ",
+                          isActive(item.href)
+                            ? "text-blue-500 hover:text-blue-700"
+                            : "text-neutral-500 hover:text-neutral-700"
+                        )}
+                        href={item.href}
+                        key={item.name}
+                      >
+                        {item.name}
+                      </MenuLink>
+                    ))}
                   <Menu.Button
                     as="div"
                     className="flex cursor-pointer items-center justify-center rounded-md border border-blue-500 p-1 text-blue-500 hover:border-blue-700 hover:text-blue-700 md:p-0.5"
@@ -96,69 +83,60 @@ export default function Navigation() {
               </div>
             </Platform>
           </div>
-          <div
-            className={classMerge(
-              "absolute select-none",
-              open ? "h-[90vh] w-full bg-gray-100/10 backdrop-blur" : null
-            )}
-          >
-            <div className="absolute mt-10 flex max-h-[60vh] w-full justify-center">
+          <div className="absolute w-full">
+            <div className="absolute mt-8 flex w-full justify-center">
               <Platform>
                 <Menu.Items
                   as="div"
-                  className="flex flex-col gap-y-2 overflow-auto rounded-lg border border-neutral-300 bg-white p-4 shadow-md shadow-gray-200/50 focus:outline-none"
+                  className="flex max-h-[55vh] flex-col gap-y-2.5 overflow-auto rounded-lg border-2 border-blue-700 bg-white p-2 shadow focus:outline-none md:p-4"
                 >
-                  <div className="flex flex-col gap-y-0.5">
-                    <p className="relative font-mono text-xs text-neutral-500">
-                      Pages
-                      <span className="absolute -top-1.5 ml-2 -rotate-1 select-none font-display text-lg text-blue-600/80">{`<a id="internal" />`}</span>
-                    </p>
-                    {NAVIGATION.map((item, index) => (
-                      <Menu.Item key={index}>
-                        <MenuLink
-                          className={classMerge(
-                            "inline-flex items-center rounded border px-4 py-2.5 align-middle text-sm font-semibold tracking-wide md:text-base",
-                            isActive(item.href)
-                              ? "border-blue-800 bg-blue-800 text-white shadow"
-                              : "border-blue-500/0 text-neutral-500 hover:border-blue-700 hover:bg-blue-100 hover:text-blue-700"
-                          )}
-                          href={item.href}
-                        >
-                          {/* <ArrowRightIcon className="mr-2 h-4 w-4 stroke-[3]" /> */}
-                          {item.name}
-                        </MenuLink>
-                      </Menu.Item>
-                    ))}
-                  </div>
-                  <div className="flex flex-col gap-y-0.5">
-                    <p className="relative font-mono text-xs text-neutral-500">
-                      Socials
-                      <span className="absolute -top-1.5 ml-2 -rotate-1 select-none font-display text-lg text-blue-600/80">{`<a id="external" />`}</span>
-                    </p>
-                    {SOCIALS.map((item, index) => (
-                      <Menu.Item key={index}>
-                        <MenuLink
-                          className="inline-flex items-center rounded border border-blue-700/0 px-4 py-2.5 align-middle text-sm font-medium tracking-wide hover:border-blue-700 hover:bg-blue-200 md:text-base"
-                          href={item.href}
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          <div className="relative mr-2 h-4 w-4">
-                            <Image
-                              src={item.icon}
-                              layout="fill"
-                              alt={item.name}
-                            />
-                          </div>
-                          {item.name}
-                          <ExternalLinkIcon className="ml-1 h-3 w-3 stroke-sky-500" />
-                        </MenuLink>
-                      </Menu.Item>
-                    ))}
-                  </div>
+                  {_navigationItems.map((group) => (
+                    <div key={group.group}>
+                      <h2 className="text-xs font-medium text-blue-700">
+                        {group.group}
+                      </h2>
+                      <div className="mt-1 flex flex-col gap-y-1">
+                        {group.items.map((item) => (
+                          <Menu.Item key={item.name}>
+                            <MenuLink
+                              href={item.href}
+                              external={item.external}
+                              className={classMerge(
+                                "inline-flex items-center rounded border px-4 py-2.5 align-middle text-sm font-semibold tracking-wide md:text-base",
+                                isActive(item.href)
+                                  ? "border-blue-800 bg-blue-800 text-white shadow"
+                                  : "border-blue-500/0 text-neutral-500 hover:border-blue-700 hover:bg-blue-100 hover:text-blue-700"
+                              )}
+                            >
+                              {item.icon ? (
+                                <div className="relative mr-2 h-4 w-4">
+                                  <Image
+                                    src={item.icon}
+                                    layout="fill"
+                                    alt={item.name}
+                                  />
+                                </div>
+                              ) : null}
+                              {item.name}
+                              {item.external ? (
+                                <ExternalLinkIcon className="ml-1 h-3 w-3 stroke-sky-500" />
+                              ) : null}
+                            </MenuLink>
+                          </Menu.Item>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
                 </Menu.Items>
               </Platform>
             </div>
+            <div
+              className={classMerge(
+                open
+                  ? "fixed inset-0 -z-50 h-full w-full bg-white/20 backdrop-blur"
+                  : null
+              )}
+            />
           </div>
         </>
       )}

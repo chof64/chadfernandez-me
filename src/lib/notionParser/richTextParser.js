@@ -1,6 +1,6 @@
 import { ExternalLink as ExternalLinkIcon } from "lucide-react";
 
-import { classMerge } from "/src/utils/TailwindUtilities";
+import { classMerge } from "/src/utils/classMerge";
 
 export const richTextParser = (data) => {
   if (!data) {
@@ -16,7 +16,7 @@ export const richTextParser = (data) => {
     // TODO: Add check if internal or external link.
     return (
       <span
-        key={item.content}
+        key={text.content}
         className={classMerge(
           bold ? "font-bold" : null,
           italic ? "italic" : null,
