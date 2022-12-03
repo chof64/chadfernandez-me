@@ -6,6 +6,10 @@ import { classMerge } from "/src/utils/classMerge";
 import { richTextParser } from "/src/lib/notionParser/richTextParser";
 
 export default function PostList({ className, data }) {
+  if (!data) {
+    return <div>Post List Error. No data received</div>;
+  }
+
   return (
     <Platform className={classMerge("", className)}>
       <div className="flex flex-col gap-y-3">

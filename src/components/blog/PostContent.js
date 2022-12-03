@@ -6,7 +6,7 @@ import { blockParser } from "/src/lib/notionParser/blockParser";
 
 export default function PostContent({ className, data }) {
   if (!data) {
-    return <div>Post Content Error. Props not passed</div>;
+    return <div>Post Content Error. No data received</div>;
   }
 
   return (
