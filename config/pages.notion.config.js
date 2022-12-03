@@ -1,5 +1,5 @@
 module.exports = {
-  sections: [
+  pages: [
     {
       name: "blog",
       notion_id: "05c11ebca904498087fad3ad5d5e53d6",
