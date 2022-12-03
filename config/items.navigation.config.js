@@ -33,6 +33,13 @@ module.exports = {
           external: true,
           icon: "/icons/socials/github.svg",
         },
+        {
+          name: "Polywork",
+          href: "https://polywork.chadfernandez.me",
+          pin: false,
+          external: true,
+          icon: "/icons/socials/polywork.svg",
+        },
       ],
     },
   ],
