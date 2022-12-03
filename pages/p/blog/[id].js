@@ -24,13 +24,14 @@ export default function PreviewPostPage({ id, metadata, content }) {
   return (
     <>
       <PostHeader
+        className="mt-16"
         data={{
           title: metadata.properties.Name.title[0].plain_text,
           category: metadata.properties.Category.select.name,
           created_time: metadata.parsed_created_time,
         }}
       />
-      <PostContent data={content} />
+      <PostContent className="mt-16" data={content} />
     </>
   );
 }
