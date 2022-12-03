@@ -8,7 +8,7 @@ export default function Layout({ children }) {
         <Navigation />
       </header>
       {children}
-      <Footer />
+      <Footer className="mt-16" />
     </main>
   );
 }
