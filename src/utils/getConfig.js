@@ -1,5 +1,5 @@
-export const getConfig = ({ key, value, config, index }) => {
-  const result = config[index].find((item) => item[key] === value);
+export const getConfig = ({ key, value, config }) => {
+  const result = config.find((item) => item[key] === value);
 
   return result;
 };
