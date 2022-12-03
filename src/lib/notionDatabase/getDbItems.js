@@ -1,5 +1,8 @@
 import { Client } from "@notionhq/client";
 
+import { generateSlug } from "/src/utils/generateSlug";
+import { transformIsoToEnglish } from "/src/utils/transformIsoToEnglish";
+
 const _notion = new Client({ auth: process.env.NOTION_TOKEN });
 
 export const getDbItems = async (id, conditions) => {
