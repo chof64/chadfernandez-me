@@ -1,145 +1,113 @@
-import { forwardRef } from "react";
-import { useRouter } from "next/router";
-import Link from "next/link";
-import Image from "next/image";
+import React, { forwardRef, useEffect, useState } from "react";
 import { Menu } from "@headlessui/react";
-import {
-  Menu as MenuIcon,
-  X as XIcon,
-  ExternalLink as ExternalLinkIcon,
-} from "lucide-react";
+import Link from "next/link";
+import { Menu as MenuIcon, X as XIcon } from "lucide-react";
 
-import { items } from "/config/items.navigation.config.js";
-import Platform from "./Platform";
+import { items } from "/config/items.navigation.config";
+import PlatformNavigation from "./navigation/PlatformNavigation";
 import { classMerge } from "/src/utils/classMerge";
-import { getConfig } from "/src/utils/getConfig";
 
-const _navigationItems = items;
-const _navigationInternal = getConfig({
-  key: "group",
-  value: "Pages",
-  config: items,
-});
+const internalNavigation = items.find((item) => item.group === "Pages");
 
 export default function Navigation() {
-  const router = useRouter();
-  const isActive = (href) => {
-    return router.asPath === href;
-  };
+  let [isOpaque, setIsOpaque] = useState(false);
 
-  const MenuLink = forwardRef((props, ref) => {
-    MenuLink.displayName = "MenuLink";
-    let { href, children, ...rest } = props;
-
-    return (
-      <Link href={href}>
-        <a ref={ref} {...rest}>
-          {children}
-        </a>
-      </Link>
-    );
-  });
+  useEffect(() => {
+    let offset = 50;
+    function onScroll() {
+      if (!isOpaque && window.scrollY > offset) {
+        setIsOpaque(true);
+      } else if (isOpaque && window.scrollY <= offset) {
+        setIsOpaque(false);
+      }
+    }
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll, { passive: true });
+    };
+  }, [isOpaque]);
 
   return (
-    <Menu as="div">
+    <Menu>
       {({ open }) => (
-        <>
-          <div className="items-cetner flex select-none justify-center bg-white">
-            <Platform>
-              <div className="flex items-center justify-between py-3">
-                <Link href="/">
-                  <h1 className="cursor-pointer text-lg font-semibold hover:text-blue-700">
-                    Chad Fernandez
-                  </h1>
-                </Link>
-                <nav className="flex items-center gap-x-5">
-                  {_navigationInternal.items
-                    .filter((item) => item.pin)
-                    .map((item) => (
-                      <MenuLink
-                        className={classMerge(
-                          "hidden rounded-lg text-sm font-bold md:block ",
-                          isActive(item.href)
-                            ? "text-blue-500 hover:text-blue-700"
-                            : "text-neutral-500 hover:text-neutral-700"
-                        )}
-                        href={item.href}
-                        key={item.name}
-                      >
-                        {item.name}
-                      </MenuLink>
-                    ))}
-                  <Menu.Button
-                    as="div"
-                    className="flex cursor-pointer items-center justify-center rounded-md border border-blue-500 p-1 text-blue-500 hover:border-blue-700 hover:text-blue-700 md:p-0.5"
-                  >
-                    {open ? (
-                      <XIcon className="h-7 w-7 stroke-[3] text-red-500" />
-                    ) : (
-                      <MenuIcon className="h-7 w-7 stroke-[2]" />
-                    )}
-                  </Menu.Button>
-                </nav>
-              </div>
-            </Platform>
-          </div>
-          <div className="absolute w-full">
-            <div className="absolute mt-8 flex w-full justify-center">
-              <Platform>
-                <Menu.Items
-                  as="div"
-                  className="flex max-h-[55vh] flex-col gap-y-2.5 overflow-auto rounded-lg border-2 border-blue-700 bg-white p-2 shadow focus:outline-none md:p-4"
-                >
-                  {_navigationItems.map((group) => (
-                    <div key={group.group}>
-                      <h2 className="text-xs font-medium text-blue-700">
-                        {group.group}
-                      </h2>
-                      <div className="mt-1 flex flex-col gap-y-1">
-                        {group.items.map((item) => (
-                          <Menu.Item key={item.name}>
-                            <MenuLink
-                              href={item.href}
-                              external={item.external}
-                              className={classMerge(
-                                "inline-flex items-center rounded border px-4 py-2.5 align-middle text-sm font-semibold tracking-wide md:text-base",
-                                isActive(item.href)
-                                  ? "border-blue-800 bg-blue-800 text-white shadow"
-                                  : "border-blue-500/0 text-neutral-500 hover:border-blue-700 hover:bg-blue-100 hover:text-blue-700"
-                              )}
-                            >
-                              {item.icon ? (
-                                <div className="relative mr-2 h-4 w-4">
-                                  <Image
-                                    src={item.icon}
-                                    layout="fill"
-                                    alt={item.name}
-                                  />
-                                </div>
-                              ) : null}
-                              {item.name}
-                              {item.external ? (
-                                <ExternalLinkIcon className="ml-1 h-3 w-3 stroke-sky-500" />
-                              ) : null}
-                            </MenuLink>
-                          </Menu.Item>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                </Menu.Items>
-              </Platform>
+        <PlatformNavigation
+          className={classMerge(
+            "sticky inset-x-0 top-0 z-[100] h-min max-h-[100vh] w-full justify-center overflow-auto overscroll-contain py-4 transition duration-100 ease-in",
+            isOpaque || open
+              ? "border-b border-neutral-300 bg-white/70 backdrop-blur "
+              : ""
+          )}
+        >
+          <div className="flex items-center justify-between">
+            <div>
+              <Link href="/">
+                <a className="text-lg font-bold text-neutral-500 transition ease-in hover:text-cyan-700">
+                  Chad Fernandez
+                </a>
+              </Link>
             </div>
-            <div
-              className={classMerge(
-                open
-                  ? "fixed inset-0 -z-50 h-full w-full bg-white/20 backdrop-blur"
-                  : null
-              )}
-            />
+            <nav>
+              <div className="hidden gap-x-8 font-medium text-neutral-500 lg:flex">
+                {internalNavigation.items.map((item) => (
+                  <Link key={item.name} href={item.href}>
+                    <a className="transition ease-in hover:text-cyan-700">
+                      {item.name}
+                    </a>
+                  </Link>
+                ))}
+              </div>
+              <Menu.Button className="transition-all duration-200 ease-in-out lg:hidden">
+                {open ? (
+                  <XIcon className="h-8 w-8 text-red-500" />
+                ) : (
+                  <MenuIcon className="h-8 w-8 text-neutral-500" />
+                )}
+              </Menu.Button>
+            </nav>
           </div>
-        </>
+          {open ? (
+            <Menu.Items
+              as="div"
+              className="flex flex-col gap-y-2.5 focus:outline-none border-t pt-6"
+            >
+              {items.map((group) => (
+                <div key={group.group}>
+                  <h2 className="text-xs font-medium uppercase text-neutral-400">
+                    {group.group}
+                  </h2>
+                  <div className="mt-1 flex flex-col gap-y-1">
+                    {group.items.map((item) => (
+                      <Menu.Item key={item.name}>
+                        <MenuLink
+                          className="py-2 px-4 font-medium align-middle"
+                          href={item.href}
+                          external={item.external}
+                        >
+                          {item.name}
+                        </MenuLink>
+                      </Menu.Item>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </Menu.Items>
+          ) : null}
+        </PlatformNavigation>
       )}
     </Menu>
   );
 }
+
+const MenuLink = forwardRef((props, ref) => {
+  MenuLink.displayName = "MenuLink";
+  let { href, children, ...rest } = props;
+
+  return (
+    <Link href={href}>
+      <a ref={ref} {...rest}>
+        {children}
+      </a>
+    </Link>
+  );
+});
