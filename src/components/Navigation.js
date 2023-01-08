@@ -31,69 +31,74 @@ export default function Navigation() {
   return (
     <Menu>
       {({ open }) => (
-        <PlatformNavigation
+        <div
           className={classMerge(
-            "sticky inset-x-0 top-0 z-[100] h-min max-h-[100vh] w-full justify-center overflow-auto overscroll-contain py-4 transition duration-100 ease-in",
-            isOpaque || open
-              ? "border-b border-neutral-300 bg-white/70 backdrop-blur "
-              : ""
+            "fixed inset-x-0 top-0 z-[100]",
+            isOpaque || open ? "bg-white/70 backdrop-blur " : ""
           )}
         >
-          <div className="flex items-center justify-between">
-            <div>
-              <Link href="/">
-                <a className="text-lg font-bold text-neutral-500 transition ease-in hover:text-cyan-700">
-                  Chad Fernandez
-                </a>
-              </Link>
-            </div>
-            <nav>
-              <div className="hidden gap-x-8 font-medium text-neutral-500 lg:flex">
-                {internalNavigation.items.map((item) => (
-                  <Link key={item.name} href={item.href}>
-                    <a className="transition ease-in hover:text-cyan-700">
-                      {item.name}
-                    </a>
-                  </Link>
-                ))}
+          <PlatformNavigation
+            className={classMerge(
+              "sticky inset-x-0 top-0 z-[100] h-min max-h-[100vh] w-full justify-center overflow-auto overscroll-contain py-4 transition duration-100 ease-in",
+              isOpaque || open ? "border-b border-neutral-300" : ""
+            )}
+          >
+            <div className="flex items-center justify-between">
+              <div>
+                <Link href="/">
+                  <a className="text-lg font-bold text-neutral-500 transition ease-in hover:text-cyan-700">
+                    Chad Fernandez
+                  </a>
+                </Link>
               </div>
-              <Menu.Button className="transition-all duration-200 ease-in-out lg:hidden">
-                {open ? (
-                  <XIcon className="h-8 w-8 text-red-500" />
-                ) : (
-                  <MenuIcon className="h-8 w-8 text-neutral-500" />
-                )}
-              </Menu.Button>
-            </nav>
-          </div>
-          {open ? (
-            <Menu.Items
-              as="div"
-              className="flex flex-col gap-y-2.5 focus:outline-none border-t pt-6"
-            >
-              {items.map((group) => (
-                <div key={group.group}>
-                  <h2 className="text-xs font-medium uppercase text-neutral-400">
-                    {group.group}
-                  </h2>
-                  <div className="mt-1 flex flex-col gap-y-1">
-                    {group.items.map((item) => (
-                      <Menu.Item key={item.name}>
-                        <MenuLink
-                          className="py-2 px-4 font-medium align-middle"
-                          href={item.href}
-                          external={item.external}
-                        >
-                          {item.name}
-                        </MenuLink>
-                      </Menu.Item>
-                    ))}
-                  </div>
+              <nav>
+                <div className="hidden gap-x-8 font-medium text-neutral-500 lg:flex">
+                  {internalNavigation.items.map((item) => (
+                    <Link key={item.name} href={item.href}>
+                      <a className="transition ease-in hover:text-cyan-700">
+                        {item.name}
+                      </a>
+                    </Link>
+                  ))}
                 </div>
-              ))}
-            </Menu.Items>
-          ) : null}
-        </PlatformNavigation>
+                <Menu.Button className="transition-all duration-200 ease-in-out lg:hidden">
+                  {open ? (
+                    <XIcon className="h-8 w-8 text-red-500" />
+                  ) : (
+                    <MenuIcon className="h-8 w-8 text-neutral-500" />
+                  )}
+                </Menu.Button>
+              </nav>
+            </div>
+            {open ? (
+              <Menu.Items
+                as="div"
+                className="flex flex-col gap-y-2.5 border-t pt-6 focus:outline-none"
+              >
+                {items.map((group) => (
+                  <div key={group.group}>
+                    <h2 className="text-xs font-medium uppercase text-neutral-400">
+                      {group.group}
+                    </h2>
+                    <div className="mt-1 flex flex-col gap-y-1">
+                      {group.items.map((item) => (
+                        <Menu.Item key={item.name}>
+                          <MenuLink
+                            className="py-2 px-4 align-middle font-medium"
+                            href={item.href}
+                            external={item.external}
+                          >
+                            {item.name}
+                          </MenuLink>
+                        </Menu.Item>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </Menu.Items>
+            ) : null}
+          </PlatformNavigation>
+        </div>
       )}
     </Menu>
   );
