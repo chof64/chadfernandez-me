@@ -1,6 +1,7 @@
 import React from "react";
 
 import Navigation from "./Navigation";
+import Footer from "./Footer";
 
 export default function Layout({ children }) {
   return (
@@ -8,6 +9,7 @@ export default function Layout({ children }) {
       <div className="2xl:max-w-screen-2xl">
         <Navigation />
         <main>{children}</main>
+        <Footer />
       </div>
     </div>
   );

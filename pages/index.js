@@ -31,12 +31,12 @@ export default function index() {
               Science in Computer Science from the University of Antique.
             </p>
           </div>
-          <div className="absolute inset-x-0 bottom-0 flex w-full justify-center">
+          {/* <div className="absolute inset-x-0 bottom-0 flex w-full justify-center">
             <ChevronDownIcon className="h-8 w-8 animate-bounce text-neutral-400" />
-          </div>
+          </div> */}
         </div>
       </PlatformDefault>
-      <div className="h-[100vh]" />
+      {/* <div className="h-[100vh]" /> */}
     </>
   );
 }
