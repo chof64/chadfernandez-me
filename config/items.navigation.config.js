@@ -9,18 +9,18 @@ module.exports = {
           pin: true,
           external: false,
         },
-        {
-          name: "Blog",
-          href: "/blog",
-          pin: false,
-          external: false,
-        },
-        {
-          name: "Contact",
-          href: "/#contact",
-          pin: true,
-          external: false,
-        },
+        // {
+        //   name: "Blog",
+        //   href: "/blog",
+        //   pin: false,
+        //   external: false,
+        // },
+        // {
+        //   name: "Contact",
+        //   href: "/#contact",
+        //   pin: true,
+        //   external: false,
+        // },
       ],
     },
     {
