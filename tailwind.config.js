@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Inter", "Roboto"],
+        sans: ["Inter"],
         mono: ["JetBrains Mono"],
         hand: ["Waiting for the Sunrise"],
       },
