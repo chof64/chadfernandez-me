@@ -45,19 +45,22 @@ export default function Navigation() {
           >
             <div className="flex items-center justify-between">
               <div>
-                <Link href="/">
-                  <a className="text-lg font-bold text-neutral-500 transition ease-in hover:text-cyan-700">
-                    Chad Fernandez
-                  </a>
+                <Link
+                  href="/"
+                  className="text-lg font-bold text-neutral-500 transition ease-in hover:text-cyan-700"
+                >
+                  Chad Fernandez
                 </Link>
               </div>
               <nav>
                 <div className="hidden gap-x-8 font-medium text-neutral-500 lg:flex">
                   {internalNavigation.items.map((item) => (
-                    <Link key={item.name} href={item.href}>
-                      <a className="transition ease-in hover:text-cyan-700">
-                        {item.name}
-                      </a>
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      className="transition ease-in hover:text-cyan-700"
+                    >
+                      {item.name}
                     </Link>
                   ))}
                 </div>
@@ -109,10 +112,8 @@ const MenuLink = forwardRef((props, ref) => {
   let { href, children, ...rest } = props;
 
   return (
-    <Link href={href}>
-      <a ref={ref} {...rest}>
-        {children}
-      </a>
+    <Link href={href} ref={ref} {...rest}>
+      {children}
     </Link>
   );
 });
