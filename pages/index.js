@@ -1,5 +1,4 @@
 import React from "react";
-import { ChevronDown as ChevronDownIcon } from "lucide-react";
 
 import LayoutGlobal from "/src/components/LayoutGlobal";
 import Layout from "/src/components/Layout";
@@ -9,7 +8,7 @@ export default function index() {
   return (
     <>
       <PlatformDefault>
-        <div className="relative flex h-[100vh] w-full flex-col justify-center">
+        <div className="flex h-[100vh] w-full flex-col justify-center">
           <h1 className="text-3xl font-extrabold text-neutral-800 md:text-5xl lg:text-6xl">
             Chad Fernandez
           </h1>
@@ -31,12 +30,8 @@ export default function index() {
               Science in Computer Science from the University of Antique.
             </p>
           </div>
-          {/* <div className="absolute inset-x-0 bottom-0 flex w-full justify-center">
-            <ChevronDownIcon className="h-8 w-8 animate-bounce text-neutral-400" />
-          </div> */}
         </div>
       </PlatformDefault>
-      {/* <div className="h-[100vh]" /> */}
     </>
   );
 }

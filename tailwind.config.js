@@ -4,9 +4,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Inter", "Roboto"],
+        sans: ["Inter"],
         mono: ["JetBrains Mono"],
-        display: ["Nanum Pen Script"],
         hand: ["Waiting for the Sunrise"],
       },
       colors: {
