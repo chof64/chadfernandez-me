@@ -13,7 +13,7 @@ export default function Layout({ children }) {
       <LayoutHead title={settings.title} />
       <div className="subpixel-antialiased 2xl:flex 2xl:w-full 2xl:justify-center ">
         <div className="2xl:max-w-screen-2xl">
-          <Navigation nav={settings.navigation} />
+          <Navigation title={settings.title} nav={settings.navigation} />
           <main>{children}</main>
           {/* <pre>{JSON.stringify(settings, null, 2)}</pre> */}
           <Footer />
