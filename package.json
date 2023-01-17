@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.7",
+    "@tryghost/content-api": "^1.11.5",
     "autoprefixer": "^10.4.8",
     "lucide-react": "^0.105.0-alpha.4",
     "next": "^13.1.2",

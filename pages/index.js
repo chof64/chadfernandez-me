@@ -1,8 +1,17 @@
 import React from "react";
 
-import LayoutGlobal from "/src/components/LayoutGlobal";
-import Layout from "/src/components/Layout";
-import PlatformDefault from "/src/components/PlatformDefault";
+import Layout from "@components/layout/Layout";
+import PlatformDefault from "@components/PlatformDefault";
+import { getSettings } from "@lib/ghostCms/getSettings";
+
+export const getStaticProps = async () => {
+  const settings = await getSettings();
+
+  return {
+    props: { settings },
+    revalidate: 10,
+  };
+};
 
 export default function index() {
   return (
@@ -37,9 +46,5 @@ export default function index() {
 }
 
 index.getLayout = function getLayout(page) {
-  return (
-    <LayoutGlobal>
-      <Layout>{page}</Layout>
-    </LayoutGlobal>
-  );
+  return <Layout>{page}</Layout>;
 };

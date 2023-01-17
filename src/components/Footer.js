@@ -1,7 +1,7 @@
 import React from "react";
 import { Heart as HeartIcon, Copyright as CopyrightIcon } from "lucide-react";
 
-import PlatformNavigation from "./navigation/PlatformNavigation";
+import PlatformNavigation from "./navigation/Platform";
 import { classMerge } from "/src/utils/classMerge";
 
 export default function Footer({ className }) {
