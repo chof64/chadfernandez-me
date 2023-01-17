@@ -1,14 +1,12 @@
+import React from "react";
+
 import Head from "next/head";
 
-export default function LayoutGlobal({ title, children }) {
+export default function LayoutHead({ title }) {
   return (
     <>
       <Head>
-        <title>
-          {title
-            ? "${title} - Chad Fernandez"
-            : "Chad Fernandez - Student, Python, Web Developer"}
-        </title>
+        <title>{title}</title>
 
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -33,8 +31,6 @@ export default function LayoutGlobal({ title, children }) {
           href="/favicons/apple-touch-icon.png"
         />
       </Head>
-
-      <>{children}</>
     </>
   );
 }
