@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Inter Tight", "Inter"],
+        sans: ["Inter Tight", "Inter", 'ui-sans-serif', 'system-ui'],
         mono: ["JetBrains Mono"],
         hand: ["Waiting for the Sunrise"],
       },
@@ -50,5 +50,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 };
