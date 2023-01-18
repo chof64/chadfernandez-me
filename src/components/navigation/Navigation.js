@@ -40,7 +40,7 @@ export default function Navigation({ title, nav }) {
             <div className="flex items-center justify-between py-3">
               <div>
                 <Link href="/">
-                  <h1 className="align-middle text-lg font-semibold text-neutral-500 transition-colors delay-75 duration-500 hover:text-cyan-800">
+                  <h1 className="align-middle text-lg font-medium text-neutral-500 transition-colors delay-75 duration-500 hover:text-cyan-800">
                     {title}
                   </h1>
                 </Link>
