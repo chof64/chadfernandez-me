@@ -10,7 +10,10 @@ export default function Layout({ children }) {
 
   return (
     <>
-      <LayoutHead title={settings.title} />
+      <LayoutHead
+        title={settings.title}
+        pageTitle={settings.metaTitle || settings.pageTitle}
+      />
       <div className="subpixel-antialiased 2xl:flex 2xl:w-full 2xl:justify-center ">
         <div className="2xl:max-w-screen-2xl">
           <Navigation title={settings.title} nav={settings.navigation} />

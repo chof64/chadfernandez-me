@@ -2,11 +2,14 @@ import React from "react";
 
 import Head from "next/head";
 
-export default function LayoutHead({ title }) {
+export default function LayoutHead({ title, pageTitle }) {
   return (
     <>
       <Head>
-        <title>{title}</title>
+        {/* if pageTitle is not null, set title to pageTitle - title, else just use title */}
+        <title>{pageTitle ? `${pageTitle} - ${title}` : title}</title>
+
+        {/* <title>{title}</title> */}
 
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
