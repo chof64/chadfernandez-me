@@ -26,7 +26,6 @@ export const getStaticProps = async ({ params }) => {
 
   const api = authenticate();
 
-  // fetch page by slug, if doesn't exist, return 404
   const page = await api.pages.read({
     slug: params.slug,
     include: ["tags", "authors"],
@@ -37,6 +36,9 @@ export const getStaticProps = async ({ params }) => {
       notFound: true,
     };
   }
+
+  page.html = page.html.replace(/http:\/\//g, "https://");
+  page.html = page.html.replace(/class="kg-card/g, 'class="not-prose kg-card');
 
   settings.pageTitle = page.title;
   settings.metaTitle = page.meta_title;
@@ -54,17 +56,20 @@ export const getStaticProps = async ({ params }) => {
 export default function Pages({ page }) {
   return (
     <div>
-      <Platform className="pt-64 pb-8" type="read">
+      <Platform
+        className="border-b bg-neutral-50 pt-48 pb-16"
+        type="page-header"
+      >
         <h1 className="text-5xl font-semibold">{page.title}</h1>
       </Platform>
-      <Platform className="py-8" type="read">
+      <div className="py-16" type="read">
         <div className="flex justify-center">
           <div
             dangerouslySetInnerHTML={{ __html: page.html }}
-            className="prose prose-cyan max-w-none prose-headings:mb-2 prose-h1:mt-10 prose-h1:font-semibold prose-img:rounded-md"
+            className="prose prose-lg prose-neutral prose-a:text-cyan-500"
           />
         </div>
-      </Platform>
+      </div>
     </div>
   );
 }
