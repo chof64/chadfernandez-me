@@ -27,14 +27,10 @@ export const getStaticProps = async ({ params }) => {
   const api = authenticate();
 
   // fetch page by slug, if doesn't exist, return 404
-  const page = await api.pages
-    .read({ slug: params.slug, include: ["tags", "authors"] })
-    .catch((err) => {
-      console.error(err);
-      return {
-        error: true,
-      };
-    });
+  const page = await api.pages.read({
+    slug: params.slug,
+    include: ["tags", "authors"],
+  });
 
   if (!page) {
     return {
