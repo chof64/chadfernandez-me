@@ -1,8 +1,9 @@
 import React from "react";
 
-import { authenticate } from "@lib/ghostCms/authenticate";
 import Layout from "@components/layout/Layout";
 import Platform from "@components/Platform";
+import Render from "@components/render/Render";
+import { authenticate } from "@lib/ghostCms/authenticate";
 import { getSettings } from "@lib/ghostCms/getSettings";
 
 export const getStaticPaths = async () => {
@@ -12,7 +13,6 @@ export const getStaticPaths = async () => {
     fields: ["slug"],
     filter: ["tags:[hash-prerender]"],
   });
-
   return {
     paths: pages.map((page) => ({
       params: { slug: page.slug },
@@ -23,26 +23,18 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params }) => {
   const settings = await getSettings();
-
   const api = authenticate();
-
   const page = await api.pages.read({
     slug: params.slug,
     include: ["tags", "authors"],
   });
-
   if (!page) {
     return {
       notFound: true,
     };
   }
-
-  page.html = page.html.replace(/http:\/\//g, "https://");
-  page.html = page.html.replace(/class="kg-card/g, 'class="not-prose kg-card');
-
   settings.pageTitle = page.title;
   settings.metaTitle = page.meta_title;
-
   return {
     props: {
       page,
@@ -62,14 +54,13 @@ export default function Pages({ page }) {
       >
         <h1 className="text-5xl font-semibold">{page.title}</h1>
       </Platform>
-      <div className="py-16" type="read">
+      <Platform className="py-16">
         <div className="flex justify-center">
-          <div
-            dangerouslySetInnerHTML={{ __html: page.html }}
-            className="prose prose-lg prose-neutral prose-a:text-cyan-500"
-          />
+          <div className="prose prose-cyan">
+            <Render data={page} />
+          </div>
         </div>
-      </div>
+      </Platform>
     </div>
   );
 }
