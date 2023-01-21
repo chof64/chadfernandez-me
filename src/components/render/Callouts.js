@@ -1,6 +1,7 @@
 import React from "react";
 import { domToReact, attributesToProps } from "html-react-parser";
 
+import Links from "@components/render/Links";
 import { classMerge } from "@utils/classMerge";
 
 export default function Callouts({ html }) {
@@ -43,6 +44,10 @@ const options = {
           {domToReact(child.children, options)}
         </div>
       );
+    }
+    //? LINK
+    if (child.name === "a") {
+      return <Links html={child} />;
     }
   },
 };
