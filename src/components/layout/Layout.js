@@ -8,16 +8,20 @@ import LayoutHead from "./LayoutHead";
 export default function Layout({ children }) {
   const { settings } = children.props;
 
+  if (!settings) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <>
-      <LayoutHead title={settings.title} />
-      <div className="subpixel-antialiased 2xl:flex 2xl:w-full 2xl:justify-center ">
-        <div className="2xl:max-w-screen-2xl">
-          <Navigation title={settings.title} nav={settings.navigation} />
-          <main>{children}</main>
-          {/* <pre>{JSON.stringify(settings, null, 2)}</pre> */}
-          <Footer />
-        </div>
+      <LayoutHead
+        title={settings.title}
+        pageTitle={settings.metaTitle || settings.pageTitle}
+      />
+      <div className="flex min-h-[100vh] flex-col justify-between subpixel-antialiased">
+        <Navigation title={settings.title} nav={settings.navigation} />
+        <main>{children}</main>
+        <Footer className="" />
       </div>
     </>
   );
