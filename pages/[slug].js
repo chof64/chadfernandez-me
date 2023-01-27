@@ -57,7 +57,7 @@ export default function Pages({ page }) {
       <Platform className="py-16">
         <div className="flex justify-center">
           <div className="prose prose-cyan">
-            <Render data={page} />
+            <Render data={page.html} />
           </div>
         </div>
       </Platform>
