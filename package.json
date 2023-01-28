@@ -10,7 +10,11 @@
   },
   "dependencies": {
     "@next/font": "13.1.5",
+    "@tailwindcss/line-clamp": "^0.4.2",
+    "@tryghost/content-api": "^1.11.5",
+    "@tryghost/helpers": "^1.1.75",
     "autoprefixer": "^10.4.13",
+    "date-fns": "^2.29.3",
     "eslint": "8.32.0",
     "eslint-config-next": "13.1.5",
     "next": "13.1.5",
