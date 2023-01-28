@@ -21,7 +21,7 @@ export default function index() {
             <div className="md:max-w-md w-full md:divide-y divide-neutral-500">
               <div className="py-4">
                 <h2 className="font-semibold text-lg">bio</h2>
-                <p>
+                <p className="text-neutral-800">
                   I am a self-taught web developer. Creating cool things with
                   Next.js, Tailwind CSS, and Python.
                   <br />
@@ -31,7 +31,7 @@ export default function index() {
               </div>
               <div className="py-4">
                 <h2 className="font-semibold text-lg">background</h2>
-                <p>
+                <p className="text-neutral-800">
                   My coding journey started in mid-2021 when I started learning
                   Python. But my interest in web development grow. So around
                   mid-2022, I started learning and using Next.js and Tailwind
@@ -54,34 +54,44 @@ export default function index() {
             </div>
           </div>
           <div className="first:border-t border-b flex flex-col border-neutral-500 md:flex-row md:justify-between">
-            <h1 className="text-2xl font-semibold mt-4">toolbox</h1>
+            <h1 className="text-2xl font-semibold mt-4 text-slate-600">
+              toolbox
+            </h1>
             <div className="md:max-w-md w-full md:divide-y divide-neutral-500">
               <div className="py-4">
                 <h2 className="font-semibold text-lg">languages</h2>
-                <p>JavaScript and Python</p>
+                <p className="text-neutral-800">JavaScript and Python</p>
               </div>
               <div className="py-4">
                 <h2 className="font-semibold text-lg">
                   frameworks and libraries
                 </h2>
-                <p>Next.js, Astro, Tailwind CSS, and FastAPI</p>
+                <p className="text-neutral-800">
+                  Next.js, Astro, Tailwind CSS, and FastAPI
+                </p>
               </div>
               <div className="py-4">
                 <h2 className="font-semibold text-lg">others</h2>
-                <p>Bash, Docker, and VPS management</p>
+                <p className="text-neutral-800">
+                  Bash, Docker, and VPS management
+                </p>
               </div>
             </div>
           </div>
           <div className="first:border-t border-b flex flex-col border-neutral-500 md:flex-row md:justify-between">
-            <h1 className="text-2xl font-semibold mt-4">current</h1>
+            <h1 className="text-2xl font-semibold mt-4 text-slate-600">
+              current
+            </h1>
             <div className="md:max-w-md w-full md:divide-y divide-neutral-500">
               <div className="py-4">
                 <h2 className="font-semibold text-lg">time zone</h2>
-                <p>Philippine Standard Time (UTC+8)</p>
+                <p className="text-neutral-800">
+                  Philippine Standard Time (UTC+8)
+                </p>
               </div>
               <div className="py-4">
                 <h2 className="font-semibold text-lg">socials</h2>
-                <p>
+                <p className="text-neutral-800">
                   <a
                     className="underline text-slate-600 hover:text-cyan-800 font-medium transition duration-150"
                     href="https://github.com/chof64"
@@ -112,7 +122,7 @@ export default function index() {
               </div>
               <div className="py-4">
                 <h2 className="font-semibold text-lg">contact</h2>
-                <p>
+                <p className="text-neutral-800">
                   I am open to new opportunities or collaboration. Feel free to
                   contact me.
                   <br />
