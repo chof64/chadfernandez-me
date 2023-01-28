@@ -7,18 +7,18 @@ export default function index() {
   return (
     <>
       <Platform className="mt-48 mb-16">
-        <div className="text-4xl text-slate-600 font-semibold space-y-6 my-8">
+        <div className="text-4xl text-slate-800 font-semibold">
           <h1>
-            Hello. I&apos;m <span className="text-neutral-800">Chad</span>, a
-            web developer, and a student from the Philippines.
+            Hello. I&apos;m Chad, a web developer, and a student from the
+            Philippines.
           </h1>
         </div>
         <div className="mt-32">
           <div className="first:border-t border-b flex flex-col border-neutral-500 md:flex-row md:justify-between">
-            <h1 className="text-2xl font-semibold mt-4 text-slate-600">
+            <h1 className="text-xl font-semibold mt-4 text-slate-600">
               about me
             </h1>
-            <div className="md:max-w-md w-full md:divide-y divide-neutral-500">
+            <div className="md:w-2/3 w-full md:divide-y divide-neutral-500">
               <div className="py-4">
                 <h2 className="font-semibold text-lg">bio</h2>
                 <p className="text-neutral-800">
@@ -54,10 +54,10 @@ export default function index() {
             </div>
           </div>
           <div className="first:border-t border-b flex flex-col border-neutral-500 md:flex-row md:justify-between">
-            <h1 className="text-2xl font-semibold mt-4 text-slate-600">
+            <h1 className="text-xl font-semibold mt-4 text-slate-600">
               toolbox
             </h1>
-            <div className="md:max-w-md w-full md:divide-y divide-neutral-500">
+            <div className="md:w-2/3 w-full md:divide-y divide-neutral-500">
               <div className="py-4">
                 <h2 className="font-semibold text-lg">languages</h2>
                 <p className="text-neutral-800">JavaScript and Python</p>
@@ -79,10 +79,10 @@ export default function index() {
             </div>
           </div>
           <div className="first:border-t border-b flex flex-col border-neutral-500 md:flex-row md:justify-between">
-            <h1 className="text-2xl font-semibold mt-4 text-slate-600">
+            <h1 className="text-xl font-semibold mt-4 text-slate-600">
               current
             </h1>
-            <div className="md:max-w-md w-full md:divide-y divide-neutral-500">
+            <div className="md:w-2/3 w-full md:divide-y divide-neutral-500">
               <div className="py-4">
                 <h2 className="font-semibold text-lg">time zone</h2>
                 <p className="text-neutral-800">
@@ -99,24 +99,6 @@ export default function index() {
                     rel="noreferrer noopener"
                   >
                     GitHub
-                  </a>
-                  {", "}
-                  <a
-                    className="underline text-slate-600 hover:text-cyan-800 font-medium transition duration-150"
-                    href="https://polywork.chadfernandez.me"
-                    target="_blank"
-                    rel="noreferrer noopener"
-                  >
-                    Polywork
-                  </a>
-                  {", and "}
-                  <a
-                    className="underline text-slate-600 hover:text-cyan-800 font-medium transition duration-150"
-                    href="https://twitter.com/chof64"
-                    target="_blank"
-                    rel="noreferrer noopener"
-                  >
-                    Twitter
                   </a>
                 </p>
               </div>
