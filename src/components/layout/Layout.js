@@ -1,12 +1,14 @@
 import React from "react";
 
+import Navigation from "@/components/navigation/Navigation";
 import Footer from "./Footer";
 
 export default function Layout({ children }) {
   return (
     <>
-      <main className="flex flex-col justify-center">
-        <div className="min-h-[100vh]">{children}</div>
+      <main className="min-h-[100vh]">
+        <Navigation />
+        <>{children}</>
       </main>
 
       <Footer />
