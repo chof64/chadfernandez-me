@@ -12,6 +12,7 @@ export const getStaticProps = async () => {
 
   const posts = await ghost.posts.browse({
     limit: "all",
+    order: "published_at DESC",
     filter: "tags:[hash-blog]",
     include: "tags,authors",
   });
@@ -24,7 +25,7 @@ export const getStaticProps = async () => {
       post.date = formatDistance(time, new Date());
       post.date = format(time, "MMMM do, yyyy");
     }
-    post.tags = tags(post, { separator: ", " });
+    post.postTags = tags(post, { separator: ", " });
     post.readingTime = readingTime(post, {
       minute: "1 minute read",
       minutes: "% minute read",
@@ -43,7 +44,7 @@ export default function Blog({ posts }) {
       <Platform className="mt-48 mb-16">
         <div className="">
           <h1 className="text-4xl text-slate-800 font-semibold">Blog</h1>
-          <p className="text-neutral-800 max-w-sm font-medium">
+          <p className="text-neutral-800 max-w-sm font-medium mt-1">
             I write about programming, and the world of technology. I also share
             things that I&apos;ve learned along the way.
           </p>
@@ -51,29 +52,26 @@ export default function Blog({ posts }) {
       </Platform>
       <Platform className="my-16">
         {posts.map((post) => (
-          <>
-            <div
-              className="border-b-0 border-neutral-500 first:border-t-0 md:flex md:justify-between my-8"
-              key={post.id}
-            >
-              <div className="md:block mt-4 hidden">
-                <p className="text-sm text-slate-500 font-medium">
+          <div
+            className="border-b-0 border-neutral-500 first:border-t-0 md:flex md:justify-between my-8"
+            key={post.id}
+          >
+            <div className="md:block mt-4 hidden">
+              <p className="text-sm text-slate-500 font-medium">{post.date}</p>
+            </div>
+            <Link href={`/blog/` + post.slug} className="md:w-2/3 py-2">
+              <div className="">
+                <p className="text-sm text-slate-500 font-medium md:hidden">
                   {post.date}
                 </p>
+                <h2 className="text-lg font-semibold">{post.title}</h2>
+                <p className="line-clamp-2 text-neutral-800">{post.excerpt}</p>
+                <p className="mt-2 hover:underline text-cyan-700 font-medium">
+                  Read More --&gt;
+                </p>
               </div>
-              <Link href={`/blog/` + post.slug} className="md:w-2/3 py-2">
-                <div className="">
-                  <p className="text-sm text-slate-500 font-medium md:hidden">
-                    {post.date}
-                  </p>
-                  <h2 className="text-lg font-semibold">{post.title}</h2>
-                  <p className="line-clamp-2 text-neutral-800">
-                    {post.excerpt}
-                  </p>
-                </div>
-              </Link>
-            </div>
-          </>
+            </Link>
+          </div>
         ))}
       </Platform>
     </>
