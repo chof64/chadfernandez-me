@@ -5,7 +5,7 @@ import Navigation from "@/components/navigation/Navigation";
 import Footer from "./Footer";
 
 export default function Layout({ children }) {
-  const metadata = children.props.children[1].props;
+  const { metadata } = children.props.children[1].props;
   return (
     <>
       <LayoutHead data={metadata} />
