@@ -1,7 +1,7 @@
 import React from "react";
 import { domToReact, attributesToProps } from "html-react-parser";
 
-import { classMerge } from "@utils/classMerge";
+import { classMerge } from "@/utils/classMerge";
 
 export default function Images({ html }) {
   const props = attributesToProps(html.attribs);

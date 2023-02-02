@@ -1,28 +1,19 @@
 import React from "react";
 
-import Navigation from "@components/navigation/Navigation";
-import Footer from "@components/Footer";
-
 import LayoutHead from "./LayoutHead";
+import Navigation from "@/components/navigation/Navigation";
+import Footer from "./Footer";
 
 export default function Layout({ children }) {
-  const { settings } = children.props;
-
-  if (!settings) {
-    return <div>Loading...</div>;
-  }
-
+  const { metadata } = children.props.children[1].props;
   return (
     <>
-      <LayoutHead
-        title={settings.title}
-        pageTitle={settings.metaTitle || settings.pageTitle}
-      />
-      <div className="flex min-h-[100vh] flex-col justify-between subpixel-antialiased">
-        <Navigation title={settings.title} nav={settings.navigation} />
-        <main>{children}</main>
-        <Footer className="" />
-      </div>
+      <LayoutHead data={metadata} />
+      <main className="min-h-[100vh]">
+        <Navigation />
+        <>{children}</>
+      </main>
+      <Footer />
     </>
   );
 }

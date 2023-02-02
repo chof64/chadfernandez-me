@@ -1,54 +1,16 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./pages/**/*.{js,ts,jsx,tsx}", "./src/**/*.{js,ts,jsx,tsx}"],
+  content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Inter Tight", "Inter", 'ui-sans-serif', 'system-ui'],
-        mono: ["JetBrains Mono"],
-        hand: ["Waiting for the Sunrise"],
-      },
-      colors: {
-        //? NOTION COLORS
-      },
-      animation: {
-        "gradient-x": "gradient-x 15s ease infinite",
-        "gradient-y": "gradient-y 15s ease infinite",
-        "gradient-xy": "gradient-xy 15s ease infinite",
-      },
-      keyframes: {
-        "gradient-y": {
-          "0%, 100%": {
-            "background-size": "400% 400%",
-            "background-position": "center top",
-          },
-          "50%": {
-            "background-size": "200% 200%",
-            "background-position": "center center",
-          },
-        },
-        "gradient-x": {
-          "0%, 100%": {
-            "background-size": "200% 200%",
-            "background-position": "left center",
-          },
-          "50%": {
-            "background-size": "200% 200%",
-            "background-position": "right center",
-          },
-        },
-        "gradient-xy": {
-          "0%, 100%": {
-            "background-size": "400% 400%",
-            "background-position": "left center",
-          },
-          "50%": {
-            "background-size": "200% 200%",
-            "background-position": "right center",
-          },
-        },
+        sans: ["var(--inter-font)", "system-ui", "sans-serif"],
       },
     },
   },
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [
+    require("@tailwindcss/line-clamp"),
+    require("@tailwindcss/typography"),
+    require("tailwindcss-radix")(),
+  ],
 };

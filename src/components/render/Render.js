@@ -1,8 +1,23 @@
 import React, { Fragment } from "react";
 import parse from "html-react-parser";
 
-import { options } from "@lib/render/options";
+import Links from "./elements/Links";
+import Images from "./elements/Images";
 
-export default function Render({ data }) {
-  return <Fragment>{parse(data, options)}</Fragment>;
+export default function Render({ html }) {
+  return <Fragment>{parse(html, options)}</Fragment>;
 }
+
+const options = {
+  replace: (html) => {
+    if (!html.attribs) return;
+
+    if (html.attribs.class?.includes("kg-image-card")) {
+      return <Images html={html} />;
+    }
+
+    if (html.name === "a") {
+      return <Links html={html} />;
+    }
+  },
+};
