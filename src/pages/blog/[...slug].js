@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { readingTime } from "@tryghost/helpers";
 import { format, differenceInHours, formatDistance } from "date-fns";
 
@@ -61,8 +61,14 @@ export const getStaticProps = async ({ params }) => {
     minutes: "% minute read",
   });
 
+  const metadata = {
+    title: post.title,
+    description: post.excerpt,
+  };
+
   return {
     props: {
+      metadata,
       post,
     },
     revalidate: 10,

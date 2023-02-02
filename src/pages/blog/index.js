@@ -32,8 +32,14 @@ export const getStaticProps = async () => {
     });
   });
 
+  const metadata = {
+    title: "Blog",
+    description:
+      "I write about programming, and the world of technology. I also share things that I've learned along the way. I am Chad Fernandez, a web developer and a student.",
+  };
+
   return {
-    props: { posts },
+    props: { posts, metadata },
     revalidate: 10,
   };
 };
