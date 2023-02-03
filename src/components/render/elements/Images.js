@@ -10,7 +10,7 @@ export default function Images({ html }) {
       {...props}
       className={classMerge(
         props.className,
-        "not-prose my-4 flex flex-col items-center"
+        "not-prose my-4 flex flex-col items-center space-y-2"
       )}
     >
       {domToReact(html.children, options)}

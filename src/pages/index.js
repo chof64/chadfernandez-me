@@ -9,7 +9,7 @@ export default function index() {
       <Platform className="mt-48 mb-16">
         <div className="text-4xl text-slate-800 font-semibold">
           <h1>
-            Hello. I&apos;m Chad, a web developer, and a student from the
+            Hello. I&apos;m Chad, a web developer and a student from the
             Philippines.
           </h1>
         </div>
@@ -105,11 +105,11 @@ export default function index() {
               <div className="py-4">
                 <h2 className="font-semibold text-lg">contact</h2>
                 <p className="text-neutral-800">
-                  I am open to new opportunities or collaboration. Feel free to
+                  I am open to new projects and opportunities. Feel free to
                   contact me.
                   <br />
                   <a
-                    className="underline text-slate-600 hover:text-cyan-800 font-medium transition duration-150"
+                    className="underline text-slate-600 hover:text-cyan-800 font-medium transition duration-150 mt-2"
                     href="mailto:contact@chadfernandez.me"
                     target="_blank"
                     rel="noreferrer noopener"
