@@ -80,9 +80,9 @@ export default function BlogPost({ post }) {
     <>
       <Platform className="mt-48 mb-16" type="max-w-2xl">
         <h1 className="text-4xl font-semibold text-slate-800">{post.title}</h1>
-        <div className="divide-x-2 divide-dotted divide-slate-400 text-slate-500 text-sm max-w-lg mt-1">
-          <p className="px-2 inline">{post.date}</p>
-          <p className="px-2 inline">{post.readingTime}</p>
+        <div className="space-x-4 divide-dotted divide-slate-400 text-slate-500 text-sm max-w-lg mt-1">
+          <p className="inline">{post.date}</p>
+          <p className="inline">{post.readingTime}</p>
         </div>
         <div className="px-2 flex max-w-lg flex-wrap text-xs space-y-0.5 space-x-0.5">
           {post.tags.map((tag) => {

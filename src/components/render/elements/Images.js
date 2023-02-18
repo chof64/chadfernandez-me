@@ -23,10 +23,12 @@ const options = {
     //? <img>
     if (child.name === "img") {
       child.attribs.src = child.attribs.src.replace("http://", "https://");
-      child.attribs.srcset = child.attribs.srcset.replaceAll(
-        "http://",
-        "https://"
-      );
+      if (child.attribs.srcset) {
+        child.attribs.srcset = child.attribs.srcset.replaceAll(
+          "http://",
+          "https://"
+        );
+      }
       const props = attributesToProps(child.attribs);
       return (
         // eslint-disable-next-line @next/next/no-img-element, jsx-a11y/alt-text
