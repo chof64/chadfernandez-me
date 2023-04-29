@@ -1,56 +1,21 @@
-import React from "react";
-
-import { classMerge } from "@/utils/classMerge";
+import clsx from "clsx";
 
 export default function Platform({ children, className, type }) {
-  switch (type) {
-    case "minimal-9":
-      return (
-        <div className={classMerge("flex flex-col items-center", className)}>
-          <div className="w-[95vw] max-w-7xl">{children}</div>
-        </div>
-      );
+  const values = {
+    default: "max-w-7xl",
+    lg: "max-w-lg",
+    xl: "max-w-xl",
+    "2xl": "max-w-2xl",
+    "3xl": "max-w-3xl",
+    "4xl": "max-w-4xl",
+    "5xl": "max-w-5xl",
+  };
 
-    case "max-w-xl":
-      return (
-        <div className={classMerge("flex flex-col items-center", className)}>
-          <div className="max-w-xl w-[95vw]">{children}</div>
-        </div>
-      );
+  const value = values[type] || values.default;
 
-    case "max-w-2xl":
-      return (
-        <div className={classMerge("flex flex-col items-center", className)}>
-          <div className="max-w-2xl w-[95vw]">{children}</div>
-        </div>
-      );
-
-    case "max-w-3xl":
-      return (
-        <div className={classMerge("flex flex-col items-center", className)}>
-          <div className="max-w-3xl w-[95vw]">{children}</div>
-        </div>
-      );
-
-    case "max-w-4xl":
-      return (
-        <div className={classMerge("flex flex-col items-center", className)}>
-          <div className="max-w-4xl w-[95vw]">{children}</div>
-        </div>
-      );
-
-    case "max-w-5xl":
-      return (
-        <div className={classMerge("flex flex-col items-center", className)}>
-          <div className="max-w-5xl w-[95vw]">{children}</div>
-        </div>
-      );
-
-    default:
-      return (
-        <div className={classMerge("flex flex-col items-center", className)}>
-          <div className="max-w-3xl w-[95vw]">{children}</div>
-        </div>
-      );
-  }
+  return (
+    <div className={clsx("flex flex-col items-center", className)}>
+      <div className={clsx("w-[94svw]", value)}>{children}</div>
+    </div>
+  );
 }
