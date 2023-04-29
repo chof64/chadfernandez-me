@@ -12,6 +12,7 @@
     "@tailwindcss/typography": "^0.5.9",
     "@tryghost/content-api": "^1.11.9",
     "@tryghost/helpers": "^1.1.78",
+    "@vercel/analytics": "^1.0.0",
     "autoprefixer": "10.4.14",
     "clsx": "^1.2.1",
     "date-fns": "^2.29.3",
