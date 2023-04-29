@@ -1,6 +1,5 @@
-import React from "react";
+import { attributesToProps, domToReact } from "html-react-parser";
 import Link from "next/link";
-import { domToReact, attributesToProps } from "html-react-parser";
 
 export default function Links({ html }) {
   const domains = [

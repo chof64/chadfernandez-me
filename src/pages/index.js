@@ -1,131 +1,136 @@
-import React from "react";
-
 import Layout from "@/components/layout/Layout";
 import Platform from "@/components/Platform";
+import Image from "next/image";
 
-export default function index() {
+export default function Home() {
   return (
     <>
-      <Platform className="mt-48 mb-16">
-        <div className="text-4xl text-slate-800 font-semibold">
-          <h1>
-            Hello. I&apos;m Chad, a web developer and a student from the
-            Philippines.
-          </h1>
+      <Platform
+        className="h-screen justify-center bg-gradient-to-b from-gray-100 via-gray-100 to-transparent py-16"
+        type="lg"
+      >
+        <div className="space-y-6">
+          <div className="flex items-center gap-x-4">
+            <div className="bg-clip-margin rounded-full bg-gradient-to-br from-sky-300 to-purple-300 p-1">
+              <div className="h-24 w-24 overflow-clip rounded-full border-4 border-white lg:h-32 lg:w-32">
+                <div className="relative h-full w-full">
+                  <Image
+                    className="object-cover object-bottom"
+                    src="/portrait-latest.jpg"
+                    alt="Portrait"
+                    fill
+                  />
+                </div>
+              </div>
+            </div>
+            <div>
+              <h1 className="text-xl font-semibold lg:text-2xl">
+                Chad Fernandez
+              </h1>
+              <p className="text-sm text-neutral-800 lg:text-base">
+                Student and Fullstack Developer
+              </p>
+              <p>
+                <a
+                  className="font-medium text-neutral-800 underline-offset-2 transition delay-75 duration-200 ease-in-out hover:text-sky-800 hover:underline hover:decoration-purple-800"
+                  href="mailto:contact@chadfernandez.me"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  contact@chadfernandez.me
+                </a>
+              </p>
+            </div>
+          </div>
+          <div className="h-0.5 bg-gray-100" />
+          <div>
+            <p className="text-neutral-800">
+              Hey, I am Chad. I am a student and a fullstack developer. I am
+              interested in creating websites, tinkering with servers, and all
+              things tech.
+            </p>
+          </div>
         </div>
-        <div className="mt-32">
-          <div className="first:border-t border-b flex flex-col border-neutral-500 md:flex-row md:justify-between">
-            <h1 className="text-xl font-semibold mt-4 text-slate-600">
-              about me
-            </h1>
-            <div className="md:w-2/3 w-full md:divide-y divide-neutral-500">
-              <div className="py-4">
-                <h2 className="font-semibold text-lg">bio</h2>
-                <p className="text-neutral-800">
-                  I am a self-taught web developer. Creating cool things with
-                  Next.js, Tailwind CSS, and Python.
-                  <br />
-                  <br />I am also a freshman at the University of Antique,
-                  taking up BS in Computer Science.
+      </Platform>
+
+      <Platform className="py-16" type="lg">
+        <div className="space-y-16">
+          <section className="lg:relative">
+            <h2 className="pb-4 font-semibold lg:absolute lg:-left-6 lg:-translate-x-full lg:transform lg:pb-0 lg:font-semibold lg:text-neutral-400">
+              Bio
+            </h2>
+            <div className="space-y-6 text-neutral-800">
+              <p>
+                I am currently learning and expanding my skills and experience
+                in programming. I am also learning and experimenting with
+                Next.js, Tailwind CSS, and Python by building websites and
+                applications. And I amm also reading about Docker and Linux
+                servers to host applications with.
+              </p>
+              <p>
+                I am also a freshman studying Bachelor of Science in Computer
+                Science at the University of Antique.
+              </p>
+            </div>
+          </section>
+          <section className="lg:relative">
+            <h2 className="pb-4 font-semibold lg:absolute lg:-left-6 lg:-translate-x-full lg:transform lg:pb-0 lg:font-semibold lg:text-neutral-400">
+              Hard Skills
+            </h2>
+            <div className="space-y-6 text-neutral-800">
+              <div>
+                <p>
+                  I like building minimalist and easy to use websites.
+                  Throughout development, I try to keep the design simple, only
+                  adding components as needed.
                 </p>
               </div>
-              <div className="py-4">
-                <h2 className="font-semibold text-lg">background</h2>
-                <p className="text-neutral-800">
-                  My coding journey started in mid-2021 when I started learning
-                  Python. But my interest in web development grow. So around
-                  mid-2022, I started learning and using Next.js and Tailwind
-                  CSS.
-                  <br />
-                  <br />
-                  Right now, I am using Next.js and Tailwind CSS to build
-                  websites. While at the same time, I am expanding my Python
-                  knowledge with my university subjects.
-                </p>
+              <div>
+                <h3 className="font-medium text-black">
+                  Languages and Frameworks
+                </h3>
+                <p>Javascript, Python, Next.js, Tailwind CSS.</p>
               </div>
-              <div className="py-4">
-                <h2 className="font-semibold text-lg">education</h2>
-                <ul className="list-disc list-inside">
-                  <li>
-                    BS Computer Science, University of Antique (2022 - present)
-                  </li>
-                </ul>
+              <div>
+                <h3 className="font-medium text-black">Others</h3>
+                <p>Linux/UNIX, Docker, and Bash.</p>
               </div>
             </div>
-          </div>
-          <div className="first:border-t border-b flex flex-col border-neutral-500 md:flex-row md:justify-between">
-            <h1 className="text-xl font-semibold mt-4 text-slate-600">
-              toolbox
-            </h1>
-            <div className="md:w-2/3 w-full md:divide-y divide-neutral-500">
-              <div className="py-4">
-                <h2 className="font-semibold text-lg">languages</h2>
-                <p className="text-neutral-800">JavaScript and Python</p>
-              </div>
-              <div className="py-4">
-                <h2 className="font-semibold text-lg">
-                  frameworks and libraries
-                </h2>
-                <p className="text-neutral-800">
-                  Next.js, Astro, Tailwind CSS, and FastAPI
-                </p>
-              </div>
-              <div className="py-4">
-                <h2 className="font-semibold text-lg">others</h2>
-                <p className="text-neutral-800">
-                  Bash, Docker, and VPS management
-                </p>
-              </div>
+          </section>
+          <section className="lg:relative">
+            <h2 className="pb-4 font-semibold lg:absolute lg:-left-6 lg:-translate-x-full lg:transform lg:pb-0 lg:font-semibold lg:text-neutral-400">
+              Current
+            </h2>
+            <div className="space-y-6 text-neutral-800">
+              <p>
+                I am currently learning new things about Next.js, Tailwind CSS,
+                and web development in general.
+              </p>
+              <p>
+                I am also working on a few projects to apply what I learned and
+                build my portfolio.
+              </p>
+              <p>
+                I am open to new opportunities and projects. If you have one,
+                please{" "}
+                <a
+                  className="font-medium text-sky-600 underline-offset-2 transition delay-75 duration-200 ease-in-out hover:text-sky-800 hover:underline hover:decoration-purple-800"
+                  href="mailto:contact@chadfernandez.me"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  send a message
+                </a>
+                .
+              </p>
             </div>
-          </div>
-          <div className="first:border-t border-b flex flex-col border-neutral-500 md:flex-row md:justify-between">
-            <h1 className="text-xl font-semibold mt-4 text-slate-600">
-              current
-            </h1>
-            <div className="md:w-2/3 w-full md:divide-y divide-neutral-500">
-              <div className="py-4">
-                <h2 className="font-semibold text-lg">time zone</h2>
-                <p className="text-neutral-800">
-                  Philippine Standard Time (UTC+8)
-                </p>
-              </div>
-              <div className="py-4">
-                <h2 className="font-semibold text-lg">socials</h2>
-                <p className="text-neutral-800">
-                  <a
-                    className="underline text-slate-600 hover:text-cyan-800 font-medium transition duration-150"
-                    href="https://github.com/chof64"
-                    target="_blank"
-                    rel="noreferrer noopener"
-                  >
-                    GitHub
-                  </a>
-                </p>
-              </div>
-              <div className="py-4">
-                <h2 className="font-semibold text-lg">contact</h2>
-                <p className="text-neutral-800">
-                  I am open to new projects and opportunities. Feel free to
-                  contact me.
-                  <br />
-                  <a
-                    className="underline text-slate-600 hover:text-cyan-800 font-medium transition duration-150 mt-2"
-                    href="mailto:contact@chadfernandez.me"
-                    target="_blank"
-                    rel="noreferrer noopener"
-                  >
-                    contact@chadfernandez.me
-                  </a>
-                </p>
-              </div>
-            </div>
-          </div>
+          </section>
         </div>
       </Platform>
     </>
   );
 }
 
-index.getLayout = function getLayout(page) {
+Home.getLayout = function getLayout(page) {
   return <Layout>{page}</Layout>;
 };
