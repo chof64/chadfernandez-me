@@ -1,8 +1,7 @@
-import React, { Fragment } from "react";
 import parse from "html-react-parser";
-
-import Links from "./elements/Links";
+import { Fragment } from "react";
 import Images from "./elements/Images";
+import Links from "./elements/Links";
 
 export default function Render({ html }) {
   return <Fragment>{parse(html, options)}</Fragment>;
