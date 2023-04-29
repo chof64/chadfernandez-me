@@ -1,14 +1,12 @@
-import React from "react";
-import Link from "next/link";
-import { tags, readingTime } from "@tryghost/helpers";
-import { format, differenceInHours, formatDistance } from "date-fns";
-
 import Layout from "@/components/layout/Layout";
 import Platform from "@/components/Platform";
-import { authenticate } from "@/lib/ghost/authenticate";
+import { auth } from "@/lib/ghost/auth";
+import { readingTime, tags } from "@tryghost/helpers";
+import { differenceInHours, format, formatDistance } from "date-fns";
+import Link from "next/link";
 
 export const getStaticProps = async () => {
-  const ghost = authenticate();
+  const ghost = auth();
 
   const posts = await ghost.posts.browse({
     limit: "all",
@@ -22,11 +20,11 @@ export const getStaticProps = async () => {
     if (differenceInHours(new Date(), time) < 24) {
       post.date = formatDistance(time, new Date()) + " ago";
     } else {
-      post.date = formatDistance(time, new Date());
+      // post.date = formatDistance(time, new Date());
       post.date = format(time, "MMMM do, yyyy");
     }
-    post.postTags = tags(post, { separator: ", " });
-    post.readingTime = readingTime(post, {
+    post.post_tags = tags(post, { separator: ", " });
+    post.reading_time = readingTime(post, {
       minute: "1 minute read",
       minutes: "% minute read",
     });
@@ -44,46 +42,52 @@ export const getStaticProps = async () => {
   };
 };
 
-export default function Blog({ posts }) {
+export default function index({ posts }) {
   return (
     <>
-      <Platform className="mt-48 mb-16">
-        <div className="">
-          <h1 className="text-4xl text-slate-800 font-semibold">Blog</h1>
-          <p className="text-neutral-800 max-w-sm font-medium mt-1">
-            I write about programming, and the world of technology. I also share
-            things that I&apos;ve learned along the way.
+      <Platform
+        className="bg-gradient-to-b from-gray-100 via-gray-100 to-transparent pb-8 pt-48"
+        type="lg"
+      >
+        <div className="space-y-4">
+          <h1 className="text-3xl font-semibold">Blog</h1>
+          <p className="text-neutral-800">
+            I write about programming, server, and other things tech. I also
+            write to share the things I&apos;ve learned along the way.
           </p>
         </div>
       </Platform>
-      <Platform className="my-16">
-        {posts.map((post) => (
-          <div
-            className="border-b-0 border-neutral-500 first:border-t-0 md:flex md:justify-between my-8"
-            key={post.id}
-          >
-            <div className="md:block mt-4 hidden">
-              <p className="text-sm text-slate-500 font-medium">{post.date}</p>
-            </div>
-            <Link href={`/blog/` + post.slug} className="md:w-2/3 py-2">
-              <div className="">
-                <p className="text-sm text-slate-500 font-medium md:hidden">
-                  {post.date}
-                </p>
-                <h2 className="text-lg font-semibold">{post.title}</h2>
-                <p className="line-clamp-2 text-neutral-800">{post.excerpt}</p>
-                <p className="mt-2 hover:underline text-cyan-700 font-medium">
-                  Read More --&gt;
-                </p>
-              </div>
-            </Link>
-          </div>
-        ))}
+      <Platform className="pb-16 pt-8" type="lg">
+        <div className="space-y-16">
+          {posts.map((post) => (
+            <article key={post.id}>
+              <Link
+                className="group/post space-y-1"
+                href={`/blog/` + post.slug}
+              >
+                <h2 className="bg-gradient-to-r from-sky-800 to-purple-800 box-decoration-clone bg-clip-text font-semibold transition delay-75 duration-200 ease-in-out group-hover/post:text-transparent group-hover/post:underline group-hover/post:decoration-purple-800 group-hover/post:underline-offset-2 group-hover/post:after:content-['__-->']">
+                  {post.title}
+                </h2>
+                <div>
+                  <p className="line-clamp-2 text-neutral-600">
+                    {post.excerpt}
+                  </p>
+                  <div className="inline-flex space-x-4 text-xs text-neutral-800">
+                    <p>
+                      <time dateTime={post.published_at}>{post.date}</time>
+                    </p>
+                    <p>{post.reading_time}</p>
+                  </div>
+                </div>
+              </Link>
+            </article>
+          ))}
+        </div>
       </Platform>
     </>
   );
 }
 
-Blog.getLayout = function getLayout(page) {
+index.getLayout = function getLayout(page) {
   return <Layout>{page}</Layout>;
 };
