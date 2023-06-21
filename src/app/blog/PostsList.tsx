@@ -1,5 +1,5 @@
-import React from "react";
-import Link from "next/link";
+import React from "react"
+import Link from "next/link"
 import { differenceInHours, format, formatDistance } from "date-fns"
 
 import { auth } from "@/lib/ghost/auth"
@@ -37,19 +37,21 @@ export default async function PostsList({ className = "", limit = null }) {
     >
       {posts.map((post) => (
         <Link
-          className="group rounded-2xl border bg-gray-50 p-4"
+          className="group rounded-2xl border bg-gray-50 transition-colors duration-150 delay-75 ease-in-out hover:border-sky-500 hover:bg-gradient-to-br hover:from-sky-100 hover:to-purple-100"
           href={`/blog/${post.slug}`}
           key={post.id}
         >
-          <h2 className="scroll-m-20 text-xl font-semibold tracking-tight">
-            {post.title}
-            <span className="ml-2 inline-block transition-transform duration-150 delay-75 ease-in-out group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="mt-2 line-clamp-3">{post.excerpt}</p>
-          <div className="mt-2">
-            <p className="text-sm text-muted-foreground">{post.date}</p>
+          <div className="rounded-2xl bg-transparent p-4 group-hover:backdrop-blur-3xl">
+            <h2 className="scroll-m-20 text-xl font-semibold tracking-tight">
+              {post.title}
+              <span className="ml-2 inline-block transition-transform duration-150 delay-75 ease-in-out group-hover:translate-x-1 motion-reduce:transform-none">
+                -&gt;
+              </span>
+            </h2>
+            <p className="mt-2 line-clamp-2 text-sm">{post.excerpt}</p>
+            <div className="mt-2">
+              <p className="text-sm text-muted-foreground">{post.date}</p>
+            </div>
           </div>
         </Link>
       ))}
