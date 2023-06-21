@@ -20,7 +20,7 @@ export default function page() {
               </div>
             </div>
             <div>
-              <h1 className="text-xl font-medium lg:text-2xl">
+              <h1 className="text-xl font-semibold lg:text-2xl">
                 Chad Fernandez
               </h1>
               <p className="text-sm text-neutral-800 lg:text-base">
