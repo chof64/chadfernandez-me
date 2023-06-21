@@ -1,4 +1,5 @@
-import React from "react"
+import React from "react";
+import Link from "next/link";
 import { differenceInHours, format, formatDistance } from "date-fns"
 
 import { auth } from "@/lib/ghost/auth"
@@ -35,7 +36,11 @@ export default async function PostsList({ className = "", limit = null }) {
       )}
     >
       {posts.map((post) => (
-        <div className="group rounded-2xl border bg-gray-50 p-4" key={post.id}>
+        <Link
+          className="group rounded-2xl border bg-gray-50 p-4"
+          href={`/blog/${post.slug}`}
+          key={post.id}
+        >
           <h2 className="scroll-m-20 text-xl font-semibold tracking-tight">
             {post.title}
             <span className="ml-2 inline-block transition-transform duration-150 delay-75 ease-in-out group-hover:translate-x-1 motion-reduce:transform-none">
@@ -46,7 +51,7 @@ export default async function PostsList({ className = "", limit = null }) {
           <div className="mt-2">
             <p className="text-sm text-muted-foreground">{post.date}</p>
           </div>
-        </div>
+        </Link>
       ))}
     </section>
   )
