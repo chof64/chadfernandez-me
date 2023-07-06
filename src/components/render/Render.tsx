@@ -131,9 +131,19 @@ const options = {
       )
     }
 
+    if (html.name === "code" && html.parent.name !== "pre") {
+      const props = attributesToProps(html.attribs)
+      return (
+        <code className="before:content-['`'] after:content-['`'] text-cyan-800 rounded-md px-1 py-0.5 bg-cyan-50 shadow-inner text-sm" {...props}>
+          {domToReact(html.children, options)}
+        </code>
+      )
+    }
+
     if (
       html.name === "figure" &&
-      html.attribs.class?.includes("kg-image-card")
+      (html.attribs.class?.includes("kg-image-card") ||
+        html.attribs.class?.includes("kg-code-card"))
     ) {
       return (
         <figure className="my-6">{domToReact(html.children, options)}</figure>
@@ -156,8 +166,9 @@ const options = {
 
     if (
       html.name === "figcaption" &&
-      html.parent.attribs.class?.includes("kg-image-card") &&
-      html.parent.attribs.class?.includes("kg-card-hascaption")
+      ((html.parent.attribs.class?.includes("kg-image-card") &&
+        html.parent.attribs.class?.includes("kg-card-hascaption")) ||
+        html.parent.attribs.class?.includes("kg-code-card"))
     ) {
       const props = attributesToProps(html.attribs)
       return (
