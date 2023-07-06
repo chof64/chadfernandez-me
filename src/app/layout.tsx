@@ -1,5 +1,5 @@
 import React from "react"
-import { EB_Garamond, Inter, Inter_Tight } from "next/font/google"
+import { EB_Garamond, Inter, Inter_Tight, JetBrains_Mono } from "next/font/google"
 
 import Footer from "./Footer"
 import Navigation from "./Navigation"
@@ -16,6 +16,11 @@ const inter_tight = Inter_Tight({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-inter-tight",
+})
+
+const jetbrains_mono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-jetbrains-mono",
 })
 
 const eb_garamond = EB_Garamond({
@@ -35,7 +40,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${inter_tight.variable} ${eb_garamond.variable}`}
+      className={`${inter.variable} ${inter_tight.variable} ${jetbrains_mono.variable} ${eb_garamond.variable}`}
     >
       <body className={inter.className}>
         <>
