@@ -1,14 +1,12 @@
 import React from "react"
 
-import { cn } from "@/lib/utils"
-
-export default function Footer({ className = "" }) {
+export default function Footer() {
   return (
-    <footer className={cn("border-t bg-gray-50 py-10", className)}>
-      <div className="mx-auto w-svw-95 max-w-7xl">
-        <div className="text-xs text-muted-foreground">
-          &copy; 2023 Chad Fernandez. Made with ❤️ and Next.js.
-        </div>
+    <footer className="mx-3 my-8">
+      <div className="mx-auto max-w-lg border-t pt-4">
+        <p className="muted">
+          Chad Fernandez. Made with ❤️ from the Philippines.
+        </p>
       </div>
     </footer>
   )

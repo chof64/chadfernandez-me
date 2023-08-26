@@ -1,8 +1,14 @@
-import "./globals.css"
 
-import type { Metadata } from "next"
+
+
+import "./globals.css";
+
+
+
+import type { Metadata } from "next";
 import { Inter, JetBrains_Mono, Open_Sans } from "next/font/google"
 
+import Footer from "./Footer"
 import Navigation from "./Navigation"
 
 const inter = Inter({
@@ -44,6 +50,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           <Navigation />
           {children}
         </div>
+        <Footer />
       </body>
     </html>
   )
