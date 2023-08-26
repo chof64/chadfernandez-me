@@ -1,18 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
-  content: ["./src/**/*.{ts,tsx,js}"],
+  content: ["./src/**/*.{ts,tsx}"],
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-inter)", "sans-serif"],
-        tight: ["var(--font-inter-tight)", "sans-serif"],
-        mono: ["var(--font-jetbrains-mono)", "mono"],
-        serif: ["var(--font-eb-garamond)", "serif"],
-      },
-      spacing: {
-        "svw-95": "95svw",
-        "svh-95": "95svh",
+        sans: ["var(--font-inter)", "var(--font-open-sans)"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -70,5 +63,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
+  plugins: [require("tailwindcss-animate")],
 }

@@ -1,10 +1,15 @@
-import React from "react"
-import { EB_Garamond, Inter, Inter_Tight, JetBrains_Mono } from "next/font/google"
+
+
+
+import "./globals.css";
+
+
+
+import type { Metadata } from "next";
+import { Inter, JetBrains_Mono, Open_Sans } from "next/font/google"
 
 import Footer from "./Footer"
 import Navigation from "./Navigation"
-
-import "./globals.css"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -12,44 +17,40 @@ const inter = Inter({
   variable: "--font-inter",
 })
 
-const inter_tight = Inter_Tight({
+const openSans = Open_Sans({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-inter-tight",
+  variable: "--font-open-sans",
 })
 
-const jetbrains_mono = JetBrains_Mono({
+const jetBrainsMono = JetBrains_Mono({
   subsets: ["latin"],
+  display: "swap",
   variable: "--font-jetbrains-mono",
 })
 
-const eb_garamond = EB_Garamond({
-  subsets: ["latin"],
-  variable: "--font-eb-garamond",
-})
-export const metadata = {
+export const metadata: Metadata = {
   title: "Chad Fernandez",
-  description: "A student and a web developer from the Philippines.",
+  description:
+    "A web developer, designer and student who likes to exploring the fascinating world of technology.",
 }
 
-export default function RootLayout({
-  children,
-}: {
+type RootLayoutProps = {
   children: React.ReactNode
-}) {
+}
+
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${inter_tight.variable} ${jetbrains_mono.variable} ${eb_garamond.variable}`}
+      className={`${openSans.variable} ${inter.variable} ${jetBrainsMono.variable}`}
     >
-      <body className={inter.className}>
-        <>
-          <Navigation className="sticky inset-x-0 top-0" />
-        </>
-        <>{children}</>
-        <>
-          <Footer />
-        </>
+      <body>
+        <div className="min-h-screen">
+          <Navigation />
+          {children}
+        </div>
+        <Footer />
       </body>
     </html>
   )
