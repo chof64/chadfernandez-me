@@ -49,7 +49,6 @@ export default function Navigation() {
                 </div>
               </SheetTrigger>
               <SheetContent className="w-full max-w-sm">
-                <SheetClose>Close</SheetClose>
                 <div className="relative aspect-square h-12">
                   <Image
                     src="/bracket.svg"
