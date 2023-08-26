@@ -89,4 +89,8 @@
   .muted {
     @apply text-sm text-muted-foreground;
   }
+
+  .link {
+    @apply font-medium text-sky-800 underline decoration-purple-200 decoration-2 underline-offset-2 transition delay-75 duration-150 ease-in-out hover:bg-purple-200
+  }
 }
