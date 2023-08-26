@@ -1,126 +1,91 @@
 import React from "react"
 import Image from "next/image"
 
-export default function page() {
+import { cn } from "@/lib/utils"
+
+export default function Home() {
   return (
-    <main>
-      <section className="justify-center bg-gradient-to-b from-gray-100 to-transparent py-32 pb-24">
-        <div className="mx-auto w-svw-95 max-w-lg">
-          <div className="flex items-center gap-x-4">
-            <div className="bg-clip-margin rounded-full bg-gradient-to-br from-sky-300 to-purple-300 p-1">
-              <div className="h-24 w-24 overflow-clip rounded-full border-4 border-white lg:h-32 lg:w-32">
-                <div className="relative h-full w-full">
-                  <Image
-                    className="rounded-full object-cover object-bottom"
-                    src="/portrait-latest.jpg"
-                    alt="Portrait"
-                    fill
-                  />
-                </div>
-              </div>
-            </div>
-            <div>
-              <h1 className="text-xl font-semibold lg:text-2xl">
-                Chad Fernandez
-              </h1>
-              <p className="text-sm text-neutral-800 lg:text-base">
-                Student and Fullstack Developer
-              </p>
-              <p>
-                <a
-                  className="font-medium text-neutral-800 underline-offset-2 transition duration-200 delay-75 ease-in-out hover:text-sky-800 hover:underline hover:decoration-purple-800"
-                  href="mailto:contact@chadfernandez.me"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  contact@chadfernandez.me
-                </a>
-              </p>
-            </div>
+    <main className="mx-4">
+      <section className="mx-auto my-8 mt-16 max-w-lg">
+        <h1 className="h1">hey, I&apos;m Chad👋</h1>
+        <p className="p">
+          I&apos;m a multidisciplinary enthusiast, straddling the worlds of web
+          development, design, and academia. Currently pursuing my{" "}
+          <span className="font-medium text-black">Computer Science</span>{" "}
+          degree at the University of Antique, I channel my spare time into
+          crafting digital experiences.
+        </p>
+      </section>
+
+      <section className="mx-auto my-8 max-w-lg">
+        <div className="relative h-52 rounded-lg shadow md:h-64">
+          <Image
+            className="rounded-lg bg-gradient-to-br from-sky-200 to-purple-200 object-cover object-center"
+            src="https://res.cloudinary.com/dmk5o9frj/image/upload/f_auto,q_auto/v1693036339/chadfernandez.me/Home/hack4gov-group_dgfd0w.jpg"
+            fill
+            alt="HackForGov 2 Group Photo"
+          />
+        </div>
+        <div className="mt-3 columns-2 gap-3">
+          <div className="relative h-52 rounded-lg shadow md:h-64">
+            <Image
+              className="rounded-lg bg-gradient-to-br from-sky-200 to-purple-200 object-cover object-bottom"
+              src="https://res.cloudinary.com/dmk5o9frj/image/upload/f_auto,q_auto/v1693036340/chadfernandez.me/Home/hack4gov-table_du5e93.jpg"
+              fill
+              alt="HackForGov 2 Photo"
+            />
           </div>
-          <div className="mt-12">
-            <p className="leading-7 [&:not(:first-child)]:mt-6">
-              Hey, I&apos;m Chad. I&apos;m a student and a programmer. I&apos;m
-              currently a freshman, studying B.S. Computer Science from the
-              University of Antique.
-            </p>
+          <div className="relative h-52 rounded-lg shadow md:h-64">
+            <Image
+              className="rounded-lg bg-gradient-to-br from-sky-200 to-purple-200 object-cover object-center"
+              src="https://res.cloudinary.com/dmk5o9frj/image/upload/f_auto,q_auto/v1693036336/chadfernandez.me/Home/hack4gov-solo_vhsxsy.jpg"
+              fill
+              alt="HackForGov 2 Solo Photo"
+            />
           </div>
+        </div>
+        <div className="mt-2">
+          <p className={cn("muted text-center text-xs")}>
+            HackForGov 2 Competition by DICT Region VI (Aug 18, 2023).
+          </p>
         </div>
       </section>
 
-      <section className="mx-auto my-32 mt-16 w-svw-95 max-w-lg">
-        <div className="space-y-6">
-          <div className="lg:relative">
-            <h2 className="text-sm text-muted-foreground lg:absolute lg:-left-6 lg:-translate-x-full lg:transform">
-              Bio
-            </h2>
-            <div>
-              <p className="leading-7 [&:not(:first-child)]:mt-6">
-                I&apos;m Chad Fernandez and I&apos;m a student from the
-                Philippines. By day I&apos;m studying B.S. Computer Science, and
-                by night I&apos;m learning and working with tools and
-                technologies used to create websites.
-              </p>
-              <p className="leading-7 [&:not(:first-child)]:mt-6">
-                I am a self-taught programmer. By age 11, I've dabbled with HTML
-                and CSS, not knowing what it was. Now, I'm teaching myself
-                TypeScript, databases, and Linux Servers.
-              </p>
-            </div>
-          </div>
-          <div className="lg:relative">
-            <h2 className="text-sm text-muted-foreground lg:absolute lg:-left-6 lg:-translate-x-full lg:transform">
-              Hard Skills
-            </h2>
-            <div>
-              <div>
-                <p className="leading-7 [&:not(:first-child)]:mt-6">
-                  I love building websites and web apps and I try to learn new
-                  tools and technologies that can help in building one.
-                </p>
-              </div>
-              <div>
-                <h3 className="mt-6 scroll-m-20 text-lg font-medium tracking-tight">
-                  Languages and Frameworks
-                </h3>
-                <p className="leading-7 [&:not(:first-child)]:mt-6">
-                  Javascript, Python, Next.js, Tailwind CSS.
-                </p>
-              </div>
-              <div>
-                <h3 className="mt-6 scroll-m-20 text-lg font-medium tracking-tight">
-                  Others
-                </h3>
-                <p className="leading-7 [&:not(:first-child)]:mt-6">
-                  Linux/UNIX, Docker, and Bash.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="lg:relative">
-            <h2 className="text-sm text-muted-foreground lg:absolute lg:-left-6 lg:-translate-x-full lg:transform">
-              Current
-            </h2>
-            <div>
-              <p className="leading-7 [&:not(:first-child)]:mt-6">
-                I am working on a few projects to apply what I learned and build
-                my portfolio.
-              </p>
-              <p className="leading-7 [&:not(:first-child)]:mt-6">
-                I am open to new opportunities and projects. If you have one,
-                please{" "}
-                <a
-                  className="font-medium text-sky-600 underline-offset-2 transition duration-200 delay-75 ease-in-out hover:text-sky-800 hover:underline hover:decoration-purple-800"
-                  href="mailto:contact@chadfernandez.me"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  send a message
-                </a>
-                .
-              </p>
-            </div>
-          </div>
+      <section className="mx-auto my-8 max-w-lg">
+        <p className="p">
+          I&apos;m fascinated by all things tech! I enjoy diving into the world
+          of technology, whether it&apos;s building cool websites or managing
+          service deployments with Docker. I&apos;m a fan of using JavaScript,
+          especially Next.js, and I&apos;m drawn to a clean and minimal design
+          style with the help of Tailwind CSS.
+        </p>
+      </section>
+
+      {/* INSERT SOME CASE STUDIES HERE, AT MOST 2 ITEMS */}
+
+      <section className="mx-auto my-8 max-w-lg">
+        <p className="p">
+          I have this urge to learn more and believe in learning by doing. So, I
+          like to get my hands dirty and experiment with things. This hands-on
+          approach helps me grasp concepts quicker and keeps me on a path of
+          constant improvement. And I&apos;ve developed this platform—to share
+          my journey and the exciting things I&apos;ve discover.
+        </p>
+      </section>
+
+      {/* INSERT SOME BLOG POST HERE, AT MOST 3 ITEMS */}
+
+      <section className="mx-auto my-8 mb-2 max-w-lg">
+        <p className="p">
+          If you're like me and enjoy exploring the fascinating world of
+          technology, let's connect. Feel free to reach out - I'm always up for
+          a chat!
+        </p>
+        <p className="p">Let&apos;s build, design, and learn together.</p>
+      </section>
+      <section className="mx-auto my-8 mb-16 mt-2 max-w-lg">
+        <div className="relative aspect-video h-12">
+          <Image className="" src="/chad.svg" fill alt="Handwriting" />
         </div>
       </section>
     </main>
