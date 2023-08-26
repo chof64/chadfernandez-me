@@ -1,12 +1,8 @@
+import "./globals.css"
 
-
-
-import "./globals.css";
-
-
-
-import type { Metadata } from "next";
+import type { Metadata } from "next"
 import { Inter, JetBrains_Mono, Open_Sans } from "next/font/google"
+import { Analytics } from "@vercel/analytics/react"
 
 import Footer from "./Footer"
 import Navigation from "./Navigation"
@@ -51,6 +47,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           {children}
         </div>
         <Footer />
+        <Analytics />
       </body>
     </html>
   )
