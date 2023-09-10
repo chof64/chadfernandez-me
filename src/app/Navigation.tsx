@@ -29,7 +29,7 @@ export default function Navigation() {
           <div className="hidden items-center gap-4 sm:flex">
             {main.map((item) => (
               <Link
-                className="text-lg text-neutral-600 hover:text-black"
+                className="text-neutral-600 hover:text-black"
                 href={item.href}
                 key={item.name}
               >
