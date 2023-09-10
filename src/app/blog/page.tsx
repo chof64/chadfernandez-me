@@ -42,7 +42,7 @@ export default async function Blog() {
       <section className="mx-auto my-8 flex max-w-lg flex-col gap-4">
         {postList.map((post: any) => (
           <Link href={`/blog/${post.properties.slugAsParams.formula.string}`}>
-            <p className={cn("p", "text-lg font-medium")}>
+            <p className={cn("p", "text-lg font-medium text-neutral-800")}>
               {post.properties.Name.title[0].plain_text}
             </p>
             <div className={cn("inline-flex gap-4")}>
