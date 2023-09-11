@@ -1,19 +1,20 @@
-import React from "react"
-import { Metadata } from "next"
-import Link from "next/link"
+import React from "react";
+import { Metadata } from "next";
+import Link from "next/link";
 
-import { getDatabase } from "@/lib/notion"
-import { cn } from "@/lib/utils"
-import DateFormat from "@/components/DateFormat"
+
+
+import { getDatabase } from "@/lib/notion";
+import { cn } from "@/lib/utils";
+import DateFormat from "@/components/DateFormat";
+
+
+
+
 
 export const revalidate = 10
 
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.VERCEL_URL ||
-      process.env.NEXT_PUBLIC_SITE_URL ||
-      "https://chadfernandez.me"
-  ),
   title: "Blog - Chad Fernandez",
   description:
     "I write to share. Share the things I've learned, I've discovered, and things that are worth sharing.",

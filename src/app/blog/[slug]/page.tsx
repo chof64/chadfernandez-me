@@ -1,13 +1,19 @@
-import React from "react"
-import { Metadata, ResolvingMetadata } from "next"
-import Link from "next/link"
-import { notFound } from "next/navigation"
+import React from "react";
+import { Metadata, ResolvingMetadata } from "next";
+import Link from "next/link";
+import { notFound } from "next/navigation";
 
-import { getAllBlocks, getDatabase, getPage } from "@/lib/notion"
-import { cn } from "@/lib/utils"
-import DateFormat from "@/components/DateFormat"
-import { renderBlock } from "@/components/notion/Render"
-import Text from "@/components/notion/Text"
+
+
+import { getAllBlocks, getDatabase, getPage } from "@/lib/notion";
+import { cn } from "@/lib/utils";
+import DateFormat from "@/components/DateFormat";
+import { renderBlock } from "@/components/notion/Render";
+import Text from "@/components/notion/Text";
+
+
+
+
 
 export const revalidate = 10
 
@@ -28,11 +34,6 @@ export async function generateMetadata(
   })
 
   return {
-    metadataBase: new URL(
-      process.env.VERCEL_URL ||
-        process.env.NEXT_PUBLIC_SITE_URL ||
-        "https://chadfernandez.me"
-    ),
     title: db[0].properties.Name.title[0].plain_text + " - Chad Fernandez",
     description:
       db[0].properties.Excerpt?.rich_text[0]?.plain_text || undefined,
