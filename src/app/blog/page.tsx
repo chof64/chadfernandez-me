@@ -1,11 +1,38 @@
-import React from "react"
+import React from "react";
+import { Metadata } from "next"
 import Link from "next/link"
 
-import { getDatabase } from "@/lib/notion";
-import { cn } from "@/lib/utils";
+import { getDatabase } from "@/lib/notion"
+import { cn } from "@/lib/utils"
 import DateFormat from "@/components/DateFormat"
 
 export const revalidate = 10
+
+export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || "https://chadfernandez.me"
+  ),
+  title: "Blog - Chad Fernandez",
+  description:
+    "I write to share. Share the things I've learned, I've discovered, and things that are worth sharing.",
+  openGraph: {
+    title: "Blog - Chad Fernandez",
+    description:
+      "I write to share. Share the things I've learned, I've discovered, and things that are worth sharing.",
+    images: [
+      {
+        url: "/opengraph-image.png",
+        width: 1200,
+        height: 630,
+      },
+      {
+        url: "/twitter-image.png",
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+}
 
 export default async function Blog() {
   if (!process.env.NOTION_DB_BLOG) {
