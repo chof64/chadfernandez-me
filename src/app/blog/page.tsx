@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 import { Metadata } from "next"
 import Link from "next/link"
 
@@ -10,7 +10,9 @@ export const revalidate = 10
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "https://chadfernandez.me"
+    process.env.VERCEL_URL ||
+      process.env.NEXT_PUBLIC_SITE_URL ||
+      "https://chadfernandez.me"
   ),
   title: "Blog - Chad Fernandez",
   description:

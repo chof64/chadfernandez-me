@@ -1,9 +1,7 @@
-import React from "react";
-import { Metadata, ResolvingMetadata } from "next";
-import Link from "next/link";
-import { notFound } from "next/navigation";
-
-
+import React from "react"
+import { Metadata, ResolvingMetadata } from "next"
+import Link from "next/link"
+import { notFound } from "next/navigation"
 
 import { getAllBlocks, getDatabase, getPage } from "@/lib/notion"
 import { cn } from "@/lib/utils"
@@ -31,7 +29,9 @@ export async function generateMetadata(
 
   return {
     metadataBase: new URL(
-      process.env.NEXT_PUBLIC_SITE_URL || "https://chadfernandez.me"
+      process.env.VERCEL_URL ||
+        process.env.NEXT_PUBLIC_SITE_URL ||
+        "https://chadfernandez.me"
     ),
     title: db[0].properties.Name.title[0].plain_text + " - Chad Fernandez",
     description:

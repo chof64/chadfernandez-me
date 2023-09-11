@@ -21,7 +21,9 @@ const jetBrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "https://chadfernandez.me"
+    process.env.VERCEL_URL ||
+      process.env.NEXT_PUBLIC_SITE_URL ||
+      "https://chadfernandez.me"
   ),
   title: "Chad Fernandez",
   description:
