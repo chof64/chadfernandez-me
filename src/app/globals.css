@@ -79,11 +79,23 @@
 
 @layer components {
   .h1 {
-    @apply scroll-m-20 text-2xl font-extrabold tracking-tight md:text-3xl;
+    @apply scroll-m-20 text-2xl font-bold tracking-tight md:text-3xl;
+  }
+
+  .h2 {
+    @apply scroll-m-20 text-xl font-bold tracking-tight md:text-2xl;
   }
 
   .p {
-    @apply [&:not(:first-child)]:mt-6 text-neutral-700;
+    @apply text-neutral-700 [&:not(:first-child)]:mt-6;
+  }
+
+  .lead {
+    @apply text-xl text-muted-foreground;
+  }
+
+  .large {
+    @apply text-lg font-semibold;
   }
 
   .muted {
@@ -91,6 +103,16 @@
   }
 
   .link {
-    @apply font-medium text-sky-800 underline decoration-purple-200 decoration-2 underline-offset-2 transition delay-75 duration-150 ease-in-out hover:bg-purple-200
+    @apply font-medium text-sky-800 underline decoration-purple-200 decoration-2 underline-offset-2 transition delay-75 duration-150 ease-in-out hover:bg-purple-200;
+  }
+
+  .inline-code {
+    @apply relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold;
+  }
+
+  /* TRANSITION */
+
+  .trans-normal {
+    @apply transition delay-100 duration-100 ease-in-out;
   }
 }

@@ -26,7 +26,7 @@ export default function Home() {
       </section>
 
       <section className="mx-auto my-8 max-w-lg">
-        <div className="relative h-52 rounded-lg shadow md:h-64">
+        <div className="relative h-52 rounded-lg shadow md:h-64 transition delay-150 duration-100 ease-in hover:rotate-2">
           <Image
             className="rounded-lg bg-gradient-to-br from-sky-200 to-purple-200 object-cover object-center"
             src="https://res.cloudinary.com/dmk5o9frj/image/upload/f_auto,q_auto/v1693036339/chadfernandez.me/Home/hack4gov-group_dgfd0w.jpg"
@@ -35,7 +35,7 @@ export default function Home() {
           />
         </div>
         <div className="mt-3 columns-2 gap-3">
-          <div className="relative h-52 rounded-lg shadow md:h-64">
+          <div className="relative h-52 rounded-lg shadow md:h-64 transition delay-150 duration-100 ease-in hover:-rotate-2">
             <Image
               className="rounded-lg bg-gradient-to-br from-sky-200 to-purple-200 object-cover object-bottom"
               src="https://res.cloudinary.com/dmk5o9frj/image/upload/f_auto,q_auto/v1693036340/chadfernandez.me/Home/hack4gov-table_du5e93.jpg"
@@ -43,7 +43,7 @@ export default function Home() {
               alt="HackForGov 2 Photo"
             />
           </div>
-          <div className="relative h-52 rounded-lg shadow md:h-64">
+          <div className="relative h-52 rounded-lg shadow md:h-64 transition delay-150 duration-100 ease-in hover:rotate-2">
             <Image
               className="rounded-lg bg-gradient-to-br from-sky-200 to-purple-200 object-cover object-center"
               src="https://res.cloudinary.com/dmk5o9frj/image/upload/f_auto,q_auto/v1693036336/chadfernandez.me/Home/hack4gov-solo_vhsxsy.jpg"

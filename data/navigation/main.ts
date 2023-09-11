@@ -3,4 +3,7 @@ type main = {
   href: string
 }
 
-export const main: main[] = [{ name: "home", href: "/" }]
+export const main: main[] = [
+  { name: "home", href: "/" },
+  { name: "blog", href: "/blog" },
+]
