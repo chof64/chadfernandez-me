@@ -4,12 +4,12 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 
 import { getAllBlocks, getDatabase, getPage } from "@/lib/notion"
-import { cn } from "@/lib/utils"
-import DateFormat from "@/components/DateFormat"
-import { renderBlock } from "@/components/notion/Render"
+import { cn } from "@/lib/utils";
+import DateFormat from "@/components/DateFormat";
+import { renderBlock } from "@/components/notion/Render";
 import Text from "@/components/notion/Text"
 
-export const revalidate = 60
+export const revalidate = 10
 
 export async function generateMetadata(
   { params }: PostProps,

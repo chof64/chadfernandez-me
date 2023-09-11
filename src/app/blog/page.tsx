@@ -1,11 +1,11 @@
 import React from "react"
 import Link from "next/link"
 
-import { getDatabase } from "@/lib/notion"
-import { cn } from "@/lib/utils"
+import { getDatabase } from "@/lib/notion";
+import { cn } from "@/lib/utils";
 import DateFormat from "@/components/DateFormat"
 
-export const revalidate = 30
+export const revalidate = 10
 
 export default async function Blog() {
   if (!process.env.NOTION_DB_BLOG) {
