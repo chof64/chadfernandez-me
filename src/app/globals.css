@@ -91,7 +91,7 @@
   }
 
   .lead {
-    @apply text-xl text-muted-foreground
+    @apply text-xl text-muted-foreground;
   }
 
   .large {
@@ -113,6 +113,6 @@
   /* TRANSITION */
 
   .trans-normal {
-    @apply transition delay-100 duration-100 ease-in-out
+    @apply transition delay-100 duration-100 ease-in-out;
   }
 }

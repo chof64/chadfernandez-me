@@ -1,5 +1,6 @@
 import React from "react"
 import Image from "next/image"
+import Link from "next/link"
 
 import { cn } from "@/lib/utils"
 
@@ -10,10 +11,17 @@ export default function Home() {
         <h1 className="h1">hey, I&apos;m Chad👋</h1>
         <p className="p">
           I&apos;m a multidisciplinary enthusiast, straddling the worlds of web
-          development, design, and academia. Currently pursuing my{" "}
-          <span className="font-medium text-black">Computer Science</span>{" "}
-          degree at the University of Antique, I channel my spare time into
-          crafting digital experiences.
+          development, design, and academia. Currently pursuing my Computer
+          Science degree at the{" "}
+          <Link
+            className="link"
+            href="https://www.antiquespride.edu.ph/"
+            target="_black"
+            rel="noreferrer noopener nofollow noreferrer"
+          >
+            University of Antique
+          </Link>
+          , I channel my spare time into crafting digital experiences.
         </p>
       </section>
 

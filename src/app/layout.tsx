@@ -1,29 +1,16 @@
+import "./globals.css"
 
+import type { Metadata } from "next"
+import { Inter, JetBrains_Mono } from "next/font/google"
+import { Analytics } from "@vercel/analytics/react"
 
-
-import "./globals.css";
-
-
-
-import type { Metadata } from "next";
-import { Inter, JetBrains_Mono, Open_Sans } from "next/font/google";
-
-
-
-import Footer from "./Footer";
-import Navigation from "./Navigation";
-
+import Footer from "./Footer"
+import Navigation from "./Navigation"
 
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-inter",
-})
-
-const openSans = Open_Sans({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-open-sans",
 })
 
 const jetBrainsMono = JetBrains_Mono({
@@ -64,16 +51,14 @@ type RootLayoutProps = {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html
-      lang="en"
-      className={`${openSans.variable} ${inter.variable} ${jetBrainsMono.variable}`}
-    >
+    <html lang="en" className={`${inter.variable} ${jetBrainsMono.variable}`}>
       <body>
         <div className="min-h-screen">
           <Navigation />
           {children}
         </div>
         <Footer />
+        <Analytics />
       </body>
     </html>
   )
