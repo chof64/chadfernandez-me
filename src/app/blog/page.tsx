@@ -1,16 +1,10 @@
-import React from "react";
-import { Metadata } from "next";
-import Link from "next/link";
+import React from "react"
+import { Metadata } from "next"
+import Link from "next/link"
 
-
-
-import { getDatabase } from "@/lib/notion";
-import { cn } from "@/lib/utils";
-import DateFormat from "@/components/DateFormat";
-
-
-
-
+import { getDatabase } from "@/lib/notion"
+import { cn } from "@/lib/utils"
+import DateFormat from "@/components/DateFormat"
 
 export const revalidate = 10
 
