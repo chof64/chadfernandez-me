@@ -1,19 +1,13 @@
-import React from "react";
-import { Metadata, ResolvingMetadata } from "next";
-import Link from "next/link";
-import { notFound } from "next/navigation";
+import React from "react"
+import { Metadata, ResolvingMetadata } from "next"
+import Link from "next/link"
+import { notFound } from "next/navigation"
 
-
-
-import { getAllBlocks, getDatabase, getPage } from "@/lib/notion";
-import { cn } from "@/lib/utils";
-import DateFormat from "@/components/DateFormat";
-import { renderBlock } from "@/components/notion/Render";
-import Text from "@/components/notion/Text";
-
-
-
-
+import { getAllBlocks, getDatabase } from "@/lib/notion"
+import { cn } from "@/lib/utils"
+import DateFormat from "@/components/DateFormat"
+import { renderBlock } from "@/components/notion/Render"
+import Text from "@/components/notion/Text"
 
 export const revalidate = 10
 
@@ -76,14 +70,12 @@ export default async function Post({ params }: PostProps) {
       },
     },
   })
-
-  if (!db || !db.length) {
+  if (!db || db.length === 0) {
     return notFound()
   }
 
   const page = await getAllBlocks(db[0].id)
-
-  if (!page || !page.length) {
+  if (!page || page.length === 0) {
     return notFound()
   }
 
