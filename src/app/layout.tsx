@@ -1,19 +1,11 @@
+import "./globals.css"
 
+import type { Metadata } from "next"
+import { Inter, JetBrains_Mono } from "next/font/google"
+import { Analytics } from "@vercel/analytics/react"
 
-
-import "./globals.css";
-
-
-
-import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
-import { Analytics } from "@vercel/analytics/react";
-
-
-
-import Footer from "./Footer";
-import Navigation from "./Navigation";
-
+import Footer from "./Footer"
+import Navigation from "./Navigation"
 
 const inter = Inter({
   subsets: ["latin"],
