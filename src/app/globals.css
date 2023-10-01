@@ -77,6 +77,43 @@
 
 /* Typography */
 
+/* NEW TYPOGRAPHY BASE */
+
+@layer components {
+  /* HEADINGS */
+  .typo-h1 {
+    @apply scroll-m-20 text-2xl font-bold tracking-tight md:text-3xl;
+  }
+
+  .typo-h2 {
+    @apply scroll-m-20 text-xl font-bold tracking-tight md:text-2xl;
+  }
+
+  .typo-h3 {
+    @apply scroll-m-20 text-lg font-semibold tracking-tight;
+  }
+
+  /* SUB HEADINGS */
+  .typo-lead {
+    @apply text-xl text-neutral-600;
+  }
+
+  .typo-large {
+    @apply text-lg font-semibold;
+  }
+
+  /* PARAGRAPH & LIST  */
+  .typo-p {
+    @apply text-neutral-800 [&:not(:first-child)]:mt-6;
+  }
+
+  .typo-muted {
+    @apply text-sm text-neutral-400;
+  }
+}
+
+/* OLD */
+
 @layer components {
   .h1 {
     @apply scroll-m-20 text-2xl font-bold tracking-tight md:text-3xl;

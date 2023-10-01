@@ -93,14 +93,10 @@ export const renderBlock = (block) => {
       const caption = value.caption ? value.caption[0]?.plain_text : ""
       return (
         <figure>
-          {/* <img src={src} alt={caption} /> */}
-          <Image
-            className="h-auto w-full rounded-lg border border-cyan-300 bg-gradient-to-br from-cyan-100 to-purple-100"
+          <img
+            className="rounded-xl border border-cyan-300 bg-gradient-to-br from-cyan-100 to-purple-100"
             src={src}
-            width={0}
-            height={0}
-            sizes="100vw"
-            alt={caption || "Post Image"}
+            alt={caption}
           />
           {caption && <figcaption>{caption}</figcaption>}
         </figure>

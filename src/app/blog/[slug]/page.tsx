@@ -87,12 +87,12 @@ export default async function Post({ params }: PostProps) {
         </Link>
       </section>
 
-      <section className="mx-auto my-8 max-w-lg">
-        <h1 className="h1">
+      <section className="mx-auto my-8 mt-16 max-w-lg">
+        <h1 className={cn("typo-h1", "text-center")}>
           <Text text={db[0].properties.Name.title} />
         </h1>
-        <div className="mt-1 inline-flex gap-4">
-          <p className={cn("p", "muted font-medium")}>
+        <div className="mt-4 flex items-center justify-center gap-4">
+          <p className={cn("muted font-medium")}>
             {db[0].properties.Topic.select.name}
           </p>
           <p className="muted">
@@ -102,12 +102,12 @@ export default async function Post({ params }: PostProps) {
             />
           </p>
         </div>
-        <p className={cn("lead", "!mt-4 text-lg")}>
+        <p className={cn("typo-lead mt-8 text-center")}>
           <Text text={db[0].properties.Excerpt.rich_text} />
         </p>
       </section>
 
-      <section className="prose prose-stone prose-cyan mx-auto my-8 mt-16 max-w-lg">
+      <section className="prose-h2:typo-h2 prose-h3:typo-h3 prose-p:p prose prose-stone prose-cyan mx-auto my-8 mt-16 max-w-lg prose-h2:text-2xl prose-h2:font-bold prose-h3:text-xl prose-h3:font-semibold">
         {page.map((block) => renderBlock(block))}
       </section>
     </main>
