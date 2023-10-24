@@ -3,16 +3,6 @@ import Image from "next/image"
 import Link from "next/link"
 import { main } from "@/data/navigation/main"
 
-import {
-  Sheet,
-  SheetClose,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet"
-
 import MobileNav from "./MobileNav"
 
 export default function Navigation() {

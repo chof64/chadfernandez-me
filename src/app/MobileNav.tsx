@@ -5,14 +5,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { main } from "@/data/navigation/main"
 
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet"
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 
 export default function MobileNav() {
   const [isOpen, setIsOpen] = useState(false)
