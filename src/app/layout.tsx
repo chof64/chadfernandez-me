@@ -2,8 +2,8 @@ import "./globals.css"
 
 import type { Metadata } from "next"
 import { Inter, JetBrains_Mono } from "next/font/google"
+import Script from "next/script"
 import { Analytics } from "@vercel/analytics/react"
-import { GoogleAnalytics } from "nextjs-google-analytics"
 
 import Footer from "./Footer"
 import Navigation from "./Navigation"
@@ -57,7 +57,18 @@ export default function RootLayout({ children }: RootLayoutProps) {
         </div>
         <Footer />
         <Analytics />
-        <GoogleAnalytics trackPageViews />
+        <div className="container">
+          <Script src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID" />
+          <Script id="google-analytics">
+            {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'GA_MEASUREMENT_ID');
+        `}
+          </Script>
+        </div>
       </body>
     </html>
   )
