@@ -1,0 +1,31 @@
+name: preRelease-it to GitHub
+on:
+  push:
+    branches-ignore:
+      - master
+      - main
+      - next
+jobs:
+  prerelease:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Uhmmm Grab It All
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Dependencies not avengers Install
+        run: npm ci
+
+      - name: Who Ran Who Are You
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: We Release It
+        run: npm run prerelease --ci
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: The Endgame
+        run: echo "The Endgame"
