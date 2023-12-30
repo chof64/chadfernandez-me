@@ -1,4 +1,4 @@
-name: preRelease-it to GitHub
+name: betaRelease-it to GitHub
 on:
   push:
     branches-ignore:
@@ -23,7 +23,7 @@ jobs:
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
       - name: We Release It
-        run: npm run prerelease --ci
+        run: npm run betarelease --ci
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
