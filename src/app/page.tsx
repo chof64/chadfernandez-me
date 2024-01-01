@@ -1,37 +1,27 @@
-import Link from "next/link";
+import React from "react";
+import Image from "next/image";
+import Balancer from "react-wrap-balancer";
 
-export default async function Home() {
+export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
-      <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
-        <h1 className="text-5xl font-extrabold tracking-tight sm:text-[5rem]">
-          Create <span className="text-[hsl(280,100%,70%)]">T3</span> App
-        </h1>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
-          <Link
-            className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 hover:bg-white/20"
-            href="https://create.t3.gg/en/usage/first-steps"
-            target="_blank"
-          >
-            <h3 className="text-2xl font-bold">First Steps →</h3>
-            <div className="text-lg">
-              Just the basics - Everything you need to know to set up your
-              database and authentication.
-            </div>
-          </Link>
-          <Link
-            className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 hover:bg-white/20"
-            href="https://create.t3.gg/en/introduction"
-            target="_blank"
-          >
-            <h3 className="text-2xl font-bold">Documentation →</h3>
-            <div className="text-lg">
-              Learn more about Create T3 App, the libraries it uses, and how to
-              deploy it.
-            </div>
-          </Link>
+    <main>
+      <section className="mt-32">
+        <div className="container mx-auto max-w-4xl">
+          <div className="relative aspect-square h-20">
+            <Image src="/buttericon/icon.svg" alt="Buttericon" fill priority />
+          </div>
+          <h1 className="typo-h mt-4 text-xl font-semibold">Chad Fernandez</h1>
+          <p className="text-sm text-neutral-500">Student and Web Developer</p>
+          <p className="typo-p max-w-2xl text-sm">
+            <Balancer>
+              I'm a multidisciplinary enthusiast, straddling the worlds of web
+              development, design, and academia. Currently pursuing my Computer
+              Science degree at the University of Antique, I channel my spare
+              time into crafting digital experiences.
+            </Balancer>
+          </p>
         </div>
-      </div>
+      </section>
     </main>
   );
 }
