@@ -7,8 +7,8 @@ export default function Home() {
     <main>
       <section className="mt-32">
         <div className="container mx-auto max-w-4xl">
-          <div className="relative aspect-square h-20 rounded-full">
-            <Image src="/buttericon/icon.svg" alt="Buttericon" fill />
+          <div className="relative aspect-square h-20">
+            <Image src="/buttericon/icon.svg" alt="Buttericon" fill priority />
           </div>
           <h1 className="typo-h mt-4 text-xl font-semibold">Chad Fernandez</h1>
           <p className="text-sm text-neutral-500">Student and Web Developer</p>
