@@ -59,5 +59,16 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
-  }
+  },
+  "description": "My personal website. Made with ❤️, butter, and coffee.",
+  "author": "Chad Fernandez <contact@chadfernandez.me> (https://chadfernandez.me)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chof64/chadfernandez-me.git"
+  },
+  "bugs": {
+    "url": "https://github.com/chof64/chadfernandez-me/issues"
+  },
+  "homepage": "https://github.com/chof64/chadfernandez-me#readme"
 }
