@@ -1,12 +1,19 @@
 import "~/styles/globals.css";
 
-import { Inter } from "next/font/google";
-
+import { Inter, Noto_Sans } from "next/font/google";
+import { cn } from "~/lib/utils";
 import { TRPCReactProvider } from "~/trpc/react";
 
 const inter = Inter({
+  display: "swap",
   subsets: ["latin"],
-  variable: "--font-sans",
+  variable: "--font-inter",
+});
+
+const notoSans = Noto_Sans({
+  display: "swap",
+  subsets: ["latin"],
+  variable: "--font-noto-sans",
 });
 
 export const metadata = {
@@ -21,8 +28,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={`font-sans ${inter.variable}`}>
+    <html
+      lang="en"
+      className={cn("subpixel-antialiased", inter.variable, notoSans.variable)}
+    >
+      <body>
         <TRPCReactProvider>{children}</TRPCReactProvider>
       </body>
     </html>
