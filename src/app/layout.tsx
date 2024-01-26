@@ -1,5 +1,7 @@
 import "~/styles/globals.css";
 
+import { GeistSans } from "geist/font/sans";
+
 import { Inter, Noto_Sans } from "next/font/google";
 import { cn } from "~/lib/utils";
 import { TRPCReactProvider } from "~/trpc/react";
@@ -30,7 +32,12 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cn("subpixel-antialiased", inter.variable, notoSans.variable)}
+      className={cn(
+        "antialiased",
+        inter.variable,
+        notoSans.variable,
+        GeistSans.variable,
+      )}
     >
       <body>
         <TRPCReactProvider>{children}</TRPCReactProvider>
