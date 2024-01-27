@@ -33,13 +33,13 @@ export default function RootLayout({
     <html
       lang="en"
       className={cn(
-        "antialiased",
+        "dark antialiased",
         inter.variable,
         notoSans.variable,
         GeistSans.variable,
       )}
     >
-      <body>
+      <body className="dark:bg-stone-950">
         <TRPCReactProvider>{children}</TRPCReactProvider>
       </body>
     </html>
