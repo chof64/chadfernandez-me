@@ -39,7 +39,7 @@ export default function RootLayout({
         GeistSans.variable,
       )}
     >
-      <body className="dark:bg-stone-950">
+      <body className="dark:bg-neutral-950">
         <TRPCReactProvider>{children}</TRPCReactProvider>
       </body>
     </html>
