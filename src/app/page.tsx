@@ -1,101 +1,90 @@
-import React from "react"
-import Image from "next/image"
-import Link from "next/link"
-
-import { cn } from "@/lib/utils"
+import Link from "next/link";
+import ThreeScene from "~/components/globe/ThreeScene";
+import { Button } from "~/components/ui/button";
 
 export default function Home() {
   return (
-    <main className="mx-4">
-      <section className="mx-auto my-8 mt-16 max-w-lg">
-        <h1 className="h1">hey, I&apos;m Chad👋</h1>
-        <p className="p">
-          I&apos;m a multidisciplinary enthusiast, straddling the worlds of web
-          development, design, and academia. Currently pursuing my Computer
-          Science degree at the{" "}
-          <Link
-            className="link"
-            href="https://www.antiquespride.edu.ph/"
-            target="_black"
-            rel="noreferrer noopener nofollow noreferrer"
-          >
-            University of Antique
-          </Link>
-          , I channel my spare time into crafting digital experiences.
-        </p>
+    <main>
+      <section className="relative">
+        <div className="container max-w-2xl pt-32">
+          <div>
+            <h1 className="font-semibold leading-tight">Chad Fernandez</h1>
+            <h2 className="leading-tight opacity-60">Web Developer</h2>
+          </div>
+          <div className="mt-6">
+            <p className="leading-7 [&:not(:first-child)]:mt-6">
+              I&apos;m a multidisciplinary enthusiast, straddling the worlds of
+              web development, design, and academia. Currently pursuing my
+              Information Technology degree at the University of Antique, I
+              channel my spare time into crafting digital experiences.
+            </p>
+          </div>
+          <div className="mt-6 flex flex-wrap gap-2">
+            <Button
+              className="h-fit rounded-md border border-white/10 bg-white/10 px-2 py-0.5 text-white backdrop-blur-sm hover:border-white/20 hover:bg-white/20 "
+              asChild
+            >
+              <Link
+                href="https://github.com/chof64"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                github.com/chof64
+              </Link>
+            </Button>
+            <Button
+              className="h-fit rounded-md border border-white/10 bg-white/10 px-2 py-0.5 text-white backdrop-blur-sm hover:border-white/20 hover:bg-white/20"
+              asChild
+            >
+              <Link
+                href="mailto:contact@chadfernandez.me"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                mailto:contact@chadfernandez.me
+              </Link>
+            </Button>
+          </div>
+        </div>
+        <div className="py-56" />
+        <div className="absolute inset-x-0 top-64 -z-50 h-[52rem] w-full">
+          <ThreeScene />
+        </div>
       </section>
 
-      <section className="mx-auto my-8 max-w-lg">
-        <div className="relative h-52 rounded-lg shadow md:h-64 transition delay-150 duration-100 ease-in hover:rotate-2">
-          <Image
-            className="rounded-lg bg-gradient-to-br from-sky-200 to-purple-200 object-cover object-center"
-            src="https://res.cloudinary.com/dmk5o9frj/image/upload/f_auto,q_auto/v1693036339/chadfernandez.me/Home/hack4gov-group_dgfd0w.jpg"
-            fill
-            alt="HackForGov 2 Group Photo"
-          />
-        </div>
-        <div className="mt-3 columns-2 gap-3">
-          <div className="relative h-52 rounded-lg shadow md:h-64 transition delay-150 duration-100 ease-in hover:-rotate-2">
-            <Image
-              className="rounded-lg bg-gradient-to-br from-sky-200 to-purple-200 object-cover object-bottom"
-              src="https://res.cloudinary.com/dmk5o9frj/image/upload/f_auto,q_auto/v1693036340/chadfernandez.me/Home/hack4gov-table_du5e93.jpg"
-              fill
-              alt="HackForGov 2 Photo"
-            />
-          </div>
-          <div className="relative h-52 rounded-lg shadow md:h-64 transition delay-150 duration-100 ease-in hover:rotate-2">
-            <Image
-              className="rounded-lg bg-gradient-to-br from-sky-200 to-purple-200 object-cover object-center"
-              src="https://res.cloudinary.com/dmk5o9frj/image/upload/f_auto,q_auto/v1693036336/chadfernandez.me/Home/hack4gov-solo_vhsxsy.jpg"
-              fill
-              alt="HackForGov 2 Solo Photo"
-            />
-          </div>
-        </div>
-        <div className="mt-2">
-          <p className={cn("muted text-center text-xs")}>
-            HackForGov 2 Competition by DICT Region VI (Aug 18, 2023).
+      <section>
+        <div className="container max-w-2xl">
+          <p className="leading-7 [&:not(:first-child)]:mt-6">
+            I&apos;m fascinated by all things tech! I enjoy diving into the
+            world of technology, whether it&apos;s building cool websites or
+            managing service deployments with Docker. I&apos;m a fan of using
+            JavaScript, especially Next.js, and I&apos;m drawn to a clean and
+            minimal design style with the help of Tailwind CSS.
           </p>
         </div>
       </section>
 
-      <section className="mx-auto my-8 max-w-lg">
-        <p className="p">
-          I&apos;m fascinated by all things tech! I enjoy diving into the world
-          of technology, whether it&apos;s building cool websites or managing
-          service deployments with Docker. I&apos;m a fan of using JavaScript,
-          especially Next.js, and I&apos;m drawn to a clean and minimal design
-          style with the help of Tailwind CSS.
-        </p>
+      <section className="mt-6">
+        <div className="container max-w-2xl">
+          <p className="leading-7 [&:not(:first-child)]:mt-6">
+            I have this urge to learn more and believe in learning by doing. So,
+            I like to get my hands dirty and experiment with things. This
+            hands-on approach helps me grasp concepts quicker and keeps me on a
+            path of constant improvement. And I&apos;ve developed this
+            platform—to share my journey and the exciting things I&apos;ve
+            discover.
+          </p>
+        </div>
       </section>
-
-      {/* INSERT SOME CASE STUDIES HERE, AT MOST 2 ITEMS */}
-
-      <section className="mx-auto my-8 max-w-lg">
-        <p className="p">
-          I have this urge to learn more and believe in learning by doing. So, I
-          like to get my hands dirty and experiment with things. This hands-on
-          approach helps me grasp concepts quicker and keeps me on a path of
-          constant improvement. And I&apos;ve developed this platform—to share
-          my journey and the exciting things I&apos;ve discover.
-        </p>
-      </section>
-
-      {/* INSERT SOME BLOG POST HERE, AT MOST 3 ITEMS */}
-
-      <section className="mx-auto my-8 mb-2 max-w-lg">
-        <p className="p">
-          If you're like me and enjoy exploring the fascinating world of
-          technology, let's connect. Feel free to reach out - I'm always up for
-          a chat!
-        </p>
-        <p className="p">Let&apos;s build, design, and learn together.</p>
-      </section>
-      <section className="mx-auto my-8 mb-16 mt-2 max-w-lg">
-        <div className="relative aspect-video h-12">
-          <Image className="" src="/chad.svg" fill alt="Handwriting" />
+      <section className="mb-32 mt-6">
+        <div className="container max-w-2xl">
+          <p className="leading-7 [&:not(:first-child)]:mt-6">
+            If you&apos;re like me and enjoy exploring the fascinating world of
+            technology, let&apos;s connect. Feel free to reach out - I&apos;m
+            always up for a chat! Let&apos;s build, design, and learn together.
+          </p>
         </div>
       </section>
     </main>
-  )
+  );
 }

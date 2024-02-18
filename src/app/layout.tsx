@@ -1,77 +1,47 @@
-import "./globals.css"
+import "~/styles/globals.css";
 
-import type { Metadata } from "next"
-import { Inter, JetBrains_Mono } from "next/font/google"
-import Script from "next/script"
-import { Analytics } from "@vercel/analytics/react"
+import { GeistSans } from "geist/font/sans";
 
-import Footer from "./Footer"
-import Navigation from "./Navigation"
+import { Inter, Noto_Sans } from "next/font/google";
+import { cn } from "~/lib/utils";
+import { TRPCReactProvider } from "~/trpc/react";
 
 const inter = Inter({
-  subsets: ["latin"],
   display: "swap",
+  subsets: ["latin"],
   variable: "--font-inter",
-})
+});
 
-const jetBrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
+const notoSans = Noto_Sans({
   display: "swap",
-  variable: "--font-jetbrains-mono",
-})
+  subsets: ["latin"],
+  variable: "--font-noto-sans",
+});
 
-export const metadata: Metadata = {
+export const metadata = {
   title: "Chad Fernandez",
-  description:
-    "A web developer, designer and student who likes to exploring the fascinating world of technology.",
-  openGraph: {
-    title: "Chad Fernandez",
-    description:
-      "A web developer, designer and student who likes to exploring the fascinating world of technology.",
-    images: [
-      {
-        url: "/opengraph-image.png",
-        width: 1200,
-        height: 630,
-      },
-      {
-        url: "/twitter-image.png",
-        width: 1200,
-        height: 630,
-      },
-    ],
-  },
-}
+  description: "A student and a web developer from the Philippines.",
+  icons: [{ rel: "icon", url: "/favicon.ico" }],
+};
 
-type RootLayoutProps = {
-  children: React.ReactNode
-}
-
-export default function RootLayout({ children }: RootLayoutProps) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html lang="en" className={`${inter.variable} ${jetBrainsMono.variable}`}>
-      <body>
-        <div className="min-h-screen">
-          <Navigation />
-          {children}
-        </div>
-        <Footer />
-        <Analytics />
-        <div>
-          <Script
-            src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}`}
-          />
-          <Script id="google-analytics">
-            {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', '${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}');
-        `}
-          </Script>
-        </div>
+    <html
+      lang="en"
+      className={cn(
+        "dark antialiased",
+        inter.variable,
+        notoSans.variable,
+        GeistSans.variable,
+      )}
+    >
+      <body className="dark:bg-neutral-950">
+        <TRPCReactProvider>{children}</TRPCReactProvider>
       </body>
     </html>
-  )
+  );
 }
