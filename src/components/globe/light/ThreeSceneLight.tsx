@@ -3,7 +3,7 @@
 import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import ThreeMesh from "./ThreeMesh";
-export default function ThreeScene() {
+export default function ThreeSceneLight() {
   return (
     <Canvas
       camera={{
@@ -11,6 +11,7 @@ export default function ThreeScene() {
         position: [0, 0, 2.1],
       }}
       gl={{ antialias: true }}
+      className="dark:hidden"
     >
       <OrbitControls
         enableRotate={false}
