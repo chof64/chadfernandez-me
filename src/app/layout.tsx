@@ -1,21 +1,18 @@
 import "~/styles/globals.css";
 
 import { GeistSans } from "geist/font/sans";
+import { Caveat } from "next/font/google";
 
-import { Inter, Noto_Sans } from "next/font/google";
 import { cn } from "~/lib/utils";
 import { TRPCReactProvider } from "~/trpc/react";
 
-const inter = Inter({
-  display: "swap",
-  subsets: ["latin"],
-  variable: "--font-inter",
-});
+import Header from "~/components/header/Header";
 
-const notoSans = Noto_Sans({
+const caveat = Caveat({
+  weight: "variable",
   display: "swap",
   subsets: ["latin"],
-  variable: "--font-noto-sans",
+  variable: "--font-caveat",
 });
 
 export const metadata = {
@@ -32,15 +29,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cn(
-        "dark antialiased",
-        inter.variable,
-        notoSans.variable,
-        GeistSans.variable,
-      )}
+      className={cn("antialiased", GeistSans.variable, caveat.variable)}
     >
       <body className="dark:bg-neutral-950">
-        <TRPCReactProvider>{children}</TRPCReactProvider>
+        <TRPCReactProvider>
+          <Header />
+          {children}
+        </TRPCReactProvider>
       </body>
     </html>
   );
