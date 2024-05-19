@@ -1,29 +1,40 @@
-name: Release-it to GitHub
+name: Release
 on:
   push:
     branches:
       - main
+      - staging
+
+permissions:
+  contents: read
+
 jobs:
   release:
+    name: Release
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+      id-token: write
     steps:
-      - name: Uhmmm Grab It All
+      - name: Checkout Repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Dependencies not avengers Install
-        run: npm ci
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20.x"
 
-      - name: Who Ran Who Are You
-        run: |
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      - name: Install dependencies
+        run: npm clean-install
 
-      - name: We Release It
-        run: npm run release --ci
+      - name: Verify installed dependencies
+        run: npm audit signatures
+
+      - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: The Endgame
-        run: echo "The Endgame"
+        run: npx semantic-release
