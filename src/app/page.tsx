@@ -3,11 +3,12 @@ import { Balancer } from "react-wrap-balancer";
 import Link from "next/link";
 
 import { Button } from "~/components/ui/button";
+import Globe from "~/components/magicui/globe";
 
 export default function Home() {
   return (
     <main>
-      <section className="container flex h-[44rem] items-end">
+      <section className="container relative flex h-[44rem] w-full items-end">
         <div className="max-w-xl">
           <Balancer>
             <p className="font-caveat text-3xl font-bold text-sky-700 sm:text-4xl">
@@ -22,7 +23,7 @@ export default function Home() {
             </p>
           </Balancer>
           <div className="mt-6 flex w-full flex-col items-center gap-2 sm:w-fit sm:flex-row">
-            <p className="font-caveat mr-4 mt-1 font-medium text-neutral-500 sm:-rotate-3">
+            <p className="mr-4 mt-1 font-caveat font-medium text-neutral-500 sm:-rotate-3">
               More about me{" "}
               <span className="hidden sm:inline-block">-&gt;</span>
             </p>
@@ -42,6 +43,7 @@ export default function Home() {
             </Button>
           </div>
         </div>
+        <Globe className="-z-10" />
       </section>
     </main>
   );
