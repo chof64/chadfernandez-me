@@ -20,10 +20,12 @@ export const metadata = {
   title: { template: "%s", default: "Chad Fernandez" },
   description: "A student and a web developer from the Philippines.",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
-  metadataBase: new URL(env.BASE_URL || "https://www.chadfernandez.me"),
+  metadataBase: new URL(
+    env.NEXT_PUBLIC_BASE_URL || "https://www.chadfernandez.me",
+  ),
   openGraph: {
     siteName: "Chad Fernandez",
-    url: env.BASE_URL || "https://www.chadfernandez.me",
+    url: env.NEXT_PUBLIC_BASE_URL || "https://www.chadfernandez.me",
     locale: "en_US",
     type: "website",
     images: [
