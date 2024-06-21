@@ -8,10 +8,10 @@ export default async function Post({ params }: { params: { slug: string } }) {
   const post = await api.post.getBySlug({ slug: params.slug });
 
   return (
-    <main className="container relative my-16 max-w-2xl">
-      <div className="absolute -left-40 align-middle text-sm">
+    <main className="container relative my-16 max-w-3xl px-6 sm:px-8">
+      <div className="-left-40 my-12 align-middle text-sm xl:absolute xl:my-0">
         <Link
-          className="typography-small text-neutral-500/60 transition-colors delay-100 duration-300 ease-in-out hover:text-neutral-800"
+          className="typography-small text-neutral-500/60 transition-colors delay-100 duration-300 ease-in-out hover:text-cyan-700"
           href="/post"
         >
           &lt;- Back to posts
