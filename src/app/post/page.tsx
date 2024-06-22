@@ -8,7 +8,7 @@ export default async function PostsList() {
   const posts = await api.post.getAll();
 
   return (
-    <main className="container my-16 max-w-3xl px-6 sm:px-8">
+    <main className="container my-16 max-w-2xl px-6 sm:px-8">
       <h1 className="typography-h1">Posts</h1>
       <p className="typography-small mt-1 text-neutral-500">
         Things I&apos;ve written about. Thoughts, ideas, and stuff worth
