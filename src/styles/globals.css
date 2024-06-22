@@ -74,3 +74,25 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer components {
+  .typography-h1 {
+    @apply scroll-m-20 text-4xl font-bold tracking-tight;
+  }
+
+  .typography-h2 {
+    @apply scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0;
+  }
+
+  .typography-p {
+    @apply leading-7 [&:not(:first-child)]:mt-6;
+  }
+
+  .typography-small {
+    @apply text-sm font-medium leading-none;
+  }
+
+  .transition-colors-default {
+    @apply transition-colors delay-100 duration-200 ease-in-out;
+  }
+}
