@@ -18,6 +18,19 @@ export const postRouter = createTRPCRouter({
     return posts;
   }),
 
+  getLatest: publicProcedure
+    .input(z.object({ limit: z.number().default(1) }))
+    .query(async ({ input, ctx }) => {
+      const response = await ctx.ghost.posts
+        .browse({ limit: input.limit })
+        .fetch();
+      if (response.success) {
+        return response.data;
+      } else {
+        throw new Error("Post not found");
+      }
+    }),
+
   getBySlug: publicProcedure
     .input(z.object({ slug: z.string() }))
     .query(async ({ input, ctx }) => {
