@@ -2,6 +2,6 @@
   events:
   - type: "PUSH"
     refs:
-    - "refs/heads/main"
+    - "refs/pull/*"
   fail_on_prepare_env_warning: true
   cpu: "ARM"
