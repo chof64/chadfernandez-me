@@ -5,7 +5,7 @@ import { api } from "~/trpc/server";
 import { formatDate } from "~/lib/post/formatDate";
 
 export default async function Post({ params }: { params: { slug: string } }) {
-  const post = await api.post.getBySlug({ slug: params.slug });
+  // const post = await api.post.getBySlug({ slug: params.slug });
 
   return (
     <main className="container relative my-16 max-w-2xl px-6 sm:px-8">
@@ -17,7 +17,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
           &lt;- Back to posts
         </Link>
       </div>
-      <section>
+      {/* <section>
         <p className="typography-small text-neutral-500">
           {formatDate(new Date(post.published_at!))}
         </p>
@@ -28,7 +28,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
           className="prose prose-cyan mt-8"
           dangerouslySetInnerHTML={{ __html: post.html }}
         />
-      </section>
+      </section> */}
     </main>
   );
 }

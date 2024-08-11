@@ -10,8 +10,6 @@ import { initTRPC } from "@trpc/server";
 import superjson from "superjson";
 import { ZodError } from "zod";
 
-import { ghost } from "~/lib/ghost";
-
 /**
  * 1. CONTEXT
  *
@@ -26,7 +24,6 @@ import { ghost } from "~/lib/ghost";
  */
 export const createTRPCContext = async (opts: { headers: Headers }) => {
   return {
-    ghost,
     ...opts,
   };
 };

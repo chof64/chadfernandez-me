@@ -5,7 +5,7 @@ import { formatDate } from "~/lib/post/formatDate";
 import { api } from "~/trpc/server";
 
 export default async function PostsList() {
-  const posts = await api.post.getAll();
+  // const posts = await api.post.getAll();
 
   return (
     <main className="container my-16 max-w-2xl px-6 sm:px-8">
@@ -14,7 +14,7 @@ export default async function PostsList() {
         Things I&apos;ve written about. Thoughts, ideas, and stuff worth
         sharing.
       </p>
-      <div className="mt-8 flex flex-col gap-1.5">
+      {/* <div className="mt-8 flex flex-col gap-1.5">
         {posts.map((post) => {
           return (
             <Link href={`/post/${post.slug}`} key={post.id}>
@@ -29,7 +29,7 @@ export default async function PostsList() {
             </Link>
           );
         })}
-      </div>
+      </div> */}
     </main>
   );
 }
