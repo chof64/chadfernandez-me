@@ -8,7 +8,7 @@ import InlineTextLogo from "~/components/InlineTextLogo";
 import ImageGrid from "~/components/ImageGrid";
 
 export default async function Home() {
-  const posts = await api.post.getLatest({ limit: 3 });
+  // const posts = await api.post.getLatest({ limit: 3 });
 
   return (
     <main className="container my-16 max-w-2xl px-6 sm:px-8">
@@ -52,7 +52,7 @@ export default async function Home() {
         and the things I learn along the way, check out some of my latest posts.
       </p>
 
-      <div className="my-8 flex flex-col gap-2">
+      {/* <div className="my-8 flex flex-col gap-2">
         {posts.map((post) => (
           <Link href={`/post/${post.slug}`} key={post.id}>
             <div className="transition-colors-default rounded-sm border bg-gray-100/50 p-4 px-4 hover:bg-gray-200/80">
@@ -67,7 +67,7 @@ export default async function Home() {
             </div>
           </Link>
         ))}
-      </div>
+      </div> */}
 
       <p className="typography-p">
         If you&apos;re like me and enjoy exploring the fascinating world of
