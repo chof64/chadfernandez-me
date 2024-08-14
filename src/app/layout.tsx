@@ -1,7 +1,7 @@
 import "~/styles/globals.css";
 
 import { GeistSans } from "geist/font/sans";
-import { Caveat } from "next/font/google";
+import { Averia_Serif_Libre } from "next/font/google";
 
 import { env } from "~/env";
 import { cn } from "~/lib/utils";
@@ -9,11 +9,11 @@ import { TRPCReactProvider } from "~/trpc/react";
 
 import Header from "~/components/header/Header";
 
-const caveat = Caveat({
-  weight: "variable",
+const averiaSerifLibre = Averia_Serif_Libre({
+  weight: ["400", "700"],
   display: "swap",
   subsets: ["latin"],
-  variable: "--font-caveat",
+  variable: "--font-averia-serif-libre",
 });
 
 export const metadata = {
@@ -59,12 +59,12 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cn("antialiased", GeistSans.variable, caveat.variable)}
+      className={cn("font-sans", GeistSans.variable, averiaSerifLibre.variable)}
     >
       <body className="dark:bg-neutral-950">
         <TRPCReactProvider>
           <Header />
-          {children}
+          <main>{children}</main>
         </TRPCReactProvider>
       </body>
     </html>
