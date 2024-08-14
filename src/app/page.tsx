@@ -4,10 +4,9 @@ import Heading from "~/components/white-design/Heading";
 
 import InlineTextLogo from "~/components/InlineTextLogo";
 import ImageGrid from "~/components/ImageGrid";
-import TechIcons from "~/components/TechIcons";
-import ProjectShowcase from "~/components/ProjectShowcase";
-// import EngagementsShowcase from "~/components/EngagementsShowcase";
-import ParticipationShowcase from "~/components/ParticipationShowcase";
+import TechIcons from "./TechIcons";
+import ProjectShowcase from "./ProjectShowcase";
+import ParticipationShowcase from "./ParticipationShowcase";
 
 export default async function Home() {
   return (
@@ -39,7 +38,7 @@ export default async function Home() {
           to gain an advantage in a game I loved. But what started as a
           curiosity quickly evolved into a passion for solving complex problems
           through code. The challenge of tackling a problem, finding a solution,
-          and seeing it come to life on the web is what truly captivates me.
+          and seeing it come to life on the web truly captivates me.
         </p>
         <ImageGrid className="my-0 mt-10" />
       </section>
@@ -51,7 +50,7 @@ export default async function Home() {
         <p className="typography-p">
           You&apos;ll often find me coding during my free time—whether it&apos;s
           in between classes or late at night. Here are some of the projects
-          that I work on that you might be interested.
+          that I work on that you might be interested in.
         </p>
         <ProjectShowcase className="mt-12" />
       </section>
@@ -77,7 +76,7 @@ export default async function Home() {
         <p className="typography-p">
           Explore the tools and technologies that power my work. From frameworks
           and libraries to essential tools and applications, these are the
-          technologies I&apos;ve mastered, currently use, or am actively
+          technologies I&apos;ve mastered, currently use or am actively
           learning.
         </p>
         <TechIcons className="mt-12" />
