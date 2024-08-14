@@ -2,7 +2,7 @@
 
 import React from "react";
 import { cn } from "~/lib/utils";
-import Heading from "./white-design/Heading";
+import Heading from "~/components/white-design/Heading";
 import Image from "next/image";
 import {
   Carousel,
@@ -22,7 +22,7 @@ export default function ProjectShowcase({ className }: { className?: string }) {
           Unified Barangay System is a web-based application that aims to
           streamline the process of barangay transactions. It is designed to
           provide a user-friendly interface for the residents of a barangay to
-          request for documents, and for officials to manage the requests.
+          request documents, and for officials to manage the requests.
         </>
       ),
       images: [

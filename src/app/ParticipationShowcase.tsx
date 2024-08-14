@@ -1,6 +1,6 @@
 import React from "react";
 import { cn } from "~/lib/utils";
-import Heading from "./white-design/Heading";
+import Heading from "~/components/white-design/Heading";
 
 export default function ParticipationShowcase({
   className,
@@ -13,15 +13,15 @@ export default function ParticipationShowcase({
       subheading: "Jul 2024 | Iloilo City, Philippines",
       description: (
         <>
-          A nation wide cybersecurity competition in a Capture-the-Flag (CTF)
-          format organized by the Deparment of Information and Communications
+          A nationwide cybersecurity competition in a Capture-the-Flag (CTF)
+          format organized by the Department of Information and Communications
           Technology (DICT).
         </>
       ),
       highlights: [
         "Wildcard Participant to the National HackForGov 3 Competition.",
         "Excellence Awardee for the Most Individual Points.",
-        "1st Runner up on the team category.",
+        "1st Runner up in the team category.",
       ],
     },
     {
@@ -44,15 +44,15 @@ export default function ParticipationShowcase({
       subheading: "Aug 2023 | Iloilo City, Philippines",
       description: (
         <>
-          A nation wide cybersecurity competition in a Capture-the-Flag (CTF)
-          format organized by the Deparment of Information and Communications
+          A nationwide cybersecurity competition in a Capture-the-Flag (CTF)
+          format organized by the Department of Information and Communications
           Technology (DICT).
         </>
       ),
       highlights: [
         "Secured 6th place in the individual rankings.",
         "5th Place on the team rankings.",
-        "First time participant in the competition.",
+        "First-time participant in the competition.",
       ],
     },
   ] as const;
