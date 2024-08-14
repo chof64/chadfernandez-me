@@ -1,89 +1,108 @@
 import Link from "next/link";
 import { ArrowUpRightIcon } from "lucide-react";
-
-import { api } from "~/trpc/server";
-import { formatDate } from "~/lib/post/formatDate";
+import Heading from "~/components/white-design/Heading";
 
 import InlineTextLogo from "~/components/InlineTextLogo";
 import ImageGrid from "~/components/ImageGrid";
+import TechIcons from "./TechIcons";
+import ProjectShowcase from "./ProjectShowcase";
+import ParticipationShowcase from "./ParticipationShowcase";
 
 export default async function Home() {
-  // const posts = await api.post.getLatest({ limit: 3 });
-
   return (
-    <main className="container my-16 max-w-2xl px-6 sm:px-8">
-      <p className="typography-p">
-        Hey, I&apos;m Chad. I&apos;m a web developer and a student. I&apos;m
-        currently pursuing my Information Technology degree at the{" "}
-        <InlineTextLogo image="/logo/university-of-antique.png">
-          University of Antique
-        </InlineTextLogo>
-        . I love building things for the web and exploring the world of
-        computers. I&apos;m a fan of JavaScript, especially{" "}
-        <InlineTextLogo image="/logo/nextjs.svg" href="https://nextjs.org/">
-          Next.js
-        </InlineTextLogo>
-        , and I enjoy creating websites with{" "}
-        <InlineTextLogo
-          image="/logo/tailwindcss.svg"
-          href="https://tailwindcss.com"
+    <div className="container my-16 max-w-3xl px-6 sm:px-8">
+      <section className="mt-24">
+        <Heading
+          className="text-balance leading-tight"
+          order={1}
+          style={1}
+          spacing={"default"}
         >
-          Tailwind CSS
-        </InlineTextLogo>
-        .
-      </p>
-      <ImageGrid />
-      <p className="typography-p">
-        I&apos;m facinated by all things tech! I enjoy diving into the world of
-        technology, whether it&apos;s building websites or managing service
-        deployment with{" "}
-        <InlineTextLogo image="logo/docker.svg" href="https://www.docker.com/">
-          Docker
-        </InlineTextLogo>
-        . Aside from web development, I also enjoy learning about cloud
-        computing and cybersecurity. I build things, I host them, and I manage
-        servers.
-      </p>
-      <p className="typography-p">
-        I have this urge to learn more and believe in learning by doing. So, I
-        like to get my hands dirty and experiment with things. This hands-on
-        approach helps me grasp concepts quicker and keeps me on a path of
-        constant improvement. You&apos;ll find me writing about my experiences
-        and the things I learn along the way, check out some of my latest posts.
-      </p>
+          Driven by a love for{" "}
+          <span className="text-accent-foreground">technology</span> and a
+          mission to build{" "}
+          <span className="text-accent-foreground">web apps</span> that matter.
+        </Heading>
+        <p className="typography-p !mt-14">
+          Hey, I&apos;m Chad👋 &mdash; a passionate web developer and
+          Information Technology student at the{" "}
+          <InlineTextLogo image="/logo/university-of-antique.png">
+            University of Antique
+          </InlineTextLogo>
+          . My love for coding drives me to create functional, minimalistic
+          websites that solve real-world problems. I&apos;m dedicated to
+          streamlining processes and making daily tasks easier.
+        </p>
+        <p className="typography-p">
+          My journey into web development began with a simple goal: build a tool
+          to gain an advantage in a game I loved. But what started as a
+          curiosity quickly evolved into a passion for solving complex problems
+          through code. The challenge of tackling a problem, finding a solution,
+          and seeing it come to life on the web truly captivates me.
+        </p>
+        <ImageGrid className="my-0 mt-10" />
+      </section>
 
-      {/* <div className="my-8 flex flex-col gap-2">
-        {posts.map((post) => (
-          <Link href={`/post/${post.slug}`} key={post.id}>
-            <div className="transition-colors-default rounded-sm border bg-gray-100/50 p-4 px-4 hover:bg-gray-200/80">
-              <h2 className="font-semibold leading-none tracking-tight">
-                {post.title}
-              </h2>
-              <div>
-                <p className="inline-block text-xs leading-none text-neutral-500">
-                  {formatDate(new Date(post.published_at!))}
-                </p>
-              </div>
-            </div>
+      <section className="my-24">
+        <Heading style={2}>
+          My Selected <span className="text-accent-foreground">Projects</span>.
+        </Heading>
+        <p className="typography-p">
+          You&apos;ll often find me coding during my free time—whether it&apos;s
+          in between classes or late at night. Here are some of the projects
+          that I work on that you might be interested in.
+        </p>
+        <ProjectShowcase className="mt-12" />
+      </section>
+
+      <section className="mt-24">
+        <Heading style={2}>
+          My <span className="text-accent-foreground">Awards</span> and
+          Participations.
+        </Heading>
+        <p className="typography-p">
+          Beyond coding, I&apos;m deeply committed to volunteering and
+          leadership. I&apos;ve enjoyed organizing and leading events that give
+          hands-on experiences and opportunities to connect with like-minded
+          peers.
+        </p>
+        <ParticipationShowcase className="mt-12" />
+      </section>
+
+      <section className="my-24">
+        <Heading style={2}>
+          My <span className="text-accent-foreground">Technology</span> Stack.
+        </Heading>
+        <p className="typography-p">
+          Explore the tools and technologies that power my work. From frameworks
+          and libraries to essential tools and applications, these are the
+          technologies I&apos;ve mastered, currently use or am actively
+          learning.
+        </p>
+        <TechIcons className="mt-12" />
+      </section>
+
+      <section className="my-24">
+        <Heading style={1}>
+          Let&apos;s <span className="text-accent-foreground">build</span>{" "}
+          something great{" "}
+          <span className="text-accent-foreground">together</span>.
+        </Heading>
+        <p className="typography-p">
+          If you&apos;re like me and enjoy exploring the fascinating world of
+          technology, let&apos;s connect. Feel free to reach out - I&apos;m
+          always up for a chat! Let&apos;s build, design, and learn together.
+        </p>
+        <div className="mt-6">
+          <Link
+            className="transition-colors-default font-medium text-muted-foreground hover:text-accent-foreground"
+            href="mailto:contact@chadfernandez.me"
+          >
+            <ArrowUpRightIcon className="mb-0.5 mr-1 inline-block h-5 w-5" />
+            Send me a message
           </Link>
-        ))}
-      </div> */}
-
-      <p className="typography-p">
-        If you&apos;re like me and enjoy exploring the fascinating world of
-        technology, let&apos;s connect. Feel free to reach out - I&apos;m always
-        up for a chat! Let&apos;s build, design, and learn together.
-      </p>
-
-      <div className="my-8">
-        <Link
-          className="transition-colors-default font-medium text-neutral-500 hover:text-cyan-700"
-          href="mailto:contact@chadfernandez.me"
-        >
-          <ArrowUpRightIcon className="mb-0.5 mr-1 inline-block h-5 w-5" />
-          Send me a message
-        </Link>
-      </div>
-    </main>
+        </div>
+      </section>
+    </div>
   );
 }
