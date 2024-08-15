@@ -27,7 +27,7 @@ export default function InlineTextLogo({
         src={image}
         height={20}
         width={20}
-        alt="inline logo, check the text"
+        alt=""
       />
       {children}
     </Root>

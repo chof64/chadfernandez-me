@@ -3,7 +3,7 @@ import { ArrowUpRightIcon } from "lucide-react";
 import Heading from "~/components/white-design/Heading";
 
 import InlineTextLogo from "~/components/InlineTextLogo";
-import ImageGrid from "~/components/ImageGrid";
+import ImageGrid from "./ImageGrid";
 import TechIcons from "./TechIcons";
 import ProjectShowcase from "./ProjectShowcase";
 import ParticipationShowcase from "./ParticipationShowcase";
