@@ -22,7 +22,8 @@
     --secondary-foreground: 220.9 39.3% 11%;
 
     --muted: 220 14.3% 95.9%;
-    --muted-foreground: 220 8.9% 46.1%;
+    /* --muted-foreground: 220 8.9% 46.1%; */
+    --muted-foreground: 0 0% 32%;
 
     --accent: 60 24% 96%; /* Baby Powder */
     --accent-foreground: 192, 91%, 36%; /* Cyan 600 */
