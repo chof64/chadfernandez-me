@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowUpRightIcon } from "lucide-react";
 import Heading from "~/components/white-design/Heading";
+import Text from "~/components/minimal/Text";
 
 import InlineTextLogo from "~/components/InlineTextLogo";
 import ImageGrid from "./ImageGrid";
@@ -23,23 +24,23 @@ export default async function Home() {
           mission to build{" "}
           <span className="text-accent-foreground">web apps</span> that matter.
         </Heading>
-        <p className="typography-p !mt-14">
+        <Text className="!mt-14">
           Hey, I&apos;m Chad👋 &mdash; a passionate web developer and
-          Information Technology student at the{" "}
+          <span className="italic">Information Technology</span> student at the{" "}
           <InlineTextLogo image="/logo/university-of-antique.png">
             University of Antique
           </InlineTextLogo>
           . My love for coding drives me to create functional, minimalistic
           websites that solve real-world problems. I&apos;m dedicated to
           streamlining processes and making daily tasks easier.
-        </p>
-        <p className="typography-p">
+        </Text>
+        <Text>
           My journey into web development began with a simple goal: build a tool
           to gain an advantage in a game I loved. But what started as a
           curiosity quickly evolved into a passion for solving complex problems
           through code. The challenge of tackling a problem, finding a solution,
           and seeing it come to life on the web truly captivates me.
-        </p>
+        </Text>
         <ImageGrid className="my-0 mt-10" />
       </section>
 
@@ -47,11 +48,11 @@ export default async function Home() {
         <Heading style={2}>
           My Selected <span className="text-accent-foreground">Projects</span>.
         </Heading>
-        <p className="typography-p">
+        <Text>
           You&apos;ll often find me coding during my free time—whether it&apos;s
           in between classes or late at night. Here are some of the projects
           that I work on that you might be interested in.
-        </p>
+        </Text>
         <ProjectShowcase className="mt-12" />
       </section>
 
@@ -60,12 +61,12 @@ export default async function Home() {
           My <span className="text-accent-foreground">Awards</span> and
           Participations.
         </Heading>
-        <p className="typography-p">
+        <Text>
           Beyond coding, I&apos;m deeply committed to volunteering and
           leadership. I&apos;ve enjoyed organizing and leading events that give
           hands-on experiences and opportunities to connect with like-minded
           peers.
-        </p>
+        </Text>
         <ParticipationShowcase className="mt-12" />
       </section>
 
@@ -73,12 +74,12 @@ export default async function Home() {
         <Heading style={2}>
           My <span className="text-accent-foreground">Technology</span> Stack.
         </Heading>
-        <p className="typography-p">
+        <Text>
           Explore the tools and technologies that power my work. From frameworks
           and libraries to essential tools and applications, these are the
           technologies I&apos;ve mastered, currently use or am actively
           learning.
-        </p>
+        </Text>
         <TechIcons className="mt-12" />
       </section>
 
@@ -88,11 +89,11 @@ export default async function Home() {
           something great{" "}
           <span className="text-accent-foreground">together</span>.
         </Heading>
-        <p className="typography-p">
+        <Text>
           If you&apos;re like me and enjoy exploring the fascinating world of
           technology, let&apos;s connect. Feel free to reach out - I&apos;m
           always up for a chat! Let&apos;s build, design, and learn together.
-        </p>
+        </Text>
         <div className="mt-6">
           <Link
             className="transition-colors-default font-medium text-muted-foreground hover:text-accent-foreground"

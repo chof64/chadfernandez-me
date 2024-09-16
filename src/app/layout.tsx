@@ -1,13 +1,20 @@
 import "~/styles/globals.css";
 
 import { GeistSans } from "geist/font/sans";
-import { Averia_Serif_Libre } from "next/font/google";
+import { Averia_Serif_Libre, Noto_Serif } from "next/font/google";
 
 import { env } from "~/env";
 import { cn } from "~/lib/utils";
 import { TRPCReactProvider } from "~/trpc/react";
 
 import Header from "~/components/header/Header";
+
+const notoSerif = Noto_Serif({
+  weight: "variable",
+  display: "swap",
+  subsets: ["latin"],
+  variable: "--font-noto-serif",
+});
 
 const averiaSerifLibre = Averia_Serif_Libre({
   weight: ["400", "700"],
@@ -19,13 +26,10 @@ const averiaSerifLibre = Averia_Serif_Libre({
 export const metadata = {
   title: { template: "%s", default: "Chad Fernandez" },
   description: "A student and a web developer from the Philippines.",
-  icons: [{ rel: "icon", url: "/favicon.ico" }],
-  metadataBase: new URL(
-    env.NEXT_PUBLIC_BASE_URL || "https://www.chadfernandez.me",
-  ),
+  metadataBase: new URL(env.NEXT_PUBLIC_BASE_URL),
   openGraph: {
     siteName: "Chad Fernandez",
-    url: env.NEXT_PUBLIC_BASE_URL || "https://www.chadfernandez.me",
+    url: env.NEXT_PUBLIC_BASE_URL,
     locale: "en_US",
     type: "website",
     images: [
@@ -59,7 +63,12 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cn("font-sans", GeistSans.variable, averiaSerifLibre.variable)}
+      className={cn(
+        "font-sans",
+        GeistSans.variable,
+        notoSerif.variable,
+        averiaSerifLibre.variable,
+      )}
     >
       <body className="dark:bg-neutral-950">
         <TRPCReactProvider>

@@ -19,6 +19,7 @@ const orderStyles = cva("scroll-m-20", {
       6: "text-base font-bold",
     },
     font: {
+      heading: "font-averia",
       serif: "font-serif",
       sans: "font-sans",
     },
@@ -26,7 +27,7 @@ const orderStyles = cva("scroll-m-20", {
   defaultVariants: {
     spacing: "default",
     style: 2,
-    font: "serif",
+    font: "heading",
   },
 });
 
