@@ -22,7 +22,8 @@ const config = {
     extend: {
       fontFamily: {
         sans: ["var(--font-geist-sans)", "sans-serif"],
-        serif: ["var(--font-averia-serif-libre)", "serif"],
+        serif: ["var(--font-noto-serif)", "serif"],
+        averia: ["var(--font-averia-serif-libre)"],
       },
       colors: {
         border: "hsl(var(--border))",
