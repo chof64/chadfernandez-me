@@ -1,22 +1,22 @@
 import Link from "next/link";
-import { ArrowUpRightIcon } from "lucide-react";
-import Heading from "~/components/white-design/Heading";
-import Text from "~/components/minimal/Text";
+import { Heading } from "~/components/minimal/Heading";
+import { Text } from "~/components/minimal/Text";
+import { PillButton } from "~/components/minimal/PillButton";
+import Image from "next/image";
+import { ArrowUpRightIcon, ExternalLinkIcon } from "lucide-react";
+import HomeProjectCard from "~/components/HomeProjectCard";
+import HomeParticipationCard from "~/components/HomeParticipationCard";
 
 import InlineTextLogo from "~/components/InlineTextLogo";
-import ImageGrid from "./ImageGrid";
-import TechIcons from "./TechIcons";
-import ProjectShowcase from "./ProjectShowcase";
-import ParticipationShowcase from "./ParticipationShowcase";
+import HomeImageGrid from "~/components/HomeImageGrid";
 
-export default async function Home() {
+export default function Home() {
   return (
-    <div className="container my-16 max-w-3xl px-6 sm:px-8">
-      <section className="mt-24">
+    <div className="container my-16 max-w-2xl">
+      <div className="mt-32">
         <Heading
           className="text-balance leading-tight"
-          order={1}
-          style={1}
+          type={2}
           spacing={"default"}
         >
           Driven by a love for{" "}
@@ -24,67 +24,59 @@ export default async function Home() {
           mission to build{" "}
           <span className="text-accent-foreground">web apps</span> that matter.
         </Heading>
-        <Text className="!mt-14">
+      </div>
+      <div className="mt-16">
+        <Text>
           Hey, I&apos;m Chad👋 &mdash; a passionate web developer and
-          <span className="italic">Information Technology</span> student at the{" "}
+          Information Technology student at the{" "}
           <InlineTextLogo image="/logo/university-of-antique.png">
             University of Antique
           </InlineTextLogo>
           . My love for coding drives me to create functional, minimalistic
-          websites that solve real-world problems. I&apos;m dedicated to
-          streamlining processes and making daily tasks easier.
+          websites that solve real-world problems.
         </Text>
-        <Text>
-          My journey into web development began with a simple goal: build a tool
-          to gain an advantage in a game I loved. But what started as a
-          curiosity quickly evolved into a passion for solving complex problems
-          through code. The challenge of tackling a problem, finding a solution,
-          and seeing it come to life on the web truly captivates me.
-        </Text>
-        <ImageGrid className="my-0 mt-10" />
-      </section>
+        <div className="mt-4 space-x-4">
+          <PillButton asChild>
+            <Link
+              href="https://github.com/chof64"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                className="mr-1.5"
+                src="/logo/github.svg"
+                width={18}
+                height={18}
+                alt="GitHub"
+              />
+              chof64
+              <ExternalLinkIcon className="ml-1.5 h-3.5 w-3.5 stroke-neutral-300" />
+            </Link>
+          </PillButton>
+        </div>
+        <HomeImageGrid className="my-0 mt-12" />
+      </div>
 
-      <section className="my-24">
-        <Heading style={2}>
-          My Selected <span className="text-accent-foreground">Projects</span>.
+      <div className="mt-12">
+        <Heading type={2} variant={4}>
+          Projects
         </Heading>
-        <Text>
-          You&apos;ll often find me coding during my free time—whether it&apos;s
-          in between classes or late at night. Here are some of the projects
-          that I work on that you might be interested in.
-        </Text>
-        <ProjectShowcase className="mt-12" />
-      </section>
+        <div className="mt-4 grid gap-2 md:grid-cols-2">
+          <HomeProjectCard />
+        </div>
+      </div>
 
-      <section className="mt-24">
-        <Heading style={2}>
-          My <span className="text-accent-foreground">Awards</span> and
-          Participations.
+      <div className="mt-12">
+        <Heading type={2} variant={4}>
+          Participations
         </Heading>
-        <Text>
-          Beyond coding, I&apos;m deeply committed to volunteering and
-          leadership. I&apos;ve enjoyed organizing and leading events that give
-          hands-on experiences and opportunities to connect with like-minded
-          peers.
-        </Text>
-        <ParticipationShowcase className="mt-12" />
-      </section>
+        <div className="mt-4 space-y-2">
+          <HomeParticipationCard />
+        </div>
+      </div>
 
-      <section className="my-24">
-        <Heading style={2}>
-          My <span className="text-accent-foreground">Technology</span> Stack.
-        </Heading>
-        <Text>
-          Explore the tools and technologies that power my work. From frameworks
-          and libraries to essential tools and applications, these are the
-          technologies I&apos;ve mastered, currently use or am actively
-          learning.
-        </Text>
-        <TechIcons className="mt-12" />
-      </section>
-
-      <section className="my-24">
-        <Heading style={1}>
+      <div className="mt-12">
+        <Heading type={2} variant={4}>
           Let&apos;s <span className="text-accent-foreground">build</span>{" "}
           something great{" "}
           <span className="text-accent-foreground">together</span>.
@@ -95,15 +87,17 @@ export default async function Home() {
           always up for a chat! Let&apos;s build, design, and learn together.
         </Text>
         <div className="mt-6">
-          <Link
-            className="transition-colors-default font-medium text-muted-foreground hover:text-accent-foreground"
-            href="mailto:contact@chadfernandez.me"
-          >
-            <ArrowUpRightIcon className="mb-0.5 mr-1 inline-block h-5 w-5" />
-            Send me a message
-          </Link>
+          <PillButton asChild>
+            <Link
+              className="transition-colors-default font-medium text-muted-foreground hover:text-accent-foreground"
+              href="mailto:contact@chadfernandez.me"
+            >
+              <ArrowUpRightIcon className="mb-0.5 mr-1 inline-block h-5 w-5" />
+              Send me a message
+            </Link>
+          </PillButton>
         </div>
-      </section>
+      </div>
     </div>
   );
 }

@@ -5,7 +5,7 @@ import Image from "next/image";
 import { cn } from "~/lib/utils";
 import { staticImageLoader } from "~/lib/staticImageLoader";
 
-export default function ImageGrid({ className }: { className?: string }) {
+export default function HomeImageGrid({ className }: { className?: string }) {
   return (
     <div
       className={cn(
