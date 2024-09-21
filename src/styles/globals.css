@@ -6,8 +6,8 @@
   :root {
     /* https://coolors.co/f7f7f2-0f0f0f-297373-ff8552 */
 
-    --background: 60 24% 96%; /* Baby Powder */
-    --foreground: 0 0% 6%; /* Night */
+    --background: 220 14% 96%; /* Gray 100 */
+    --foreground: 0 0% 9%; /* Neutral 950 */
 
     --card: 0 0% 100%;
     --card-foreground: 224 71.4% 4.1%;
@@ -24,7 +24,7 @@
     --muted: 220 14.3% 95.9%;
     --muted-foreground: 0 0% 32%; /* Zinc 600 */
 
-    --accent: 60 24% 96%; /* Baby Powder */
+    --accent: 6220 14% 96%; /* Gray 100 */
     --accent-foreground: 192, 91%, 36%; /* Cyan 600 */
 
     --destructive: 0 84.2% 60.2%;

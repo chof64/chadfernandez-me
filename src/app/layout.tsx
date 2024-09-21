@@ -70,7 +70,7 @@ export default function RootLayout({
         averiaSerifLibre.variable,
       )}
     >
-      <body className="dark:bg-neutral-950">
+      <body>
         <TRPCReactProvider>
           <Header />
           <main>{children}</main>
