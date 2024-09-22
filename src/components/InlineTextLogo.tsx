@@ -27,7 +27,7 @@ export default function InlineTextLogo({
         src={image}
         height={20}
         width={20}
-        alt=""
+        alt={"Inline Dynamic Logo"}
       />
       {children}
     </Root>

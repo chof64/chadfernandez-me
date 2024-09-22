@@ -1,33 +1,50 @@
 import React from "react";
 import { cn } from "~/lib/utils";
 import { cva, type VariantProps } from "class-variance-authority";
+import { Slot } from "@radix-ui/react-slot";
 
 const textStyles = cva("", {
   variants: {
-    type: {
+    variant: {
+      lead: "text-xl text-muted-foreground",
+      large: "text-lg font-semibold",
       p: "leading-7 [&:not(:first-child)]:mt-6",
+      small: "text-sm font-medium leading-none",
+      muted: "text-sm text-muted-foreground",
     },
     font: {
       sans: "font-sans",
       serif: "font-serif",
     },
   },
+  defaultVariants: {
+    variant: "p",
+    font: "sans",
+  },
 });
 
 interface TextProps extends VariantProps<typeof textStyles> {
   children: React.ReactNode;
   className?: string;
+  asChild?: boolean;
 }
 
-export default function Text({
+const Text = ({
   children,
   className,
-  type = "p",
+  variant = "p",
   font = "sans",
-}: TextProps) {
-  const Tag = type as keyof JSX.IntrinsicElements;
+  asChild = false,
+  ...props
+}: TextProps) => {
+  const Comp = asChild ? Slot : "p";
 
   return (
-    <Tag className={cn(textStyles({ type, font, className }))}>{children}</Tag>
+    <Comp className={cn(textStyles({ variant, font, className }))} {...props}>
+      {children}
+    </Comp>
   );
-}
+};
+Text.displayName = "Text";
+
+export { Text, textStyles };
