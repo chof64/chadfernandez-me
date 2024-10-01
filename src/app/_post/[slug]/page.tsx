@@ -1,7 +1,6 @@
 import Link from "next/link";
 import React from "react";
 
-import { api } from "~/trpc/server";
 import { formatDate } from "~/lib/post/formatDate";
 
 export default async function Post({ params }: { params: { slug: string } }) {

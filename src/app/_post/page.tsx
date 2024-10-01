@@ -2,7 +2,6 @@ import Link from "next/link";
 import React from "react";
 
 import { formatDate } from "~/lib/post/formatDate";
-import { api } from "~/trpc/server";
 
 export default async function PostsList() {
   // const posts = await api.post.getAll();
