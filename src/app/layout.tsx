@@ -5,7 +5,6 @@ import { Averia_Serif_Libre, Noto_Serif } from "next/font/google";
 
 import { env } from "~/env";
 import { cn } from "~/lib/utils";
-import { TRPCReactProvider } from "~/trpc/react";
 
 import Header from "~/components/header/Header";
 
@@ -71,10 +70,8 @@ export default function RootLayout({
       )}
     >
       <body>
-        <TRPCReactProvider>
-          <Header />
-          <main>{children}</main>
-        </TRPCReactProvider>
+        <Header />
+        <main>{children}</main>
       </body>
     </html>
   );
