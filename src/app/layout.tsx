@@ -1,25 +1,14 @@
 import "~/styles/globals.css";
-
-import { GeistSans } from "geist/font/sans";
-import { Averia_Serif_Libre, Noto_Serif } from "next/font/google";
+import { Figtree } from "next/font/google";
 
 import { env } from "~/env";
 import { cn } from "~/lib/utils";
 
-import Header from "~/components/header/Header";
-
-const notoSerif = Noto_Serif({
+const figtree = Figtree({
   weight: "variable",
   display: "swap",
   subsets: ["latin"],
-  variable: "--font-noto-serif",
-});
-
-const averiaSerifLibre = Averia_Serif_Libre({
-  weight: ["400", "700"],
-  display: "swap",
-  subsets: ["latin"],
-  variable: "--font-averia-serif-libre",
+  variable: "--font-figtree",
 });
 
 export const metadata = {
@@ -60,17 +49,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      className={cn(
-        "font-sans",
-        GeistSans.variable,
-        notoSerif.variable,
-        averiaSerifLibre.variable,
-      )}
-    >
+    <html lang="en" className={cn("font-sans", figtree.variable)}>
       <body>
-        <Header />
         <main>{children}</main>
       </body>
     </html>
