@@ -25,10 +25,10 @@ const averiaSerifLibre = Averia_Serif_Libre({
 export const metadata = {
   title: { template: "%s", default: "Chad Fernandez" },
   description: "A student and a web developer from the Philippines.",
-  metadataBase: new URL(env.NEXT_PUBLIC_BASE_URL),
+  metadataBase: new URL(env.BASE_URL),
   openGraph: {
     siteName: "Chad Fernandez",
-    url: env.NEXT_PUBLIC_BASE_URL,
+    url: env.BASE_URL,
     locale: "en_US",
     type: "website",
     images: [
