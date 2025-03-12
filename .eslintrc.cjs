@@ -3,9 +3,7 @@ const config = {
   parser: "@typescript-eslint/parser",
   parserOptions: {
     project: true,
-    ecmaVersion: 2024,
   },
-  // @ts-expect-error find what the new types of this on @types/eslint@9.6.1
   plugins: ["@typescript-eslint"],
   extends: [
     "next/core-web-vitals",
