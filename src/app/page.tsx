@@ -1,103 +1,65 @@
-import Link from "next/link";
-import { Heading } from "~/components/minimal/Heading";
-import { Text } from "~/components/minimal/Text";
-import { PillButton } from "~/components/minimal/PillButton";
+import React from "react";
 import Image from "next/image";
-import { ArrowUpRightIcon, ExternalLinkIcon } from "lucide-react";
-import HomeProjectCard from "~/components/HomeProjectCard";
-import HomeParticipationCard from "~/components/HomeParticipationCard";
+import Link from "next/link";
 
-import InlineTextLogo from "~/components/InlineTextLogo";
-import HomeImageGrid from "~/components/HomeImageGrid";
+import HomeEngagements from "./HomeEngagements";
 
-export default function Home() {
+export default function PageIndex() {
   return (
     <div className="container my-16 max-w-2xl">
-      <div className="mt-32">
-        <Heading
-          className="text-balance leading-tight"
-          type={2}
-          spacing={"default"}
-        >
-          Driven by a love for{" "}
-          <span className="text-accent-foreground">technology</span> and a
-          mission to build{" "}
-          <span className="text-accent-foreground">web apps</span> that matter.
-        </Heading>
-      </div>
-      <div className="mt-16">
-        <Text>
-          Hey, I&apos;m Chad👋 &mdash; a passionate web developer and
-          Information Technology student at the{" "}
-          <InlineTextLogo image="/logo/university-of-antique.png">
-            University of Antique
-          </InlineTextLogo>
-          . My love for coding drives me to create functional, minimalistic
-          websites that solve real-world problems.
-        </Text>
-        <div className="mt-4 space-x-4">
-          <PillButton asChild>
-            <Link
-              href="https://github.com/chof64"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Image
-                className="mr-1.5"
-                src="/logo/github.svg"
-                width={18}
-                height={18}
-                alt="GitHub"
-              />
-              chof64
-              <ExternalLinkIcon className="ml-1.5 h-3.5 w-3.5 stroke-neutral-300" />
-            </Link>
-          </PillButton>
+      <section className="mt-40 w-full">
+        <div className="relative h-60 w-48">
+          <Image
+            className="rounded-xl object-cover"
+            src="/imagegrid/hack4gov3-travel.jpeg"
+            fill
+            alt="Portrait"
+          />
         </div>
-        <HomeImageGrid className="my-0 mt-12" />
-      </div>
-
-      <div className="mt-12">
-        <Heading type={2} variant={4}>
-          Projects
-        </Heading>
-        <div className="mt-4 grid gap-2 md:grid-cols-2">
-          <HomeProjectCard />
-        </div>
-      </div>
-
-      <div className="mt-12">
-        <Heading type={2} variant={4}>
-          Participations
-        </Heading>
-        <div className="mt-4 space-y-2">
-          <HomeParticipationCard />
-        </div>
-      </div>
-
-      <div className="mt-12">
-        <Heading type={2} variant={4}>
-          Let&apos;s <span className="text-accent-foreground">build</span>{" "}
-          something great{" "}
-          <span className="text-accent-foreground">together</span>.
-        </Heading>
-        <Text>
+        <h1 className="mt-8 text-2xl font-semibold">
+          I&apos;m Chad Fernandez &mdash; web developer
+        </h1>
+        <p className="text-muted-foreground/60 mt-2 text-2xl font-semibold text-balance">
+          building web applications that make a difference in the community
+        </p>
+      </section>
+      <section className="mt-24">
+        <h2 className="text-sm font-semibold tracking-tight">About Me</h2>
+        <p className="mt-6 leading-7">
+          Driven by a love for technology and a mission to build web apps that
+          matter. My passion for coding drives me to create functional,
+          minimalistic websites that solve real-world problems.
+        </p>
+        <p className="mt-6 leading-7">
+          I&apos;m a student studying Information Technology and on a journey of
+          learning and growing as a web developer.
+        </p>
+      </section>
+      <HomeEngagements />
+      <section className="mt-24">
+        <h2 className="text-sm font-semibold tracking-tight">Contacts</h2>
+        <p className="mt-6 leading-7">
           If you&apos;re like me and enjoy exploring the fascinating world of
           technology, let&apos;s connect. Feel free to reach out - I&apos;m
           always up for a chat! Let&apos;s build, design, and learn together.
-        </Text>
-        <div className="mt-6">
-          <PillButton asChild>
-            <Link
-              className="transition-colors-default font-medium text-muted-foreground hover:text-accent-foreground"
-              href="mailto:contact@chadfernandez.me"
-            >
-              <ArrowUpRightIcon className="mb-0.5 mr-1 inline-block h-5 w-5" />
-              Send me a message
-            </Link>
-          </PillButton>
-        </div>
-      </div>
+        </p>
+        <p className="mt-6">
+          <Link
+            className="text-muted-foreground hover:text-primary font-medium underline transition-colors duration-300 ease-in-out"
+            href="mailto:contact@chadfernandez.me"
+          >
+            contact@chadfernandez.me
+          </Link>
+        </p>
+        <p>
+          <Link
+            className="text-muted-foreground hover:text-primary font-medium underline transition-colors duration-300 ease-in-out"
+            href="https://github.com/chof64"
+          >
+            github.com/chof64
+          </Link>
+        </p>
+      </section>
     </div>
   );
 }
