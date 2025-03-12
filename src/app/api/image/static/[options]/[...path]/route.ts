@@ -1,13 +1,15 @@
-import sharp from "sharp";
 import fs from "fs";
 import path from "path";
+import sharp from "sharp";
 
 export async function GET(
   req: Request,
-  { params }: { params: { options: string; path: string[] } },
+  { params }: { params: Promise<{ options: string; path: string[] }> },
 ) {
-  const imagePath = path.join(process.cwd(), "public", ...params.path);
-  const [width, quality] = params.options.split("q").map(Number);
+  const asyncParams = await params;
+
+  const imagePath = path.join(process.cwd(), "public", ...asyncParams.path);
+  const [width, quality] = asyncParams.options.split("q").map(Number);
 
   try {
     const imageBuffer = fs.readFileSync(imagePath);
@@ -23,6 +25,7 @@ export async function GET(
       },
     });
   } catch (error) {
+    console.error(error);
     return new Response("Image not found", { status: 404 });
   }
 }
