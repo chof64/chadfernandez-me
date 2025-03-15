@@ -1,8 +1,9 @@
 import "~/styles/globals.css";
+
+import { type Metadata } from "next";
 import { Figtree } from "next/font/google";
 
 import { env } from "~/env";
-import { cn } from "~/lib/utils";
 
 const figtree = Figtree({
   weight: "variable",
@@ -11,9 +12,11 @@ const figtree = Figtree({
   variable: "--font-figtree",
 });
 
-export const metadata = {
-  title: { template: "%s", default: "Chad Fernandez" },
-  description: "A student and a web developer from the Philippines.",
+export const metadata: Metadata = {
+  title: "Chad Fernandez",
+  description:
+    "A web developer building web applications that make a difference in the community.",
+  icons: [{ rel: "icon", url: "/favicon.ico" }],
   metadataBase: new URL(env.BASE_URL),
   openGraph: {
     siteName: "Chad Fernandez",
@@ -45,9 +48,7 @@ export const metadata = {
 
 export default function RootLayout({
   children,
-}: {
-  children: React.ReactNode;
-}) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${figtree.variable}`}>
       <body>
