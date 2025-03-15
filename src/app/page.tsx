@@ -8,14 +8,13 @@ export default function PageIndex() {
   return (
     <div className="container my-16 max-w-2xl">
       <section className="mt-40 w-full">
-        <div className="relative h-60 w-48">
-          <Image
-            className="rounded-xl object-cover"
-            src="/imagegrid/hack4gov3-travel.jpeg"
-            fill
-            alt="Portrait"
-          />
-        </div>
+        <Image
+          className="h-60 w-48 rounded-xl object-cover"
+          src="/hero-portrait.jpeg"
+          width={192}
+          height={240}
+          alt="Portrait"
+        />
         <h1 className="mt-8 text-2xl font-semibold">
           I&apos;m Chad Fernandez &mdash; web developer
         </h1>
