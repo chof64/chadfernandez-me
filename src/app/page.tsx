@@ -14,6 +14,7 @@ export default function PageIndex() {
           width={192}
           height={240}
           alt="Portrait"
+          priority
         />
         <h1 className="mt-8 text-2xl font-semibold">
           I&apos;m Chad Fernandez &mdash; web developer
