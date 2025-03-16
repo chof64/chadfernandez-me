@@ -1,0 +1,10 @@
+@theme inline {
+  --default-font-family: var(--font-sans);
+  --font-sans: var(--font-figtree), system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+@utility container {
+  @apply mx-auto max-w-screen-xl px-4;
+}
