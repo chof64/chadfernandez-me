@@ -49,7 +49,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       )}
 
       <div
-        className="prose prose-lg mt-16 max-w-none"
+        className="prose mt-16 max-w-none"
         dangerouslySetInnerHTML={{ __html: post.content.html }}
       />
     </div>
