@@ -1,10 +1,54 @@
 @theme inline {
   --default-font-family: var(--font-sans);
-  --font-sans: var(--font-figtree), system-ui, -apple-system, BlinkMacSystemFont,
+  --font-sans:
+    var(--font-figtree), system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
+/*? GENERAL STYLES */
+
 @utility container {
   @apply mx-auto max-w-screen-xl px-4;
+}
+
+/*! Typographic styles */
+
+@utility typo-header {
+  @apply scroll-m-20 tracking-tight;
+  @apply text-sm font-semibold;
+}
+
+@utility typo-h1 {
+  @apply scroll-m-20 tracking-tight;
+  @apply text-4xl font-bold;
+}
+
+@utility typo-h2 {
+  @apply scroll-m-20 tracking-tight;
+  @apply text-3xl font-bold;
+}
+
+@utility typo-h3 {
+  @apply scroll-m-20 tracking-tight;
+  @apply text-2xl font-semibold;
+}
+
+@utility typo-h4 {
+  @apply scroll-m-20 tracking-tight;
+  @apply text-xl font-medium;
+}
+
+@utility typo-h5 {
+  @apply scroll-m-20 tracking-normal;
+  @apply text-lg font-medium;
+}
+
+@utility typo-h6 {
+  @apply scroll-m-20 tracking-normal;
+  @apply text-base font-normal;
+}
+
+@utility typo-p {
+  @apply leading-7 [&:not(:first-child)]:mt-6;
 }
