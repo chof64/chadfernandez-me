@@ -3,6 +3,7 @@ import "~/styles/globals.css";
 import { type Metadata } from "next";
 import { Figtree } from "next/font/google";
 
+import { Header } from "~/components/Header";
 import { env } from "~/env";
 
 const figtree = Figtree({
@@ -52,6 +53,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${figtree.variable}`}>
       <body>
+        <Header />
         <main>{children}</main>
       </body>
     </html>
