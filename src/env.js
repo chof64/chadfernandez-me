@@ -16,6 +16,8 @@ export const env = createEnv({
       process.env.NODE_ENV === "production"
         ? z.string().url()
         : z.string().url().default("http://localhost:3000"),
+
+    HASHNODE_PUBLICATION_ID: z.string(),
   },
   /**
    * Specify your client-side environment variables schema here. This way you can ensure the app
@@ -31,6 +33,8 @@ export const env = createEnv({
     NODE_ENV: process.env.NODE_ENV,
 
     BASE_URL: process.env.BASE_URL,
+
+    HASHNODE_PUBLICATION_ID: process.env.HASHNODE_PUBLICATION_ID,
   },
   /**
    * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially
