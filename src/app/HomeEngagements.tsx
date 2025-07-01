@@ -40,15 +40,15 @@ export default function HomeEngagements() {
 
   return (
     <section className="mt-24">
-      <h2 className="text-sm font-semibold tracking-tight">Engagements</h2>
+      <h2 className="font-semibold text-sm tracking-tight">Engagements</h2>
       <div className="mt-6 divide-y">
         {engagements.map((engagement) => (
           <div
             key={engagement.title}
             className="[&:not(:first-child)]:pt-8 [&:not(:last-child)]:pb-8"
           >
-            <h3 className="text-lg font-semibold">{engagement.title}</h3>
-            <p className="text-muted-foreground/60 space-x-4 text-sm">
+            <h3 className="font-semibold text-lg">{engagement.title}</h3>
+            <p className="space-x-4 text-muted-foreground/60 text-sm">
               <span>{engagement.date}</span>
               <span>{engagement.subtitle}</span>
             </p>

@@ -1,5 +1,5 @@
-import React from "react";
 import Link from "next/link";
+import React from "react";
 
 import { fetchBlogPosts } from "~/lib/hashnode/fetchBlogPosts";
 import { dateFormatter } from "~/lib/hashnode/utils";
@@ -19,12 +19,12 @@ export default async function Blog() {
           posts.map((post) => (
             <div key={post.slug}>
               <Link href={`/blog/${post.slug}`}>
-                <p className="text-muted-foreground space-x-4 text-sm">
+                <p className="space-x-4 text-muted-foreground text-sm">
                   <span>{dateFormatter(post.publishedAt)}</span>
                   <span>{post.readTimeInMinutes} min read</span>
                 </p>
                 <div className="group py-2">
-                  <h2 className="typo-h5 group-hover:text-primary/70 line-clamp-1 font-semibold">
+                  <h2 className="typo-h5 line-clamp-1 font-semibold group-hover:text-primary/70">
                     {post.title}
                   </h2>
                   <p className="mt-2 line-clamp-2">{post.brief}</p>
