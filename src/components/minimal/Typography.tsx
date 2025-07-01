@@ -1,5 +1,5 @@
-import React from "react";
-import { cva, type VariantProps } from "class-variance-authority";
+import { type VariantProps, cva } from "class-variance-authority";
+import type React from "react";
 
 import { cn } from "~/lib/utils";
 
@@ -11,10 +11,10 @@ const titleStyles = cva("scroll-m-20", {
   variants: {
     variant: {
       0: "",
-      1: "text-4xl font-extrabold lg:text-5xl",
-      2: "text-3xl font-semibold",
-      3: "text-2xl font-semibold",
-      4: "text-xl font-semibold",
+      1: "font-extrabold text-4xl lg:text-5xl",
+      2: "font-semibold text-3xl",
+      3: "font-semibold text-2xl",
+      4: "font-semibold text-xl",
     },
     spacing: {
       default: "tracking-tight",
@@ -59,7 +59,7 @@ export const Title = ({
 const textStyles = cva("", {
   variants: {
     variant: {
-      default: "leading-7 not-first:mt-6",
+      default: "not-first:mt-6 leading-7",
       sm: "",
     },
   },
