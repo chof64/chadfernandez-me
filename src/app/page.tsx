@@ -1,6 +1,6 @@
-import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import React from "react";
 
 import HomeEngagements from "./HomeEngagements";
 
@@ -16,15 +16,15 @@ export default function PageIndex() {
           alt="Portrait"
           priority
         />
-        <h1 className="mt-8 text-2xl font-semibold">
+        <h1 className="mt-8 font-semibold text-2xl">
           I&apos;m Chad Fernandez &mdash; web developer
         </h1>
-        <p className="text-muted-foreground/60 mt-2 text-2xl font-semibold text-balance">
+        <p className="mt-2 text-balance font-semibold text-2xl text-muted-foreground/60">
           building web applications that make a difference in the community
         </p>
       </section>
       <section className="mt-24">
-        <h2 className="text-sm font-semibold tracking-tight">About Me</h2>
+        <h2 className="font-semibold text-sm tracking-tight">About Me</h2>
         <p className="mt-6 leading-7">
           Driven by a love for technology and a mission to build web apps that
           matter. My passion for coding drives me to create functional,
@@ -37,7 +37,7 @@ export default function PageIndex() {
       </section>
       <HomeEngagements />
       <section className="mt-24">
-        <h2 className="text-sm font-semibold tracking-tight">Contacts</h2>
+        <h2 className="font-semibold text-sm tracking-tight">Contacts</h2>
         <p className="mt-6 leading-7">
           If you&apos;re like me and enjoy exploring the fascinating world of
           technology, let&apos;s connect. Feel free to reach out - I&apos;m
@@ -45,7 +45,7 @@ export default function PageIndex() {
         </p>
         <p className="mt-6">
           <Link
-            className="text-muted-foreground hover:text-primary font-medium underline transition-colors duration-300 ease-in-out"
+            className="font-medium text-muted-foreground underline transition-colors duration-300 ease-in-out hover:text-primary"
             href="mailto:contact@chadfernandez.me"
           >
             contact@chadfernandez.me
@@ -53,7 +53,7 @@ export default function PageIndex() {
         </p>
         <p>
           <Link
-            className="text-muted-foreground hover:text-primary font-medium underline transition-colors duration-300 ease-in-out"
+            className="font-medium text-muted-foreground underline transition-colors duration-300 ease-in-out hover:text-primary"
             href="https://github.com/chof64"
           >
             github.com/chof64

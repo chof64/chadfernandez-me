@@ -1,6 +1,6 @@
 import "~/styles/globals.css";
 
-import { type Metadata } from "next";
+import type { Metadata } from "next";
 import { Figtree } from "next/font/google";
 
 import { Header } from "~/components/Header";
