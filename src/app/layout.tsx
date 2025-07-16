@@ -1,57 +1,54 @@
-import "~/styles/globals.css";
-
-import type { Metadata } from "next";
-import { Figtree } from "next/font/google";
-
-import { Header } from "~/components/Header";
-import { env } from "~/env";
-
-const figtree = Figtree({
-  weight: "variable",
-  display: "swap",
-  subsets: ["latin"],
-  variable: "--font-figtree",
-});
+import '~/styles/globals.css';
+import type { Metadata } from 'next';
+import { Mona_Sans } from 'next/font/google';
+import Header from '~/components/header';
+import { env } from '~/env';
 
 export const metadata: Metadata = {
-  title: "Chad Fernandez",
+  title: 'Chad Fernandez',
   description:
-    "A web developer building web applications that make a difference in the community.",
-  icons: [{ rel: "icon", url: "/favicon.ico" }],
+    'I am a software engineer driven by the love for technology and a mission to build apps that make a difference in the community.',
+  icons: [{ rel: 'icon', url: '/favicon.ico' }],
   metadataBase: new URL(env.BASE_URL),
   openGraph: {
-    siteName: "Chad Fernandez",
+    siteName: 'Chad Fernandez',
     url: env.BASE_URL,
-    locale: "en_US",
-    type: "website",
+    locale: 'en_US',
+    type: 'website',
     images: [
       {
-        url: "/opengraph-image.png",
+        url: '/opengraph-image.png',
         width: 1200,
         height: 630,
-        alt: "Chad Fernandez",
+        alt: 'Chad Fernandez',
       },
     ],
   },
   twitter: {
-    card: "summary_large_image",
-    title: "Chad Fernandez",
+    card: 'summary_large_image',
+    title: 'Chad Fernandez',
     images: [
       {
-        url: "/twitter-image.png",
+        url: '/twitter-image.png',
         width: 1200,
         height: 630,
-        alt: "Chad Fernandez",
+        alt: 'Chad Fernandez',
       },
     ],
   },
 };
 
+const monaSans = Mona_Sans({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-mona-sans',
+});
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${figtree.variable}`}>
+    <html className={`${monaSans.variable}`} lang="en">
       <body>
         <Header />
         <main>{children}</main>

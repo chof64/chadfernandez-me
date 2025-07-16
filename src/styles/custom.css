@@ -1,0 +1,52 @@
+@theme {
+  --font-sans: -apple-system, var(--font-mona-sans), ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-serif: "Georgia", ui-serif, serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+@layer base {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--border)) transparent;
+  }
+
+  /* Custom scrollbar styling. Thanks @pranathiperii. */
+  /* From github.com/shadcn-ui/ui */
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 5px;
+  }
+}
+
+/* Utility to center the container in the middle of the page and add padding */
+/* Inspired by github.com/shadcn-ui/ui */
+@utility container {
+  @apply mx-auto max-w-7xl px-8;
+}
+
+/* Used to extend the touch target for mobile devices */
+/* From github.com/shadcn-ui/ui */
+@utility extend-touch-target {
+  @media (pointer: coarse) {
+    @apply relative touch-manipulation after:absolute after:-inset-2;
+  }
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+/* From github.com/shadcn-ui/ui */
+@utility no-scrollbar {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
