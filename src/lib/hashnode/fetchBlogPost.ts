@@ -1,4 +1,4 @@
-import { fetcher } from "./fetcher";
+import { fetcher } from './fetcher';
 
 interface HashnodePostNode {
   slug: string;
@@ -31,11 +31,10 @@ interface HashnodeResponse {
 
 export const fetchBlogPost = async (
   slug: string,
+  revalidate = 60
 ): Promise<HashnodePostNode | null> => {
-  const randomString = Math.random().toString(36).substring(2, 15);
-
   const query = `
-    query FetchBlogPost${randomString}($slug: String!, $publicationId: ObjectId!) {
+    query FetchBlogPost($slug: String!, $publicationId: ObjectId!) {
       publication(id: $publicationId) {
         post(slug: $slug) {
           slug
@@ -67,10 +66,10 @@ export const fetchBlogPost = async (
     const data = await fetcher<HashnodeResponse>({
       query,
       variables: { slug },
+      revalidate,
     });
     return data.publication.post;
-  } catch (error) {
-    console.error(`Error fetching blog post with slug ${slug}:`, error);
+  } catch {
     return null;
   }
 };
