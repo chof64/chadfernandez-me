@@ -1,13 +1,13 @@
-import type { MetadataRoute } from "next";
+import type { MetadataRoute } from 'next';
 
-import { env } from "~/env";
+import { env } from '~/env';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url: env.BASE_URL,
       lastModified: new Date(),
-      changeFrequency: "monthly",
+      changeFrequency: 'monthly',
       priority: 1,
     },
   ];

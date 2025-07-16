@@ -1,5 +1,5 @@
-import { createEnv } from "@t3-oss/env-nextjs";
-import { z } from "zod";
+import { createEnv } from '@t3-oss/env-nextjs';
+import { z } from 'zod';
 
 export const env = createEnv({
   /**
@@ -8,14 +8,12 @@ export const env = createEnv({
    */
   server: {
     NODE_ENV: z
-      .enum(["development", "test", "production"])
-      .default("development"),
-
+      .enum(['development', 'test', 'production'])
+      .default('development'),
     BASE_URL:
-      process.env.NODE_ENV === "production"
+      process.env.NODE_ENV === 'production'
         ? z.string().url()
-        : z.string().url().default("http://localhost:3000"),
-
+        : z.string().url().default('http://localhost:3000'),
     HASHNODE_PUBLICATION_ID: z.string(),
   },
 
@@ -34,9 +32,7 @@ export const env = createEnv({
    */
   runtimeEnv: {
     NODE_ENV: process.env.NODE_ENV,
-
     BASE_URL: process.env.BASE_URL,
-
     HASHNODE_PUBLICATION_ID: process.env.HASHNODE_PUBLICATION_ID,
   },
   /**
