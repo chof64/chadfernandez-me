@@ -1,5 +1,4 @@
-import { fetcher } from "./fetcher";
-import { cacheBuster } from "./utils";
+import { fetcher } from './fetcher';
 
 interface HashnodePostNode {
   slug: string;
@@ -29,9 +28,11 @@ interface HashnodeResponse {
   };
 }
 
-export const fetchBlogPosts = async (): Promise<HashnodePostNode[]> => {
+export const fetchBlogPosts = async (
+  revalidate = 60
+): Promise<HashnodePostNode[]> => {
   const query = `
-    query FetchBlogPost${cacheBuster()}($publicationId: ObjectId!) {
+    query FetchBlogPosts($publicationId: ObjectId!) {
       publication(id: $publicationId) {
         posts(first: 10) {
           edges {
@@ -61,10 +62,9 @@ export const fetchBlogPosts = async (): Promise<HashnodePostNode[]> => {
   `;
 
   try {
-    const data = await fetcher<HashnodeResponse>({ query });
+    const data = await fetcher<HashnodeResponse>({ query, revalidate });
     return data.publication.posts.edges.map(({ node }) => node);
-  } catch (error) {
-    console.error("Error fetching blog posts:", error);
+  } catch {
     return [];
   }
 };
