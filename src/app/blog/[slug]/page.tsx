@@ -29,14 +29,16 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         <ArrowLeftIcon className="mr-2 size-4" /> Back to all posts
       </Link>
 
-      <h1 className="mt-2 mb-4 font-bold text-3xl sm:text-4xl">{post.title}</h1>
-      <p className="space-x-4 text-muted-foreground text-sm">
+      <h1 className="mt-2 font-semibold text-3xl tracking-tight">
+        {post.title}
+      </h1>
+      <p className="mt-4 space-x-4 text-muted-foreground text-sm">
         <span>{dateFormatter(post.publishedAt)}</span>
         <span>{post.readTimeInMinutes} min read</span>
       </p>
 
       {post.coverImage && (
-        <div className="relative mb-8 aspect-video w-full overflow-hidden rounded-lg">
+        <div className="relative mt-8 mb-6 aspect-video w-full overflow-hidden rounded-lg">
           <Image
             alt={post.title}
             className="object-cover"
@@ -48,7 +50,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       )}
 
       <div
-        className="prose prose-lg mt-16 max-w-none font-serif prose-headings:font-sans"
+        className="prose mt-16 max-w-none font-serif prose-headings:font-sans"
         // biome-ignore lint/security/noDangerouslySetInnerHtml: this is intended to render the HTML content
         dangerouslySetInnerHTML={{ __html: post.content.html }}
       />
