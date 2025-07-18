@@ -14,7 +14,7 @@ interface BlogPostPageProps {
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = await params;
-  const post = await fetchBlogPost(slug);
+  const post = await fetchBlogPost(slug, { forceRefresh: true });
 
   if (!post) {
     notFound();

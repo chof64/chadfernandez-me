@@ -4,7 +4,7 @@ import { fetchBlogPosts } from '~/lib/hashnode/fetchBlogPosts';
 import { dateFormatter } from '~/lib/hashnode/utils';
 
 export default async function Blog() {
-  const posts = await fetchBlogPosts();
+  const posts = await fetchBlogPosts({ forceRefresh: true });
 
   return (
     <div className="container my-16 max-w-xl">
