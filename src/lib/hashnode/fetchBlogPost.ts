@@ -31,10 +31,17 @@ interface HashnodeResponse {
 
 export const fetchBlogPost = async (
   slug: string,
-  revalidate = 60
+  {
+    revalidate = 60,
+    forceRefresh = false,
+  }: {
+    revalidate?: number;
+    forceRefresh?: boolean;
+  } = {}
 ): Promise<HashnodePostNode | null> => {
+  const cacheBust = forceRefresh ? `_${Date.now()}` : '';
   const query = `
-    query FetchBlogPost($slug: String!, $publicationId: ObjectId!) {
+    query FetchBlogPost${cacheBust}($slug: String!, $publicationId: ObjectId!) {
       publication(id: $publicationId) {
         post(slug: $slug) {
           slug
@@ -66,7 +73,7 @@ export const fetchBlogPost = async (
     const data = await fetcher<HashnodeResponse>({
       query,
       variables: { slug },
-      revalidate,
+      revalidate: forceRefresh ? 0 : revalidate,
     });
     return data.publication.post;
   } catch {

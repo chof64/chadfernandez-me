@@ -4,7 +4,7 @@ import { fetchBlogPosts } from '~/lib/hashnode/fetchBlogPosts';
 import { dateFormatter } from '~/lib/hashnode/utils';
 
 export default async function Blog() {
-  const posts = await fetchBlogPosts();
+  const posts = await fetchBlogPosts({ forceRefresh: true });
 
   return (
     <div className="container my-16 max-w-xl">
@@ -21,7 +21,9 @@ export default async function Blog() {
               key={post.title}
             >
               <Link href={`/blog/${post.slug}`}>
-                <h3 className="line-clamp-2 font-bold text-xl">{post.title}</h3>
+                <h3 className="line-clamp-2 font-semibold text-xl tracking-tight">
+                  {post.title}
+                </h3>
                 <p className="mt-3 line-clamp-3 font-serif text-muted-foreground/60 text-sm">
                   <span className="font-semibold">
                     {dateFormatter(post.publishedAt)}
