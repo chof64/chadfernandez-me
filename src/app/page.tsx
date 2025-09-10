@@ -1,61 +1,67 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { Button } from '~/components/ui/button';
 import HomeEngagements from './home-engagements';
 import HomeProjects from './home-projects';
 
+export const revalidate = 60;
+
 export default function IndexPage() {
   return (
-    <div className="container my-16 max-w-xl">
-      <section className="mt-32">
+    <div className="container my-16 max-w-2xl">
+      <section className="mt-24 text-center">
         <Image
           alt="Portrait"
-          className="h-24 w-24 rounded-xl object-cover"
-          height={96}
+          className="mx-auto h-28 w-28 rounded-xl object-cover"
+          height={112}
           priority
           src="/hero-portrait.jpeg"
-          width={96}
+          width={112}
         />
-        <h1 className="mt-6 font-semibold text-xl tracking-wide">
-          👋 Hello, I&apos;m Chad Fernandez
+
+        <h1 className="mt-6 font-semibold text-2xl tracking-tight">
+          Chad Fernandez
         </h1>
-        <p className="mt-6 leading-7">
-          I am a software engineer and a student studying BS Information
-          Technology.
-        </p>
-        <p className="mt-6 leading-7">
-          Driven by the love for technology and a mission to build apps that
-          make a difference in the community. My passion for coding drives me to
-          create functional, minimalistic apps that solve real-world problems.
+
+        <p className="mt-4 text-muted-foreground/80 text-sm">
+          Software engineer studying Information Technology. I build simple,
+          useful web apps with clarity and intention.
         </p>
       </section>
-      <HomeEngagements />
-      <HomeProjects />
-      <section className="mt-16">
-        <h2 className="font-semibold text-lg">Contacts</h2>
-        <p className="mt-6 leading-7">
-          If you're like me and enjoy exploring the fascinating world of
-          technology, let's connect. Feel free to reach out - I'm always up for
-          a chat! Let's build, design, and learn together.
-        </p>
-        <div className="mt-6 flex flex-col items-start gap-3">
-          <Button variant={'secondary'}>
-            <Link href="mailto:contact@chadfernandez.me" target="_blank">
+
+      <div className="mt-10">
+        <HomeEngagements />
+        <HomeProjects />
+
+        <section className="mt-10 border-t pt-6">
+          <h2 className="sr-only">Contacts</h2>
+          <p className="text-muted-foreground/80 text-sm">
+            Want to chat? Reach me at{' '}
+            <Link
+              className="font-medium text-muted-foreground/80 text-sm underline-offset-4 hover:underline"
+              href="mailto:contact@chadfernandez.me"
+            >
               contact@chadfernandez.me
             </Link>
-          </Button>
-          <Button variant={'secondary'}>
-            <Link href="https://github.com/chof64" target="_blank">
-              github.com/chof64
+            . Also on{' '}
+            <Link
+              className="font-medium text-muted-foreground/80 text-sm underline-offset-4 hover:underline"
+              href="https://github.com/chof64"
+              target="_blank"
+            >
+              GitHub
+            </Link>{' '}
+            and{' '}
+            <Link
+              className="font-medium text-muted-foreground/80 text-sm underline-offset-4 hover:underline"
+              href="https://www.linkedin.com/in/chof64"
+              target="_blank"
+            >
+              LinkedIn
             </Link>
-          </Button>
-          <Button variant={'secondary'}>
-            <Link href="https://www.linkedin.com/in/chof64" target="_blank">
-              linkedin.com/in/chof64
-            </Link>
-          </Button>
-        </div>
-      </section>
+            .
+          </p>
+        </section>
+      </div>
     </div>
   );
 }
