@@ -1,33 +1,5 @@
 import { fetcher } from './fetcher';
-
-interface HashnodePostNode {
-  slug: string;
-  title: string;
-  tags: {
-    name: string;
-    slug: string;
-  }[];
-  coverImage: {
-    url: string;
-  } | null;
-  brief: string;
-  readTimeInMinutes: number;
-  series: {
-    name: string;
-    slug: string;
-  } | null;
-  content: {
-    html: string;
-  };
-  publishedAt: string;
-  updatedAt: string;
-}
-
-interface HashnodeResponse {
-  publication: {
-    post: HashnodePostNode;
-  };
-}
+import type { HashnodePostNode, HashnodePostNodeResponse } from './types';
 
 export const fetchBlogPost = async (
   slug: string,
@@ -70,7 +42,7 @@ export const fetchBlogPost = async (
   `;
 
   try {
-    const data = await fetcher<HashnodeResponse>({
+    const data = await fetcher<HashnodePostNodeResponse>({
       query,
       variables: { slug },
       revalidate: forceRefresh ? 0 : revalidate,

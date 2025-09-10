@@ -1,32 +1,5 @@
 import { fetcher } from './fetcher';
-
-interface HashnodePostNode {
-  slug: string;
-  title: string;
-  tags: Array<{
-    name: string;
-    slug: string;
-  }>;
-  coverImage: {
-    url: string;
-  } | null;
-  brief: string;
-  readTimeInMinutes: number;
-  series: {
-    name: string;
-    slug: string;
-  } | null;
-  publishedAt: string;
-  updatedAt: string;
-}
-
-interface HashnodeResponse {
-  publication: {
-    posts: {
-      edges: Array<{ node: HashnodePostNode }>;
-    };
-  };
-}
+import type { HashnodePostListResponse, HashnodePostNode } from './types';
 
 export const fetchBlogPosts = async ({
   revalidate = 60,
@@ -67,7 +40,7 @@ export const fetchBlogPosts = async ({
   `;
 
   try {
-    const data = await fetcher<HashnodeResponse>({
+    const data = await fetcher<HashnodePostListResponse>({
       query,
       revalidate: forceRefresh ? 0 : revalidate,
     });
