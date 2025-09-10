@@ -1,38 +1,27 @@
-import Link from 'next/link';
-
+import PostCard from '~/components/post-card';
 import { fetchBlogPosts } from '~/lib/hashnode/fetchPosts';
-import { dateFormatter } from '~/lib/hashnode/utils';
+
+export const revalidate = 60;
 
 export default async function AllPostsPage() {
   const posts = await fetchBlogPosts({ forceRefresh: true });
 
   return (
-    <div className="container my-16 max-w-xl">
+    <div className="container my-16 max-w-2xl">
       <section>
         <h1 className="font-semibold text-xl">Latest Posts</h1>
       </section>
       <section className="mt-16">
         {posts.length === 0 ? (
-          <p className="text-gray-500">No blog posts found. Check back soon!</p>
+          <p className="text-muted-foreground/60">
+            No blog posts found. Check back soon!
+          </p>
         ) : (
-          posts.map((post) => (
-            <div
-              className="border-b pb-4 transition-colors delay-75 duration-150 ease-in-out hover:border-foreground/60 hover:bg-muted/50 [&:not(:first-child)]:pt-6"
-              key={post.title}
-            >
-              <Link href={`/post/${post.slug}`}>
-                <h3 className="line-clamp-2 font-semibold text-xl tracking-tight">
-                  {post.title}
-                </h3>
-                <p className="mt-3 line-clamp-3 text-muted-foreground/60 text-sm">
-                  <span className="font-medium italic">
-                    {dateFormatter(post.publishedAt)}
-                  </span>{' '}
-                  &mdash; {post.brief}
-                </p>
-              </Link>
-            </div>
-          ))
+          <div className="flex flex-col divide-y">
+            {posts.map((post) => (
+              <PostCard key={post.slug} post={post} />
+            ))}
+          </div>
         )}
       </section>
     </div>
