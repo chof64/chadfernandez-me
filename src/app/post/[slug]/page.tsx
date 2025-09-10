@@ -2,9 +2,10 @@ import { ArrowLeftIcon } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-
 import { fetchBlogPost } from '~/lib/hashnode/fetchPost';
 import { dateFormatter } from '~/lib/hashnode/utils';
+
+export const revalidate = 60;
 
 interface BlogPostPageProps {
   params: Promise<{
@@ -21,39 +22,43 @@ export default async function ReadPostPage({ params }: BlogPostPageProps) {
   }
 
   return (
-    <div className="container my-16 max-w-xl">
+    <div className="container my-20 max-w-2xl">
       <Link
-        className="mb-8 inline-flex items-center text-muted-foreground"
+        aria-label="Back to posts"
+        className="mb-6 inline-flex items-center text-muted-foreground text-sm hover:underline"
         href="/post"
       >
-        <ArrowLeftIcon className="mr-2 size-4" /> Back to all posts
+        <ArrowLeftIcon className="mr-2 h-4 w-4" />
+        All posts
       </Link>
 
-      <h1 className="mt-2 font-semibold text-3xl tracking-tight">
-        {post.title}
-      </h1>
-      <p className="mt-4 space-x-4 text-muted-foreground text-sm">
-        <span>{dateFormatter(post.publishedAt)}</span>
-        <span>{post.readTimeInMinutes} min read</span>
-      </p>
+      <article>
+        <h1 className="mt-2 font-semibold text-4xl leading-tight">
+          {post.title}
+        </h1>
 
-      {post.coverImage && (
-        <div className="relative mt-8 mb-6 aspect-video w-full overflow-hidden rounded-lg">
-          <Image
-            alt={post.title}
-            className="object-cover"
-            fill
-            priority
-            src={post.coverImage.url}
-          />
+        <div className="mt-3 flex flex-wrap items-center gap-4 text-muted-foreground text-sm">
+          <time>{dateFormatter(post.publishedAt)}</time>
         </div>
-      )}
 
-      <div
-        className="prose mt-16 max-w-none prose-headings:font-sans"
-        // biome-ignore lint/security/noDangerouslySetInnerHtml: this is intended to render the HTML content
-        dangerouslySetInnerHTML={{ __html: post.content.html }}
-      />
+        {post.coverImage && (
+          <div className="relative mt-8 mb-8 aspect-video w-full overflow-hidden rounded-sm">
+            <Image
+              alt={post.title}
+              className="object-cover"
+              fill
+              priority
+              src={post.coverImage.url}
+            />
+          </div>
+        )}
+
+        <div
+          className="prose prose-lg mt-10 max-w-none"
+          // biome-ignore lint/security/noDangerouslySetInnerHtml: this is intended to render the HTML content
+          dangerouslySetInnerHTML={{ __html: post.content.html }}
+        />
+      </article>
     </div>
   );
 }
