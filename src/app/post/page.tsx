@@ -1,9 +1,9 @@
 import Link from 'next/link';
 
-import { fetchBlogPosts } from '~/lib/hashnode/fetchBlogPosts';
+import { fetchBlogPosts } from '~/lib/hashnode/fetchPosts';
 import { dateFormatter } from '~/lib/hashnode/utils';
 
-export default async function Blog() {
+export default async function AllPostsPage() {
   const posts = await fetchBlogPosts({ forceRefresh: true });
 
   return (
@@ -20,12 +20,12 @@ export default async function Blog() {
               className="border-b pb-4 transition-colors delay-75 duration-150 ease-in-out hover:border-foreground/60 hover:bg-muted/50 [&:not(:first-child)]:pt-6"
               key={post.title}
             >
-              <Link href={`/blog/${post.slug}`}>
+              <Link href={`/post/${post.slug}`}>
                 <h3 className="line-clamp-2 font-semibold text-xl tracking-tight">
                   {post.title}
                 </h3>
-                <p className="mt-3 line-clamp-3 font-serif text-muted-foreground/60 text-sm">
-                  <span className="font-semibold">
+                <p className="mt-3 line-clamp-3 text-muted-foreground/60 text-sm">
+                  <span className="font-medium italic">
                     {dateFormatter(post.publishedAt)}
                   </span>{' '}
                   &mdash; {post.brief}
