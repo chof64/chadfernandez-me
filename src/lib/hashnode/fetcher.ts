@@ -27,7 +27,7 @@ export async function fetcher<T = unknown>(
     publicationId: env.HASHNODE_PUBLICATION_ID,
   };
 
-  const revalidate = data.revalidate ?? 60;
+  // const revalidate = data.revalidate ?? 60;
 
   const response = await fetch(hashnodeEndpoint, {
     method: 'POST',
@@ -38,9 +38,9 @@ export async function fetcher<T = unknown>(
       query: data.query,
       variables,
     }),
-    next: {
-      revalidate,
-    },
+    // next: {
+    //   revalidate,
+    // },
   });
 
   if (!response.ok) {

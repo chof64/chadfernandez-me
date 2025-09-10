@@ -2,6 +2,7 @@ import PostCard from '~/components/post-card';
 import { fetchSeriesPosts } from '~/lib/hashnode/fetchSeriesPosts';
 
 export const revalidate = 60;
+export const fetchCache = 'force-cache';
 
 export default async function ProjectsPage() {
   const posts = await fetchSeriesPosts('projects', { forceRefresh: true });

@@ -6,6 +6,7 @@ import { fetchBlogPost } from '~/lib/hashnode/fetchPost';
 import { dateFormatter } from '~/lib/hashnode/utils';
 
 export const revalidate = 60;
+export const fetchCache = 'force-cache';
 
 interface BlogPostPageProps {
   params: Promise<{

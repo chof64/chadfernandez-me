@@ -4,6 +4,7 @@ import HomeEngagements from './home-engagements';
 import HomeProjects from './home-projects';
 
 export const revalidate = 60;
+export const fetchCache = 'force-cache';
 
 export default function IndexPage() {
   return (
