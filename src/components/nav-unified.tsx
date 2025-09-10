@@ -17,7 +17,9 @@ export default function NavUnified({ className }: { className?: string }) {
 
   const items = [
     { href: '/', label: 'Home' },
-    { href: '/blog', label: 'Blog' },
+    { href: '/engagements', label: 'Engagements' },
+    { href: '/projects', label: 'Projects' },
+    { href: '/post', label: 'All Posts' },
   ] as const;
 
   return (
