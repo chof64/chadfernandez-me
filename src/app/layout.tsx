@@ -1,6 +1,6 @@
 import '~/styles/globals.css';
 import type { Metadata } from 'next';
-import { Mona_Sans } from 'next/font/google';
+import { Inter } from 'next/font/google';
 import Header from '~/components/header';
 import { env } from '~/env';
 
@@ -38,17 +38,17 @@ export const metadata: Metadata = {
   },
 };
 
-const monaSans = Mona_Sans({
+const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-mona-sans',
+  variable: '--font-inter',
 });
 
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html className={`${monaSans.variable}`} lang="en">
+    <html className={`${inter.variable}`} lang="en">
       <body>
         <Header />
         <main>{children}</main>

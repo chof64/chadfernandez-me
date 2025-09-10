@@ -1,34 +1,5 @@
 import { fetcher } from './fetcher';
-
-interface HashnodePostNode {
-  slug: string;
-  title: string;
-  tags: Array<{
-    name: string;
-    slug: string;
-  }>;
-  coverImage: {
-    url: string;
-  } | null;
-  brief: string;
-  readTimeInMinutes: number;
-  series: {
-    name: string;
-    slug: string;
-  } | null;
-  publishedAt: string;
-  updatedAt: string;
-}
-
-interface HashnodeSeriesPostsResponse {
-  publication: {
-    series: {
-      posts: {
-        edges: Array<{ node: HashnodePostNode }>;
-      };
-    } | null;
-  };
-}
+import type { HashnodePostNode, HashnodeSeriesPostListResponse } from './types';
 
 export const fetchSeriesPosts = async (
   seriesSlug: string,
@@ -74,7 +45,7 @@ export const fetchSeriesPosts = async (
   `;
 
   try {
-    const data = await fetcher<HashnodeSeriesPostsResponse>({
+    const data = await fetcher<HashnodeSeriesPostListResponse>({
       query,
       variables: { seriesSlug },
       revalidate: forceRefresh ? 0 : revalidate,
