@@ -8,10 +8,7 @@ export default function Header() {
         <Link className="font-medium text-base tracking-tight" href="/">
           Chad Fernandez
         </Link>
-
-        <div>
-          <NavContent />
-        </div>
+        <NavContent />
       </div>
     </header>
   );
