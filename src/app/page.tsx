@@ -19,11 +19,11 @@ export default function IndexPage() {
         <h1 className="mt-6 font-semibold text-xl tracking-wide">
           👋 Hello, I&apos;m Chad Fernandez
         </h1>
-        <p className="mt-6 font-serif leading-7">
+        <p className="mt-6 leading-7">
           I am a software engineer and a student studying BS Information
           Technology.
         </p>
-        <p className="mt-6 font-serif leading-7">
+        <p className="mt-6 leading-7">
           Driven by the love for technology and a mission to build apps that
           make a difference in the community. My passion for coding drives me to
           create functional, minimalistic apps that solve real-world problems.
@@ -33,7 +33,7 @@ export default function IndexPage() {
       <HomeProjects />
       <section className="mt-16">
         <h2 className="font-semibold text-lg">Contacts</h2>
-        <p className="mt-6 font-serif leading-7">
+        <p className="mt-6 leading-7">
           If you're like me and enjoy exploring the fascinating world of
           technology, let's connect. Feel free to reach out - I'm always up for
           a chat! Let's build, design, and learn together.

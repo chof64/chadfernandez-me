@@ -27,11 +27,7 @@ export default async function HomeEngagements() {
           >
             <Link href={`/post/${engagement.slug}`}>
               <h3 className="line-clamp-2 font-semibold">{engagement.title}</h3>
-            <h3 className="line-clamp-2 font-semibold">{engagement.title}</h3>
-            <p className="line-clamp-1 space-x-4 font-serif text-muted-foreground/60 text-sm">
-              <span>{engagement.date}</span>
-              <span>{engagement.subtitle}</span>
-            </p>
+              <p className="line-clamp-1 space-x-4 text-muted-foreground/60 text-sm">
                 <span className="font-medium italic">
                   {dateFormatter(engagement.publishedAt)}
                 </span>{' '}
