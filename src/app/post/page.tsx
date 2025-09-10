@@ -24,7 +24,7 @@ export default async function AllPostsPage() {
                 <h3 className="line-clamp-2 font-semibold text-xl tracking-tight">
                   {post.title}
                 </h3>
-                <p className="mt-3 line-clamp-3 font-serif text-muted-foreground/60 text-sm">
+                <p className="mt-3 line-clamp-3 text-muted-foreground/60 text-sm">
                   <span className="font-medium italic">
                     {dateFormatter(post.publishedAt)}
                   </span>{' '}

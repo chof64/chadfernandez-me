@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
-import { fetchBlogPost } from '~/lib/hashnode/fetchBlogPost';
+import { fetchBlogPost } from '~/lib/hashnode/fetchPost';
 import { dateFormatter } from '~/lib/hashnode/utils';
 
 interface BlogPostPageProps {
@@ -12,7 +12,7 @@ interface BlogPostPageProps {
   }>;
 }
 
-export default async function BlogPostPage({ params }: BlogPostPageProps) {
+export default async function ReadPostPage({ params }: BlogPostPageProps) {
   const { slug } = await params;
   const post = await fetchBlogPost(slug, { forceRefresh: true });
 
@@ -23,8 +23,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   return (
     <div className="container my-16 max-w-xl">
       <Link
-        className="mb-8 inline-flex items-center font-serif text-muted-foreground"
-        href="/blog"
+        className="mb-8 inline-flex items-center text-muted-foreground"
+        href="/post"
       >
         <ArrowLeftIcon className="mr-2 size-4" /> Back to all posts
       </Link>
@@ -50,7 +50,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       )}
 
       <div
-        className="prose mt-16 max-w-none font-serif prose-headings:font-sans"
+        className="prose mt-16 max-w-none prose-headings:font-sans"
         // biome-ignore lint/security/noDangerouslySetInnerHtml: this is intended to render the HTML content
         dangerouslySetInnerHTML={{ __html: post.content.html }}
       />
