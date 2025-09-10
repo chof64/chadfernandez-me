@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '~/components/ui/button';
 import HomeEngagements from './home-engagements';
+import HomeProjects from './home-projects';
 
 export default function IndexPage() {
   return (
@@ -29,6 +30,7 @@ export default function IndexPage() {
         </p>
       </section>
       <HomeEngagements />
+      <HomeProjects />
       <section className="mt-16">
         <h2 className="font-semibold text-lg">Contacts</h2>
         <p className="mt-6 font-serif leading-7">
