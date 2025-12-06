@@ -42,7 +42,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 		<!-- Additional head content -->
 		<slot name="head" />
 	</head>
-	<body>
+	<body class="subpixel-antialiased">
 		<slot />
 	</body>
 </html>
