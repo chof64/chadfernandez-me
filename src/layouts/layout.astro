@@ -1,5 +1,6 @@
 ---
 import "~/styles/local.css";
+import "@fontsource-variable/inter";
 
 type Props = {
 	title?: string;
@@ -7,7 +8,11 @@ type Props = {
 	image?: string;
 };
 
-const { title = "Chad Fernandez", description = "A software engineer driven by the love for technology and a mission to build apps that make a difference in the community.", image = "/og-image.png" } = Astro.props;
+const {
+	title = "Chad Fernandez",
+	description = "A software engineer driven by the love for technology and a mission to build apps that make a difference in the community.",
+	image = "/og-image.png",
+} = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
