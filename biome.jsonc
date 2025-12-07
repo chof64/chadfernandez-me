@@ -1,21 +1,9 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.0.6/schema.json",
-  "vcs": {
-    "enabled": true,
-    "clientKind": "git",
-    "useIgnoreFile": true
-  },
-  "files": {
-    "ignoreUnknown": false
-  },
-  "formatter": {
-    "enabled": true
-  },
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
   "linter": {
     "enabled": true,
     "rules": {
       "nursery": {
-        "noUnknownAtRule": "off",
         "useSortedClasses": {
           "level": "warn",
           "fix": "safe",
@@ -23,9 +11,16 @@
             "functions": ["clsx", "cva", "cn"]
           }
         }
-      },
-      "recommended": true
+      }
     }
   },
-  "extends": ["ultracite"]
+  "overrides": [
+    {
+      "includes": ["**/*.astro"],
+      "formatter": {
+        "enabled": false
+      }
+    }
+  ],
+  "extends": ["ultracite/core", "ultracite/astro"]
 }
