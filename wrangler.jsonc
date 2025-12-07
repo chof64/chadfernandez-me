@@ -1,16 +1,19 @@
 {
-	"main": "dist/_worker.js/index.js",
-	"name": "chadfernandez-me",
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "chadfernandez-me",
+  "main": "dist/_worker.js/index.js",
   "compatibility_date": "2025-12-05",
-  "compatibility_flags": [
-    "nodejs_compat",
-    "global_fetch_strictly_public"
-  ],
-	"assets": {
-		"binding": "ASSETS",
-		"directory": "./dist"
-	},
-	"observability": {
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "workers_dev": false,
+  "keep_vars": true,
+  "assets": {
+    "binding": "ASSETS",
+    "directory": "./dist"
+  },
+  "placement": {
+    "mode": "smart"
+  },
+  "observability": {
     "enabled": true
   }
 }
