@@ -11,6 +11,9 @@
   },
   "plugins": {
     "@release-it/conventional-changelog": {
+      "preset": {
+        "name": "conventionalcommits"
+      },
       "changelog": false
     }
   }
