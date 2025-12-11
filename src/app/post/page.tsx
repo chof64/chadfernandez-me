@@ -2,7 +2,7 @@ import PostCard from "~/components/post-card";
 
 import { fetchBlogPosts } from "~/lib/hashnode/fetch-posts";
 
-export const revalidate = 60;
+export const revalidate = 600;
 
 export default async function AllPostsPage() {
   const posts = await fetchBlogPosts({ forceRefresh: true });

@@ -7,7 +7,7 @@ import { fetchBlogPost } from "~/lib/hashnode/fetch-post";
 
 import { dateFormatter } from "~/lib/hashnode/utils";
 
-export const revalidate = 60;
+export const revalidate = 600;
 
 type BlogPostPageProps = {
   params: Promise<{
