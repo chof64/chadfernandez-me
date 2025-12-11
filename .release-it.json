@@ -10,14 +10,14 @@
     "release": true,
     "releaseName": "chadfernandez-me@${version}"
   },
-  "npm": false,
+  "npm": {
+    "publish": false
+  },
   "plugins": {
     "@release-it/conventional-changelog": {
       "preset": {
         "name": "conventionalcommits"
-      },
-      "infile": "CHANGELOG.md",
-      "changelog": false
+      }
     }
   }
 }
