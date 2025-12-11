@@ -17,40 +17,35 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.25
+          cache: true
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: 'pnpm'
 
-      - name: Cache NPM packages
-        id: cache-npm
+      - name: Cache node_modules
         uses: actions/cache@v4
         with:
           path: node_modules
-          key: npm-release-it-${{ runner.os }}-release-it-18-${{ hashFiles('package-lock.json') }}
+          key: node-modules-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
-            npm-release-it-${{ runner.os }}-release-it-18-
+            node-modules-
 
-      - name: Install release-it only
-        run: npm install --no-save release-it@18
-        if: steps.cache-npm.outputs.cache-hit != 'true'
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
 
       - name: Setup git user
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-      - name: Get release label
-        id: get_label
-        run: |
-          LABEL=$(gh pr view ${{ github.event.pull_request.number }} --json labels --jq '.labels[].name' | grep -E 'release: (major|minor|patch)' | sed 's/release: //' || echo "patch")
-          echo "Using version bump: $LABEL"
-          echo "LABEL=$LABEL" >> $GITHUB_ENV
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Run release-it
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          DEBUG: release-it:*
-        run: npx release-it --ci --no-npm --increment $LABEL
+        run: pnpm exec release-it --ci --no-npm

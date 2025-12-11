@@ -10,8 +10,14 @@
     "release": true,
     "releaseName": "chadfernandez-me@${version}"
   },
-  "hooks": {
-    "before:bump": "echo 'Skipping version bump in files'"
-  },
-  "npm": false
+  "npm": false,
+  "plugins": {
+    "@release-it/conventional-changelog": {
+      "preset": {
+        "name": "conventionalcommits"
+      },
+      "infile": "CHANGELOG.md",
+      "changelog": false
+    }
+  }
 }
