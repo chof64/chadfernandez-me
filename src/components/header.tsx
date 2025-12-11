@@ -1,5 +1,5 @@
-import Link from 'next/link';
-import NavContent from './nav-content';
+import Link from "next/link";
+import NavContent from "./nav-content";
 
 export default function Header() {
   return (

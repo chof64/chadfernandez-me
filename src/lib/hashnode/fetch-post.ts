@@ -1,5 +1,5 @@
-import { fetcher } from './fetcher';
-import type { HashnodePostNode, HashnodePostNodeResponse } from './types';
+import { fetcher } from "./fetcher";
+import type { HashnodePostNode, HashnodePostNodeResponse } from "./types";
 
 export const fetchBlogPost = async (
   slug: string,
@@ -11,7 +11,7 @@ export const fetchBlogPost = async (
     forceRefresh?: boolean;
   } = {}
 ): Promise<HashnodePostNode | null> => {
-  const cacheBust = forceRefresh ? `_${Date.now()}` : '';
+  const cacheBust = forceRefresh ? `_${Date.now()}` : "";
   const query = `
     query FetchBlogPost${cacheBust}($slug: String!, $publicationId: ObjectId!) {
       publication(id: $publicationId) {

@@ -1,5 +1,5 @@
-import { fetcher } from './fetcher';
-import type { HashnodePostListResponse, HashnodePostNode } from './types';
+import { fetcher } from "./fetcher";
+import type { HashnodePostListResponse, HashnodePostNode } from "./types";
 
 export const fetchBlogPosts = async ({
   revalidate = 60,
@@ -8,7 +8,7 @@ export const fetchBlogPosts = async ({
   revalidate?: number;
   forceRefresh?: boolean;
 } = {}): Promise<HashnodePostNode[]> => {
-  const cacheBust = forceRefresh ? `_${Date.now()}` : '';
+  const cacheBust = forceRefresh ? `_${Date.now()}` : "";
   const query = `
     query FetchBlogPosts${cacheBust}($publicationId: ObjectId!) {
       publication(id: $publicationId) {

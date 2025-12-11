@@ -21,8 +21,8 @@ git stash push --quiet --keep-index --message "pre-commit-stash" || true
 STASHED=$?
 
 # Run formatter on the staged files
-# pnpm check
-# pnpm typecheck
+pnpm check
+pnpm typecheck
 
 FORMAT_EXIT_CODE=$?
 
