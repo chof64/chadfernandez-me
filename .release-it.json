@@ -2,7 +2,7 @@
   "$schema": "https://unpkg.com/release-it/schema/release-it.json",
   "git": {
     "requireCleanWorkingDir": false,
-    "commit": false,
+    "commit": true,
     "tag": true,
     "push": true
   },
