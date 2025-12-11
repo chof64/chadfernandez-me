@@ -8,13 +8,14 @@ import { fetchBlogPost } from "~/lib/hashnode/fetch-post";
 import { dateFormatter } from "~/lib/hashnode/utils";
 
 export const revalidate = 60;
-export const fetchCache = "force-cache";
 
 type BlogPostPageProps = {
   params: Promise<{
     slug: string;
   }>;
 };
+
+export const generateStaticParams = async () => [];
 
 export default async function ReadPostPage({ params }: BlogPostPageProps) {
   const { slug } = await params;
