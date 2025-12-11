@@ -1,5 +1,6 @@
 @theme {
-  --font-sans: -apple-system, var(--font-inter), ui-sans-serif, system-ui, sans-serif,
+  --font-sans:
+    -apple-system, var(--font-inter), ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 

@@ -1,9 +1,11 @@
-import Link from 'next/link';
-import { fetchSeriesPosts } from '~/lib/hashnode/fetchSeriesPosts';
-import { dateFormatter } from '~/lib/hashnode/utils';
+import Link from "next/link";
+
+import { fetchSeriesPosts } from "~/lib/hashnode/fetch-series-posts";
+
+import { dateFormatter } from "~/lib/hashnode/utils";
 
 export default async function HomeProjects() {
-  const projectsSeries = await fetchSeriesPosts('projects', {
+  const projectsSeries = await fetchSeriesPosts("projects", {
     forceRefresh: true,
   });
 

@@ -1,18 +1,20 @@
-import { ArrowLeftIcon } from 'lucide-react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { notFound } from 'next/navigation';
-import { fetchBlogPost } from '~/lib/hashnode/fetchPost';
-import { dateFormatter } from '~/lib/hashnode/utils';
+import { ArrowLeftIcon } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+
+import { fetchBlogPost } from "~/lib/hashnode/fetch-post";
+
+import { dateFormatter } from "~/lib/hashnode/utils";
 
 export const revalidate = 60;
-export const fetchCache = 'force-cache';
+export const fetchCache = "force-cache";
 
-interface BlogPostPageProps {
+type BlogPostPageProps = {
   params: Promise<{
     slug: string;
   }>;
-}
+};
 
 export default async function ReadPostPage({ params }: BlogPostPageProps) {
   const { slug } = await params;
@@ -42,7 +44,7 @@ export default async function ReadPostPage({ params }: BlogPostPageProps) {
           <time>{dateFormatter(post.publishedAt)}</time>
         </div>
 
-        {post.coverImage && (
+        {post.coverImage ? (
           <div className="relative mt-8 mb-8 aspect-video w-full overflow-hidden rounded-sm">
             <Image
               alt={post.title}
@@ -52,7 +54,7 @@ export default async function ReadPostPage({ params }: BlogPostPageProps) {
               src={post.coverImage.url}
             />
           </div>
-        )}
+        ) : null}
 
         <div
           className="prose prose-lg mt-10 max-w-none"

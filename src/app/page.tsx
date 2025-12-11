@@ -1,10 +1,10 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import HomeEngagements from './home-engagements';
-import HomeProjects from './home-projects';
+import Image from "next/image";
+import Link from "next/link";
+import HomeEngagements from "./home-engagements";
+import HomeProjects from "./home-projects";
 
 export const revalidate = 60;
-export const fetchCache = 'force-cache';
+export const fetchCache = "force-cache";
 
 export default function IndexPage() {
   return (
@@ -36,22 +36,22 @@ export default function IndexPage() {
         <section className="mt-10 border-t pt-6">
           <h2 className="sr-only">Contacts</h2>
           <p className="text-muted-foreground/80 text-sm">
-            Want to chat? Reach me at{' '}
+            Want to chat? Reach me at{" "}
             <Link
               className="font-medium text-muted-foreground/80 text-sm underline-offset-4 hover:underline"
               href="mailto:contact@chadfernandez.me"
             >
               contact@chadfernandez.me
             </Link>
-            . Also on{' '}
+            . Also on{" "}
             <Link
               className="font-medium text-muted-foreground/80 text-sm underline-offset-4 hover:underline"
               href="https://github.com/chof64"
               target="_blank"
             >
               GitHub
-            </Link>{' '}
-            and{' '}
+            </Link>{" "}
+            and{" "}
             <Link
               className="font-medium text-muted-foreground/80 text-sm underline-offset-4 hover:underline"
               href="https://www.linkedin.com/in/chof64"

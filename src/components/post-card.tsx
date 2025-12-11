@@ -1,6 +1,6 @@
-import Link from 'next/link';
-import type { HashnodePostNode } from '~/lib/hashnode/types';
-import { dateFormatter } from '~/lib/hashnode/utils';
+import Link from "next/link";
+import type { HashnodePostNode } from "~/lib/hashnode/types";
+import { dateFormatter } from "~/lib/hashnode/utils";
 
 export default function PostCard({ post }: { post: HashnodePostNode }) {
   return (

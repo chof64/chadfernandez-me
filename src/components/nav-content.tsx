@@ -1,17 +1,17 @@
-'use client';
+"use client";
 
-import Link, { type LinkProps } from 'next/link';
-import { useRouter } from 'next/navigation';
-import React from 'react';
-import { cn } from '~/lib/utils';
-import NavRoot from './nav-root';
+import Link, { type LinkProps } from "next/link";
+import { useRouter } from "next/navigation";
+import React from "react";
+import { cn } from "~/lib/utils";
+import NavRoot from "./nav-root";
 
 export default function NavContent({ className }: { className?: string }) {
   const items = [
-    { href: '/', label: 'Home' },
-    { href: '/engagements', label: 'Engagements' },
-    { href: '/projects', label: 'Projects' },
-    { href: '/post', label: 'All Posts' },
+    { href: "/", label: "Home" },
+    { href: "/engagements", label: "Engagements" },
+    { href: "/projects", label: "Projects" },
+    { href: "/post", label: "All Posts" },
   ] as const;
 
   const [menuOpen, setMenuOpen] = React.useState(false);
@@ -52,7 +52,7 @@ function MobileLink({
   return (
     <Link
       className={cn(
-        'pt-2 pb-3 font-medium text-muted-foreground/90 text-xl hover:text-foreground',
+        "pt-2 pb-3 font-medium text-muted-foreground/90 text-xl hover:text-foreground",
         className
       )}
       href={href}

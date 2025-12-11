@@ -1,7 +1,7 @@
 /**
  * Utility function for making GraphQL requests
  */
-import { env } from '~/env';
+import { env } from "~/env";
 
 type GraphQLResponse<T> = {
   data?: T;
@@ -20,7 +20,7 @@ type FetcherData = {
 export async function fetcher<T = unknown>(
   data: FetcherData & { revalidate?: number }
 ): Promise<T> {
-  const hashnodeEndpoint = 'https://gql.hashnode.com';
+  const hashnodeEndpoint = "https://gql.hashnode.com";
 
   const variables = {
     ...data.variables,
@@ -30,9 +30,9 @@ export async function fetcher<T = unknown>(
   // const revalidate = data.revalidate ?? 60;
 
   const response = await fetch(hashnodeEndpoint, {
-    method: 'POST',
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
     body: JSON.stringify({
       query: data.query,
@@ -51,12 +51,12 @@ export async function fetcher<T = unknown>(
 
   if (json.errors) {
     throw new Error(
-      `GraphQL errors: ${json.errors.map((e) => e.message).join(', ')}`
+      `GraphQL errors: ${json.errors.map((e) => e.message).join(", ")}`
     );
   }
 
   if (!json.data) {
-    throw new Error('No data returned from GraphQL API');
+    throw new Error("No data returned from GraphQL API");
   }
 
   return json.data;

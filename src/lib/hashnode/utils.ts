@@ -26,27 +26,27 @@ export const dateFormatter = (date: string): string => {
   const publishDate = new Date(date);
 
   if (Number.isNaN(publishDate.getTime())) {
-    return 'Invalid date';
+    return "Invalid date";
   }
 
   const diffDays = dateDiff(date);
   if (diffDays === null) {
-    return 'Invalid date';
+    return "Invalid date";
   }
 
   if (diffDays < 1) {
-    return 'Posted today';
+    return "Posted today";
   }
   if (diffDays === 1) {
-    return 'Posted a day ago';
+    return "Posted a day ago";
   }
   if (diffDays <= 7) {
     return `Posted ${diffDays} days ago`;
   }
 
-  return publishDate.toLocaleDateString('en-US', {
-    month: 'long',
-    day: 'numeric',
-    year: 'numeric',
+  return publishDate.toLocaleDateString("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
   });
 };
