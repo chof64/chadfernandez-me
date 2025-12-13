@@ -6,7 +6,7 @@ export const revalidate = 60;
 export const fetchCache = "force-cache";
 
 export default async function ProjectsPage() {
-  const posts = await fetchSeriesPosts("projects", { forceRefresh: true });
+  const posts = await fetchSeriesPosts("projects");
 
   return (
     <div className="container my-16 max-w-2xl">

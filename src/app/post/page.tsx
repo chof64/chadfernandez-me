@@ -5,7 +5,7 @@ import { fetchBlogPosts } from "~/lib/hashnode/fetch-posts";
 export const revalidate = 600;
 
 export default async function AllPostsPage() {
-  const posts = await fetchBlogPosts({ forceRefresh: true });
+  const posts = await fetchBlogPosts();
 
   return (
     <div className="container my-16 max-w-2xl">

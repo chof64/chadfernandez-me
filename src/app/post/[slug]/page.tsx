@@ -19,7 +19,7 @@ export const generateStaticParams = async () => [];
 
 export default async function ReadPostPage({ params }: BlogPostPageProps) {
   const { slug } = await params;
-  const post = await fetchBlogPost(slug, { forceRefresh: true });
+  const post = await fetchBlogPost(slug);
 
   if (!post) {
     notFound();

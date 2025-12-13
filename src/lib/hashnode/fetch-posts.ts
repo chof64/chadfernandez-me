@@ -1,14 +1,8 @@
 import { fetcher } from "./fetcher";
 import type { HashnodePostListResponse, HashnodePostNode } from "./types";
 
-export const fetchBlogPosts = async ({
-  revalidate = 60,
-  forceRefresh = false,
-}: {
-  revalidate?: number;
-  forceRefresh?: boolean;
-} = {}): Promise<HashnodePostNode[]> => {
-  const cacheBust = forceRefresh ? `_${Date.now()}` : "";
+export const fetchBlogPosts = async (): Promise<HashnodePostNode[]> => {
+  const cacheBust = `_${Date.now()}`;
   const query = `
     query FetchBlogPosts${cacheBust}($publicationId: ObjectId!) {
       publication(id: $publicationId) {
@@ -42,7 +36,6 @@ export const fetchBlogPosts = async ({
   try {
     const data = await fetcher<HashnodePostListResponse>({
       query,
-      revalidate: forceRefresh ? 0 : revalidate,
     });
     return data.publication.posts.edges.map(({ node }) => node);
   } catch {
