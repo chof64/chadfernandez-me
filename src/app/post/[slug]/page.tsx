@@ -4,10 +4,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { fetchBlogPost } from "~/lib/hashnode/fetch-post";
+import { fetchBlogPosts } from "~/lib/hashnode/fetch-posts";
 
 import { dateFormatter } from "~/lib/hashnode/utils";
-
-export const revalidate = 600;
 
 type BlogPostPageProps = {
   params: Promise<{
@@ -15,7 +14,10 @@ type BlogPostPageProps = {
   }>;
 };
 
-export const generateStaticParams = async () => [];
+export const generateStaticParams = async () => {
+  const posts = await fetchBlogPosts();
+  return posts.map((post) => ({ slug: post.slug }));
+};
 
 export default async function ReadPostPage({ params }: BlogPostPageProps) {
   const { slug } = await params;

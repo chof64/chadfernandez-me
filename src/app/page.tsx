@@ -3,8 +3,6 @@ import Link from "next/link";
 import HomeEngagements from "./home-engagements";
 import HomeProjects from "./home-projects";
 
-export const revalidate = 600;
-
 export default function IndexPage() {
   return (
     <div className="container my-16 max-w-2xl">

@@ -41,6 +41,7 @@ export const fetchSeriesPosts = async (
     const data = await fetcher<HashnodeSeriesPostListResponse>({
       query,
       variables: { seriesSlug },
+      revalidate: 600,
     });
     if (!data.publication.series) {
       return [];

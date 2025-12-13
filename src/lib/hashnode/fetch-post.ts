@@ -38,6 +38,7 @@ export const fetchBlogPost = async (
     const data = await fetcher<HashnodePostNodeResponse>({
       query,
       variables: { slug },
+      revalidate: 600,
     });
     return data.publication.post;
   } catch {

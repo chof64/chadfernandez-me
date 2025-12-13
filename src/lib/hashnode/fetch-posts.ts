@@ -36,6 +36,7 @@ export const fetchBlogPosts = async (): Promise<HashnodePostNode[]> => {
   try {
     const data = await fetcher<HashnodePostListResponse>({
       query,
+      revalidate: 600,
     });
     return data.publication.posts.edges.map(({ node }) => node);
   } catch {

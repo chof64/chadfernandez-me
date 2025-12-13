@@ -11,6 +11,7 @@ type GraphQLResponse<T> = {
 type FetcherData = {
   query: string;
   variables?: Record<string, unknown>;
+  revalidate?: number;
 };
 
 /**
@@ -34,6 +35,7 @@ export async function fetcher<T = unknown>(data: FetcherData): Promise<T> {
       query: data.query,
       variables,
     }),
+    ...(data.revalidate && { next: { revalidate: data.revalidate } }),
   });
 
   if (!response.ok) {
