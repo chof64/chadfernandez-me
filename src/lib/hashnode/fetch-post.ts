@@ -2,16 +2,9 @@ import { fetcher } from "./fetcher";
 import type { HashnodePostNode, HashnodePostNodeResponse } from "./types";
 
 export const fetchBlogPost = async (
-  slug: string,
-  {
-    revalidate = 60,
-    forceRefresh = false,
-  }: {
-    revalidate?: number;
-    forceRefresh?: boolean;
-  } = {}
+  slug: string
 ): Promise<HashnodePostNode | null> => {
-  const cacheBust = forceRefresh ? `_${Date.now()}` : "";
+  const cacheBust = `_${Date.now()}`;
   const query = `
     query FetchBlogPost${cacheBust}($slug: String!, $publicationId: ObjectId!) {
       publication(id: $publicationId) {
@@ -45,7 +38,7 @@ export const fetchBlogPost = async (
     const data = await fetcher<HashnodePostNodeResponse>({
       query,
       variables: { slug },
-      revalidate: forceRefresh ? 0 : revalidate,
+      revalidate: 600,
     });
     return data.publication.post;
   } catch {

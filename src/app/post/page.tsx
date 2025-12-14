@@ -2,11 +2,8 @@ import PostCard from "~/components/post-card";
 
 import { fetchBlogPosts } from "~/lib/hashnode/fetch-posts";
 
-export const revalidate = 60;
-export const fetchCache = "force-cache";
-
 export default async function AllPostsPage() {
-  const posts = await fetchBlogPosts({ forceRefresh: true });
+  const posts = await fetchBlogPosts();
 
   return (
     <div className="container my-16 max-w-2xl">

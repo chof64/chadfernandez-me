@@ -5,9 +5,7 @@ import { fetchSeriesPosts } from "~/lib/hashnode/fetch-series-posts";
 import { dateFormatter } from "~/lib/hashnode/utils";
 
 export default async function HomeProjects() {
-  const projectsSeries = await fetchSeriesPosts("projects", {
-    forceRefresh: true,
-  });
+  const projectsSeries = await fetchSeriesPosts("projects");
 
   if (projectsSeries.length === 0) {
     return null;
