@@ -55,7 +55,7 @@ export default function NavRoot({
       <PopoverTrigger asChild>
         <Button
           className={cn(
-            "extend-touch-target h-8 touch-manipulation items-center justify-start gap-2.5 p-0! hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 active:bg-transparent dark:hover:bg-transparent",
+            "h-8 touch-manipulation items-center justify-start gap-2.5 p-0! hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 active:bg-transparent dark:hover:bg-transparent",
             className
           )}
           variant="ghost"
@@ -85,7 +85,7 @@ export default function NavRoot({
       <PopoverContent
         align="start"
         alignOffset={-16}
-        className="no-scrollbar h-(--radix-popper-available-height) w-(--radix-popper-available-width) overflow-y-auto rounded-none border-none bg-background/90 p-0 shadow-none backdrop-blur duration-100"
+        className="h-(--radix-popper-available-height) w-(--radix-popper-available-width) overflow-y-auto rounded-none border-none bg-background/90 p-0 shadow-none backdrop-blur duration-100"
         side="bottom"
         sideOffset={14}
       >
