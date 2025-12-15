@@ -11,12 +11,10 @@ import { cn } from "~/lib/utils";
 
 export default function NavRoot({
   children,
-  className,
   onOpenChange,
   open: openProp,
 }: {
   children: React.ReactNode;
-  className?: string;
   onOpenChange?: (open: boolean) => void;
   open?: boolean;
 }) {
@@ -53,13 +51,7 @@ export default function NavRoot({
   return (
     <Popover onOpenChange={handleOpenChange} open={open}>
       <PopoverTrigger asChild>
-        <Button
-          className={cn(
-            "h-8 touch-manipulation items-center justify-start gap-2.5 p-0! hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 active:bg-transparent dark:hover:bg-transparent",
-            className
-          )}
-          variant="ghost"
-        >
+        <Button variant="ghost">
           <div className="relative flex h-8 w-4 items-center justify-center">
             <div className="relative size-4">
               <span

@@ -6,7 +6,7 @@ import React from "react";
 import { cn } from "~/lib/utils";
 import NavRoot from "./nav-root";
 
-export default function NavContent({ className }: { className?: string }) {
+export default function NavContent() {
   const items = [
     { href: "/", label: "Home" },
     { href: "/engagements", label: "Engagements" },
@@ -17,7 +17,7 @@ export default function NavContent({ className }: { className?: string }) {
   const [menuOpen, setMenuOpen] = React.useState(false);
 
   return (
-    <NavRoot className={className} onOpenChange={setMenuOpen} open={menuOpen}>
+    <NavRoot onOpenChange={setMenuOpen} open={menuOpen}>
       <div className="h-full">
         <div className="container my-6 max-w-2xl px-6">
           <div className="flex flex-col gap-3">
