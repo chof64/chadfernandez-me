@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import HomeEngagements from "./home-engagements";
+import HomeGitHub from "./home-github";
 import HomeProjects from "./home-projects";
 
 export default function IndexPage() {
@@ -27,6 +28,7 @@ export default function IndexPage() {
       </section>
 
       <div className="mt-10">
+        <HomeGitHub />
         <HomeEngagements />
         <HomeProjects />
 
