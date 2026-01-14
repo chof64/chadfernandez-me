@@ -2,6 +2,12 @@
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
   "linter": {
     "rules": {
+      "style": {
+        "noMagicNumbers": "off"
+      },
+      "performance": {
+        "noBarrelFile": "off"
+      },
       "suspicious": {
         "noUnknownAtRules": "off"
       },
@@ -16,5 +22,5 @@
       }
     }
   },
-  "extends": ["ultracite/core", "ultracite/next"]
+  "extends": ["ultracite/biome/core", "ultracite/biome/next"]
 }
