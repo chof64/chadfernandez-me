@@ -11,8 +11,7 @@
     "check": "biome check .",
     "check:unsafe": "biome check --write --unsafe .",
     "check:write": "biome check --write .",
-    "typecheck": "tsc --noEmit",
-    "prepare": "husky"
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@base-ui/react": "^1.0.0",
@@ -40,7 +39,6 @@
     "@types/node": "^25.0.8",
     "@types/react": "^19.2.8",
     "@types/react-dom": "^19.0.0",
-    "husky": "^9.1.7",
     "postcss": "^8.5.3",
     "release-it": "^19.1.0",
     "shadcn": "^3.6.3",
