@@ -12,8 +12,8 @@ export const env = createEnv({
       .default("development"),
     BASE_URL:
       process.env.NODE_ENV === "production"
-        ? z.string().url()
-        : z.string().url().default("http://localhost:3000"),
+        ? z.url()
+        : z.url().default("http://localhost:3000"),
     HASHNODE_PUBLICATION_ID: z.string(),
   },
 
