@@ -8,11 +8,11 @@ import { fetchBlogPosts } from "~/lib/hashnode/fetch-posts";
 
 import { dateFormatter } from "~/lib/hashnode/utils";
 
-type BlogPostPageProps = {
+interface BlogPostPageProps {
   params: Promise<{
     slug: string;
   }>;
-};
+}
 
 export const generateStaticParams = async () => {
   const posts = await fetchBlogPosts();

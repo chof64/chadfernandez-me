@@ -3,16 +3,16 @@
  */
 import { env } from "~/env";
 
-type GraphQLResponse<T> = {
+interface GraphQLResponse<T> {
   data?: T;
   errors?: Array<{ message: string }>;
-};
+}
 
-type FetcherData = {
+interface FetcherData {
   query: string;
   variables?: Record<string, unknown>;
   revalidate?: number;
-};
+}
 
 /**
  * A reusable GraphQL fetcher that can be used across the application

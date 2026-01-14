@@ -1,4 +1,4 @@
-export type HashnodePostNode = {
+export interface HashnodePostNode {
   slug: string;
   title: string;
   tags: {
@@ -19,23 +19,23 @@ export type HashnodePostNode = {
   };
   publishedAt: string;
   updatedAt: string;
-};
+}
 
-export type HashnodePostNodeResponse = {
+export interface HashnodePostNodeResponse {
   publication: {
     post: HashnodePostNode;
   };
-};
+}
 
-export type HashnodePostListResponse = {
+export interface HashnodePostListResponse {
   publication: {
     posts: {
       edges: Array<{ node: HashnodePostNode }>;
     };
   };
-};
+}
 
-export type HashnodeSeriesPostListResponse = {
+export interface HashnodeSeriesPostListResponse {
   publication: {
     series: {
       posts: {
@@ -43,4 +43,4 @@ export type HashnodeSeriesPostListResponse = {
       };
     } | null;
   };
-};
+}
