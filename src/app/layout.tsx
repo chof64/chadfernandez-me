@@ -8,7 +8,9 @@ export const metadata: Metadata = {
   title: "Chad Fernandez",
   description:
     "I am a software engineer driven by the love for technology and a mission to build apps that make a difference in the community.",
-  icons: [{ rel: "icon", url: "/favicon.ico" }],
+  icons: {
+    icon: "/favicon.ico",
+  },
   metadataBase: new URL(env.BASE_URL),
   openGraph: {
     siteName: "Chad Fernandez",
