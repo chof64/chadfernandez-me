@@ -7,12 +7,8 @@ import "./src/env.js";
 /** @type {import("next").NextConfig} */
 const config = {
   images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "cdn.hashnode.com",
-      },
-    ],
+    // Removed Hashnode CDN pattern (was: cdn.hashnode.com)
+    remotePatterns: [],
   },
 };
 
