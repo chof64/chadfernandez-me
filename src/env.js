@@ -31,7 +31,7 @@ export const env = createEnv({
    */
   runtimeEnv: {
     NODE_ENV: process.env.NODE_ENV,
-    BASE_URL: process.env.BASE_URL,
+    BASE_URL: process.env.BASE_URL ?? "http://localhost:3000",
     // HASHNODE_PUBLICATION_ID removed
   },
   /**
