@@ -1,9 +1,8 @@
 import PostCard from "~/components/post-card";
 
-import { fetchSeriesPosts } from "~/lib/hashnode/fetch-series-posts";
-
 export default async function EngagementsPage() {
-  const posts = await fetchSeriesPosts("engagements");
+  // Hashnode removed: show placeholder
+  const posts: any[] = [];
 
   return (
     <div className="container my-16 max-w-2xl">

@@ -1,8 +1,24 @@
 import Link from "next/link";
-import type { HashnodePostNode } from "~/lib/hashnode/types";
-import { dateFormatter } from "~/lib/hashnode/utils";
+type LocalPost = {
+  slug: string;
+  title: string;
+  brief?: string;
+  publishedAt?: string | Date;
+  series?: { name?: string } | null;
+};
 
-export default function PostCard({ post }: { post: HashnodePostNode }) {
+function dateFormatter(_d: string | Date | undefined) {
+  // Simple local formatter fallback
+  try {
+    if (!_d) return "";
+    const d = typeof _d === "string" ? new Date(_d) : _d;
+    return d.toLocaleDateString();
+  } catch {
+    return "";
+  }
+}
+
+export default function PostCard({ post }: { post: LocalPost }) {
   return (
     <Link href={`/post/${post.slug}`}>
       <div className="group py-6" key={post.slug}>

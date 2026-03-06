@@ -3,10 +3,17 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-import { fetchBlogPost } from "~/lib/hashnode/fetch-post";
-import { fetchBlogPosts } from "~/lib/hashnode/fetch-posts";
+// Hashnode removed: use local placeholder fetches
 
-import { dateFormatter } from "~/lib/hashnode/utils";
+function dateFormatter(_d: string | Date | undefined) {
+  if (!_d) return "";
+  try {
+    const d = typeof _d === "string" ? new Date(_d) : _d;
+    return d.toLocaleDateString();
+  } catch {
+    return "";
+  }
+}
 
 interface BlogPostPageProps {
   params: Promise<{
@@ -15,18 +22,19 @@ interface BlogPostPageProps {
 }
 
 export const generateStaticParams = async () => {
-  const posts = await fetchBlogPosts();
-  return posts.map((post) => ({ slug: post.slug }));
+  // No posts available while Hashnode integration is removed
+  return [];
 };
 
 export default async function ReadPostPage({ params }: BlogPostPageProps) {
   const { slug } = await params;
-  const post = await fetchBlogPost(slug);
-
-  if (!post) {
-    notFound();
-  }
-
+  // Placeholder content until posts are migrated
+  const post = {
+    title: "Blog post coming soon",
+    publishedAt: undefined,
+    coverImage: null,
+    content: { html: "<p>Content is being migrated.</p>" },
+  };
   return (
     <div className="container my-20 max-w-2xl">
       <Link
@@ -39,9 +47,7 @@ export default async function ReadPostPage({ params }: BlogPostPageProps) {
       </Link>
 
       <article>
-        <h1 className="mt-2 font-semibold text-4xl leading-tight">
-          {post.title}
-        </h1>
+        <h1 className="mt-2 font-semibold text-4xl leading-tight">{post.title}</h1>
 
         <div className="mt-3 flex flex-wrap items-center gap-4 text-muted-foreground text-sm">
           <time>{dateFormatter(post.publishedAt)}</time>
@@ -49,13 +55,7 @@ export default async function ReadPostPage({ params }: BlogPostPageProps) {
 
         {post.coverImage ? (
           <div className="relative mt-8 mb-8 aspect-video w-full overflow-hidden rounded-sm">
-            <Image
-              alt={post.title}
-              className="object-cover"
-              fill
-              priority
-              src={post.coverImage.url}
-            />
+            {/* coverImage removed */}
           </div>
         ) : null}
 
