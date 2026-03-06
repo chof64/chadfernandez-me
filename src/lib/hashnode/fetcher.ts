@@ -1,12 +1,9 @@
 /**
  * Utility function for making GraphQL requests
  */
-import { env } from "~/env";
-
-interface GraphQLResponse<T> {
-  data?: T;
-  errors?: Array<{ message: string }>;
-}
+// Hashnode integration removed. This file remains as a placeholder to avoid
+// breaking imports elsewhere in the codebase. Calling the fetcher will throw
+// at runtime to make the removal explicit.
 
 interface FetcherData {
   query: string;
@@ -14,44 +11,8 @@ interface FetcherData {
   revalidate?: number;
 }
 
-/**
- * A reusable GraphQL fetcher that can be used across the application
- * with built-in support for the Hashnode publication ID
- */
-export async function fetcher<T = unknown>(data: FetcherData): Promise<T> {
-  const hashnodeEndpoint = "https://gql.hashnode.com";
-
-  const variables = {
-    ...data.variables,
-  };
-
-  const response = await fetch(hashnodeEndpoint, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      query: data.query,
-      variables,
-    }),
-    ...(data.revalidate && { next: { revalidate: data.revalidate } }),
-  });
-
-  if (!response.ok) {
-    throw new Error(`GraphQL request failed: ${response.statusText}`);
-  }
-
-  const json = (await response.json()) as GraphQLResponse<T>;
-
-  if (json.errors) {
-    throw new Error(
-      `GraphQL errors: ${json.errors.map((e) => e.message).join(", ")}`
-    );
-  }
-
-  if (!json.data) {
-    throw new Error("No data returned from GraphQL API");
-  }
-
-  return json.data;
+export async function fetcher<T = unknown>(_data: FetcherData): Promise<T> {
+  throw new Error(
+    "Hashnode integration removed: fetcher is no longer available."
+  );
 }
