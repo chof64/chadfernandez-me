@@ -23,7 +23,6 @@ export async function fetcher<T = unknown>(data: FetcherData): Promise<T> {
 
   const variables = {
     ...data.variables,
-    publicationId: env.HASHNODE_PUBLICATION_ID,
   };
 
   const response = await fetch(hashnodeEndpoint, {

@@ -5,3 +5,5 @@
 ## License
 
 **chof64/chadfernandez-me** is licensed under the [MIT Licnese](/LICENSE).
+
+NOTE: The HASHNODE_PUBLICATION_ID environment variable and Hashnode examples were removed.

@@ -14,7 +14,6 @@ export const env = createEnv({
       process.env.NODE_ENV === "production"
         ? z.url()
         : z.url().default("http://localhost:3000"),
-    HASHNODE_PUBLICATION_ID: z.string(),
   },
 
   /**
@@ -33,7 +32,7 @@ export const env = createEnv({
   runtimeEnv: {
     NODE_ENV: process.env.NODE_ENV,
     BASE_URL: process.env.BASE_URL,
-    HASHNODE_PUBLICATION_ID: process.env.HASHNODE_PUBLICATION_ID,
+    // HASHNODE_PUBLICATION_ID removed
   },
   /**
    * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially
