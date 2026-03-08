@@ -1,0 +1,180 @@
+
+> chadfernandez-me@3.10.1 typecheck /Users/chof64/intent/workspaces/personal-update/chadfernandez-me
+> tsc --noEmit
+
+.next/dev/types/validator.ts(6,59): error TS2307: Cannot find module 'next/types.js' or its corresponding type declarations.
+.next/dev/types/validator.ts(9,12): error TS2503: Cannot find namespace 'React'.
+.next/dev/types/validator.ts(9,134): error TS2503: Cannot find namespace 'React'.
+.next/dev/types/validator.ts(9,160): error TS2503: Cannot find namespace 'React'.
+.next/dev/types/validator.ts(24,12): error TS2503: Cannot find namespace 'React'.
+.next/dev/types/validator.ts(24,86): error TS2503: Cannot find namespace 'React'.
+.next/dev/types/validator.ts(24,112): error TS2503: Cannot find namespace 'React'.
+.next/types/validator.ts(6,59): error TS2307: Cannot find module 'next/types.js' or its corresponding type declarations.
+.next/types/validator.ts(9,12): error TS2503: Cannot find namespace 'React'.
+.next/types/validator.ts(9,134): error TS2503: Cannot find namespace 'React'.
+.next/types/validator.ts(9,160): error TS2503: Cannot find namespace 'React'.
+.next/types/validator.ts(24,12): error TS2503: Cannot find namespace 'React'.
+.next/types/validator.ts(24,86): error TS2503: Cannot find namespace 'React'.
+.next/types/validator.ts(24,112): error TS2503: Cannot find namespace 'React'.
+next.config.js(7,19): error TS2307: Cannot find module 'next' or its corresponding type declarations.
+src/app/engagements/page.tsx(8,5): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/engagements/page.tsx(8,5): error TS2875: This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.
+src/app/engagements/page.tsx(9,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/engagements/page.tsx(10,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/engagements/page.tsx(10,58): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/engagements/page.tsx(11,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/engagements/page.tsx(12,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/engagements/page.tsx(14,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/engagements/page.tsx(14,72): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/engagements/page.tsx(16,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/engagements/page.tsx(18,25): error TS2322: Type '{ key: any; post: any; }' is not assignable to type '{ post: LocalPost; }'.
+  Property 'key' does not exist on type '{ post: LocalPost; }'.
+src/app/engagements/page.tsx(20,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/engagements/page.tsx(22,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/engagements/page.tsx(23,5): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/home-engagements.tsx(1,18): error TS2307: Cannot find module 'next/link' or its corresponding type declarations.
+src/app/home-github.tsx(1,32): error TS2307: Cannot find module 'react-github-calendar' or its corresponding type declarations.
+src/app/home-github.tsx(5,5): error TS2875: This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.
+src/app/home-projects.tsx(1,18): error TS2307: Cannot find module 'next/link' or its corresponding type declarations.
+src/app/layout.tsx(2,31): error TS2307: Cannot find module 'next' or its corresponding type declarations.
+src/app/layout.tsx(3,23): error TS2307: Cannot find module 'next/font/google' or its corresponding type declarations.
+src/app/layout.tsx(51,25): error TS2503: Cannot find namespace 'React'.
+src/app/layout.tsx(53,5): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/layout.tsx(53,5): error TS2875: This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.
+src/app/layout.tsx(54,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/layout.tsx(56,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/layout.tsx(56,25): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/layout.tsx(57,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/layout.tsx(58,5): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/page.tsx(1,19): error TS2307: Cannot find module 'next/image' or its corresponding type declarations.
+src/app/page.tsx(2,18): error TS2307: Cannot find module 'next/link' or its corresponding type declarations.
+src/app/page.tsx(9,5): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/page.tsx(9,5): error TS2875: This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.
+src/app/page.tsx(10,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/page.tsx(20,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/page.tsx(22,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/page.tsx(24,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/page.tsx(27,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/page.tsx(28,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/page.tsx(30,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/page.tsx(35,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/page.tsx(36,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/page.tsx(36,43): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/page.tsx(37,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/page.tsx(62,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/page.tsx(63,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/page.tsx(64,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/page.tsx(65,5): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/post/[slug]/page.tsx(1,31): error TS2307: Cannot find module 'lucide-react' or its corresponding type declarations.
+src/app/post/[slug]/page.tsx(2,19): error TS2307: Cannot find module 'next/image' or its corresponding type declarations.
+src/app/post/[slug]/page.tsx(3,18): error TS2307: Cannot find module 'next/link' or its corresponding type declarations.
+src/app/post/[slug]/page.tsx(4,26): error TS2307: Cannot find module 'next/navigation' or its corresponding type declarations.
+src/app/post/[slug]/page.tsx(39,5): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/post/[slug]/page.tsx(39,5): error TS2875: This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.
+src/app/post/[slug]/page.tsx(49,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/post/[slug]/page.tsx(50,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/post/[slug]/page.tsx(50,79): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/post/[slug]/page.tsx(52,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/post/[slug]/page.tsx(53,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/post/[slug]/page.tsx(53,50): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/post/[slug]/page.tsx(54,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/post/[slug]/page.tsx(57,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/post/[slug]/page.tsx(59,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/post/[slug]/page.tsx(62,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/post/[slug]/page.tsx(67,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/post/[slug]/page.tsx(68,5): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/post/page.tsx(8,5): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/post/page.tsx(8,5): error TS2875: This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.
+src/app/post/page.tsx(9,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/post/page.tsx(10,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/post/page.tsx(10,59): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/post/page.tsx(11,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/post/page.tsx(12,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/post/page.tsx(14,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/post/page.tsx(14,68): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/post/page.tsx(16,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/post/page.tsx(18,25): error TS2322: Type '{ key: any; post: any; }' is not assignable to type '{ post: LocalPost; }'.
+  Property 'key' does not exist on type '{ post: LocalPost; }'.
+src/app/post/page.tsx(20,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/post/page.tsx(22,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/post/page.tsx(23,5): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/projects/page.tsx(8,5): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/projects/page.tsx(8,5): error TS2875: This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.
+src/app/projects/page.tsx(9,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/projects/page.tsx(10,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/projects/page.tsx(10,55): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/projects/page.tsx(11,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/projects/page.tsx(12,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/projects/page.tsx(14,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/projects/page.tsx(14,69): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/projects/page.tsx(16,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/projects/page.tsx(18,25): error TS2322: Type '{ key: any; post: any; }' is not assignable to type '{ post: LocalPost; }'.
+  Property 'key' does not exist on type '{ post: LocalPost; }'.
+src/app/projects/page.tsx(20,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/projects/page.tsx(22,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/projects/page.tsx(23,5): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/app/robots.ts(1,36): error TS2307: Cannot find module 'next' or its corresponding type declarations.
+src/app/sitemap.ts(1,36): error TS2307: Cannot find module 'next' or its corresponding type declarations.
+src/components/header.tsx(1,18): error TS2307: Cannot find module 'next/link' or its corresponding type declarations.
+src/components/header.tsx(6,5): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/components/header.tsx(6,5): error TS2875: This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.
+src/components/header.tsx(7,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/components/header.tsx(12,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/components/header.tsx(13,5): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/components/nav-content.tsx(3,38): error TS2307: Cannot find module 'next/link' or its corresponding type declarations.
+src/components/nav-content.tsx(4,27): error TS2307: Cannot find module 'next/navigation' or its corresponding type declarations.
+src/components/nav-content.tsx(5,19): error TS2307: Cannot find module 'react' or its corresponding type declarations.
+src/components/nav-content.tsx(20,5): error TS2875: This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.
+src/components/nav-content.tsx(21,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/components/nav-content.tsx(22,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/components/nav-content.tsx(23,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/components/nav-content.tsx(33,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/components/nav-content.tsx(34,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/components/nav-content.tsx(35,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/components/nav-root.tsx(3,19): error TS2307: Cannot find module 'react' or its corresponding type declarations.
+src/components/nav-root.tsx(52,5): error TS2875: This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.
+src/components/nav-root.tsx(55,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/components/nav-root.tsx(56,13): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/components/nav-root.tsx(57,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/components/nav-root.tsx(63,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/components/nav-root.tsx(69,13): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/components/nav-root.tsx(70,13): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/components/nav-root.tsx(70,50): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/components/nav-root.tsx(71,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/components/nav-root.tsx(72,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/components/nav-root.tsx(74,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/components/post-card.tsx(1,18): error TS2307: Cannot find module 'next/link' or its corresponding type declarations.
+src/components/post-card.tsx(23,5): error TS2875: This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.
+src/components/post-card.tsx(24,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/components/post-card.tsx(25,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/components/post-card.tsx(27,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/components/post-card.tsx(28,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/components/post-card.tsx(29,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/components/post-card.tsx(31,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/components/post-card.tsx(32,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/components/post-card.tsx(33,13): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/components/post-card.tsx(33,52): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/components/post-card.tsx(34,34): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/components/post-card.tsx(34,58): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/components/post-card.tsx(35,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/components/post-card.tsx(36,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/components/post-card.tsx(37,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/components/ui/button.tsx(1,40): error TS2307: Cannot find module 'class-variance-authority' or its corresponding type declarations.
+src/components/ui/button.tsx(2,22): error TS2307: Cannot find module 'radix-ui' or its corresponding type declarations.
+src/components/ui/button.tsx(3,29): error TS2307: Cannot find module 'react' or its corresponding type declarations.
+src/components/ui/button.tsx(55,5): error TS2875: This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.
+src/components/ui/popover.tsx(3,45): error TS2307: Cannot find module 'radix-ui' or its corresponding type declarations.
+src/components/ui/popover.tsx(4,24): error TS2307: Cannot find module 'react' or its corresponding type declarations.
+src/components/ui/popover.tsx(11,10): error TS2875: This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.
+src/components/ui/popover.tsx(50,5): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/components/ui/popover.tsx(60,5): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/components/ui/popover.tsx(73,5): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/env.js(1,27): error TS2307: Cannot find module '@t3-oss/env-nextjs' or its corresponding type declarations.
+src/env.js(2,19): error TS2307: Cannot find module 'zod' or its corresponding type declarations.
+src/env.js(14,7): error TS2580: Cannot find name 'process'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node`.
+src/env.js(33,15): error TS2580: Cannot find name 'process'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node`.
+src/env.js(34,15): error TS2580: Cannot find name 'process'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node`.
+src/env.js(41,21): error TS2580: Cannot find name 'process'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node`.
+src/lib/utils.ts(1,39): error TS2307: Cannot find module 'clsx' or its corresponding type declarations.
+src/lib/utils.ts(2,25): error TS2307: Cannot find module 'tailwind-merge' or its corresponding type declarations.
+ ELIFECYCLE  Command failed with exit code 2.
