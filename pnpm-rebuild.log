@@ -1,2 +1,0 @@
-.../node_modules/msw postinstall$ node -e "import('./config/scripts/postinstall.js').catch(() => void 0)"
-.../node_modules/msw postinstall: Done
