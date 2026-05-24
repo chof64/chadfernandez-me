@@ -1,43 +1,34 @@
 # AGENTS.md
 
-This file provides guidance to opencode when working with code in this repository.
+## Project
+Personal website: Next.js 16 (App Router), Tailwind v4, shadcn/ui (hugeicons), Hashnode GraphQL CMS, Biome linting.
 
-## Project Overview
+## Critical Rules
+1. Use `~/` path alias for all imports (maps to `src/`)
+2. Use `cn()` from `~/lib/utils` for class merging — Biome enforces sorted args in cn/clsx/cva calls
+3. Hashnode fetcher functions return `[]` on error — never throw, never try/catch
+4. Add `"use client"` only for interactive components
+5. External images → add domain to `next.config.js` `images.remotePatterns`
 
-Personal website built with Next.js 16 (App Router), Tailwind CSS v4, and shadcn/ui components. Uses Hashnode as a headless CMS via GraphQL API to fetch and display blog posts.
+## After Making Changes
+Run `pnpm check` and `pnpm typecheck` to verify your change passes lint, formatting (Biome), and type checks.
+Do NOT run `pnpm build`, `pnpm start`, `pnpm preview` — these are manual operations, not needed for verification.
+Do NOT restart `pnpm dev` — it auto-refreshes.
 
 ## Commands
+| Command | Action |
+|---------|--------|
+| `pnpm dev` | Dev server (manual) |
+| `pnpm build` | Production build (manual) |
+| `pnpm check` | Biome lint |
+| `pnpm check:write` | Fix safe Biome issues |
+| `pnpm check:unsafe` | Fix all Biome issues |
+| `pnpm typecheck` | TypeScript check |
 
-```bash
-pnpm dev        # Start development server
-pnpm build      # Build for production
-pnpm start      # Start production server
-pnpm check      # Run Biome linting
-pnpm check:write # Fix Biome linting issues
-pnpm check:unsafe # Fix unsafe Biome issues
-pnpm typecheck  # TypeScript type checking
-```
+## Environment
+- Required: `BASE_URL`, `HASHNODE_PUBLICATION_ID`
+- `SKIP_ENV_VALIDATION=1` bypasses env checks (for Docker builds)
+- Validation schema in `src/env.js`
 
-## Code Standards
-
-- **Linter/Formatter**: Biome (extends `ultracite/biome/core` and `ultracite/biome/next`)
-- **CSS**: Tailwind CSS v4 with `@tailwindcss/postcss`, `@tailwindcss/typography`
-- **Styling Pattern**: Use `cn()` from `~/lib/utils.ts` (clsx + tailwind-merge)
-- **Components**: shadcn/ui base components in `src/components/ui/`
-
-## Environment Variables
-
-Environment validation is handled by `@t3-oss/env-nextjs` with zod schemas in `src/env.js`. Required variables:
-- `BASE_URL` - Site URL (defaults to `http://localhost:3000` in development)
-- `HASHNODE_PUBLICATION_ID` - Hashnode publication ID for blog content
-
-## Architecture
-
-- `src/app/` - Next.js App Router pages and layouts
-  - `post/[slug]/` - Individual blog post pages
-  - `engagements/` - Speaking engagements page
-  - `projects/` - Projects showcase page
-- `src/components/` - React components (ui/ contains shadcn components)
-- `src/lib/` - Utilities and integrations
-  - `hashnode/` - GraphQL API fetcher and types for Hashnode CMS
-- `src/styles/` - Local CSS styles
+## Metadata
+`metadataBase` in `layout.tsx` sourced from `env.BASE_URL`
