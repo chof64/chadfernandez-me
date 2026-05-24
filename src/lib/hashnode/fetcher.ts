@@ -10,8 +10,8 @@ interface GraphQLResponse<T> {
 
 interface FetcherData {
   query: string;
-  variables?: Record<string, unknown>;
   revalidate?: number;
+  variables?: Record<string, unknown>;
 }
 
 /**

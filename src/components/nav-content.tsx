@@ -21,10 +21,10 @@ export default function NavContent() {
       <div className="h-full">
         <div className="container my-6 max-w-2xl px-6">
           <div className="flex flex-col gap-3">
-            {items.map((item, index) => (
+            {items.map((item) => (
               <MobileLink
                 href={item.href}
-                key={`${item.href}-${index}`}
+                key={item.href}
                 onOpenChange={setMenuOpen}
               >
                 {item.label}

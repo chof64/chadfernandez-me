@@ -1,4 +1,4 @@
-export const cacheBuster = () => Math.random().toString(36).substring(2, 15);
+export const cacheBuster = () => Math.random().toString(36).slice(2, 15);
 
 /**
  * Returns the difference in whole days between now and the provided date.
