@@ -1,20 +1,19 @@
 {
-  "$schema": "https://unpkg.com/release-it/schema/release-it.json",
+  "$schema": "https://cdn.jsdelivr.net/npm/release-it@latest/schema/release-it.json",
   "git": {
-    "push": true
+    "push": true,
+    "commitMessage": "chore(release): v${version}"
   },
   "github": {
-    "release": true
+    "release": true,
+    "releaseNotes": "node .github/scripts/generate-release-notes.mjs"
   },
   "npm": {
     "publish": false
   },
   "plugins": {
     "@release-it/conventional-changelog": {
-      "preset": {
-        "name": "conventionalcommits"
-      },
-      "changelog": false
+      "preset": "conventionalcommits"
     }
   }
 }
