@@ -1,23 +1,23 @@
 export interface HashnodePostNode {
-  slug: string;
-  title: string;
-  tags: {
-    name: string;
-    slug: string;
-  }[];
+  brief: string;
+  content: {
+    html: string;
+  };
   coverImage: {
     url: string;
   } | null;
-  brief: string;
+  publishedAt: string;
   readTimeInMinutes: number;
   series: {
     name: string;
     slug: string;
   } | null;
-  content: {
-    html: string;
-  };
-  publishedAt: string;
+  slug: string;
+  tags: {
+    name: string;
+    slug: string;
+  }[];
+  title: string;
   updatedAt: string;
 }
 
