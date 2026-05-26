@@ -3,29 +3,39 @@ import Link from "next/link";
 import HomeEngagements from "./home-engagements";
 import HomeGitHub from "./home-github";
 import HomeProjects from "./home-projects";
+import HomeSkills from "./home-skills";
 
 export default function IndexPage() {
   return (
     <div className="container my-16 max-w-2xl">
       <section className="mt-24 text-center">
-        <Image
-          alt="Portrait"
-          className="mx-auto h-28 w-28 rounded-xl object-cover"
-          height={112}
-          priority
-          src="/hero-portrait.jpeg"
-          width={112}
-        />
+        <div className="animate-fade-up">
+          <Image
+            alt="Portrait"
+            className="mx-auto h-24 w-24 rounded-lg object-cover"
+            height={96}
+            priority
+            src="/hero-portrait.jpeg"
+            width={96}
+          />
+        </div>
 
-        <h1 className="mt-6 font-semibold text-2xl tracking-tight">
+        <h1 className="animation-delay-100 mt-6 animate-fade-up font-semibold text-3xl tracking-tight">
           Chad Fernandez
         </h1>
 
-        <p className="mt-4 text-muted-foreground/80 text-sm">
-          Software engineer studying Information Technology. I build simple,
-          useful web apps with clarity and intention.
+        <p className="animation-delay-200 mt-1 animate-fade-up font-medium text-muted-foreground text-sm">
+          Software Engineer
+        </p>
+
+        <p className="animation-delay-300 mx-auto mt-4 max-w-sm animate-fade-up text-muted-foreground/80 text-sm leading-relaxed">
+          Software engineer specializing in full-stack web development. I build
+          robust, type-safe applications with modern tooling — from PostgreSQL
+          backends to polished, performant interfaces.
         </p>
       </section>
+
+      <HomeSkills />
 
       <div className="mt-10">
         <HomeGitHub />
@@ -33,18 +43,17 @@ export default function IndexPage() {
         <HomeProjects />
 
         <section className="mt-10 border-t pt-6">
-          <h2 className="sr-only">Contacts</h2>
           <p className="text-muted-foreground/80 text-sm">
-            Want to chat? Reach me at{" "}
+            Interested in working together? Reach out at{" "}
             <Link
-              className="font-medium text-muted-foreground/80 text-sm underline-offset-4 hover:underline"
+              className="font-medium underline-offset-4 hover:underline"
               href="mailto:contact@chadfernandez.me"
             >
               contact@chadfernandez.me
-            </Link>
-            . Also on{" "}
+            </Link>{" "}
+            or find me on{" "}
             <Link
-              className="font-medium text-muted-foreground/80 text-sm underline-offset-4 hover:underline"
+              className="font-medium underline-offset-4 hover:underline"
               href="https://github.com/chof64"
               target="_blank"
             >
@@ -52,7 +61,7 @@ export default function IndexPage() {
             </Link>{" "}
             and{" "}
             <Link
-              className="font-medium text-muted-foreground/80 text-sm underline-offset-4 hover:underline"
+              className="font-medium underline-offset-4 hover:underline"
               href="https://www.linkedin.com/in/chof64"
               target="_blank"
             >

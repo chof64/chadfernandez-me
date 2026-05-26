@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Header from "~/components/header";
 import { env } from "~/env";
+import { ThemeProvider } from "~/lib/theme-provider";
 
 export const metadata: Metadata = {
   title: "Chad Fernandez",
@@ -51,9 +52,11 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html className={`${inter.variable}`} lang="en">
-      <body>
-        <Header />
-        <main>{children}</main>
+      <body className="transition-colors duration-200">
+        <ThemeProvider>
+          <Header />
+          <main>{children}</main>
+        </ThemeProvider>
       </body>
     </html>
   );
