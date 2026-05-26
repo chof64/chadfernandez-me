@@ -1,3 +1,4 @@
+import { Mail } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import HomeEngagements from "./home-engagements";
@@ -42,33 +43,58 @@ export default function IndexPage() {
         <HomeEngagements />
         <HomeProjects />
 
-        <section className="mt-10 border-t pt-6">
-          <p className="text-muted-foreground/80 text-sm">
-            Interested in working together? Reach out at{" "}
+        <section className="mt-10">
+          <h2 className="font-semibold text-base">Contact</h2>
+          <p className="mt-2 text-muted-foreground/80 text-sm">
+            I'm open to projects and collaborations. Let's connect.
+          </p>
+          <div className="mt-4 flex items-center gap-4">
             <Link
-              className="font-medium underline-offset-4 hover:underline"
+              className="group flex items-center gap-2 text-sm"
               href="mailto:contact@chadfernandez.me"
             >
-              contact@chadfernandez.me
-            </Link>{" "}
-            or find me on{" "}
-            <Link
-              className="font-medium underline-offset-4 hover:underline"
-              href="https://github.com/chof64"
-              target="_blank"
-            >
-              GitHub
-            </Link>{" "}
-            and{" "}
-            <Link
-              className="font-medium underline-offset-4 hover:underline"
-              href="https://www.linkedin.com/in/chof64"
-              target="_blank"
-            >
-              LinkedIn
+              <Mail className="size-4 opacity-70 group-hover:opacity-100" />
+              <span className="text-muted-foreground/80 group-hover:text-foreground">
+                email me
+              </span>
             </Link>
-            .
-          </p>
+            <Link
+              className="group flex items-center gap-2 text-sm"
+              href="https://github.com/chof64"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <Image
+                alt="GitHub"
+                className="size-4 opacity-70 group-hover:opacity-100"
+                height={16}
+                src="/images/github.svg"
+                unoptimized={true}
+                width={16}
+              />
+              <span className="text-muted-foreground/80 group-hover:text-foreground">
+                GitHub
+              </span>
+            </Link>
+            <Link
+              className="group flex items-center gap-2 text-sm"
+              href="https://www.linkedin.com/in/chof64"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <Image
+                alt="LinkedIn"
+                className="size-4 opacity-70 group-hover:opacity-100"
+                height={16}
+                src="/images/linkedin.svg"
+                unoptimized={true}
+                width={16}
+              />
+              <span className="text-muted-foreground/80 group-hover:text-foreground">
+                LinkedIn
+              </span>
+            </Link>
+          </div>
         </section>
       </div>
     </div>
