@@ -27,6 +27,7 @@ export default function HomeSkills() {
       (entries) => {
         for (const entry of entries) {
           if (entry.isIntersecting) {
+            el.classList.add("revealed");
             const badges = el.querySelectorAll(".skill-badge");
             for (let i = 0; i < badges.length; i++) {
               setTimeout(() => {
@@ -46,7 +47,7 @@ export default function HomeSkills() {
 
   return (
     <section className="scroll-reveal mt-16" ref={ref}>
-      <h2 className="font-semibold text-lg">Tech Stack</h2>
+      <h2 className="font-semibold text-base">Tech Stack</h2>
       <div className="mt-4 flex flex-wrap gap-2">
         {skills.map((skill) => (
           <span

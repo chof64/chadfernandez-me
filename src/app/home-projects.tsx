@@ -14,7 +14,7 @@ export default async function HomeProjects() {
   return (
     <section className="mt-12">
       <div className="flex items-center justify-between">
-        <h2 className="font-semibold text-lg">Projects</h2>
+        <h2 className="font-semibold text-base">Projects</h2>
         <Link className="text-muted-foreground/80 text-sm" href="/projects">
           View all →
         </Link>

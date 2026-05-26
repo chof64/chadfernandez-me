@@ -20,7 +20,7 @@ export default function IndexPage() {
           />
         </div>
 
-        <h1 className="animation-delay-100 mt-6 animate-fade-up font-semibold text-3xl tracking-tight">
+        <h1 className="animation-delay-100 mt-6 animate-fade-up font-semibold text-2xl tracking-tight">
           Chad Fernandez
         </h1>
 

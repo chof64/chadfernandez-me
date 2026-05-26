@@ -14,7 +14,7 @@ export default async function HomeEngagements() {
   return (
     <section className="mt-12">
       <div className="flex items-center justify-between">
-        <h2 className="font-semibold text-lg">Engagements</h2>
+        <h2 className="font-semibold text-base">Engagements</h2>
         <Link className="text-muted-foreground/80 text-sm" href="/engagements">
           View all →
         </Link>

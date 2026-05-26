@@ -63,17 +63,13 @@ export default function HomeGitHub() {
 
   if (!isMounted) {
     return (
-      <div
-        aria-hidden="true"
-        className="mt-10 rounded-lg border bg-card"
-        style={{ height: "140px" }}
-      />
+      <div aria-hidden="true" className="mt-10" style={{ height: "140px" }} />
     );
   }
 
   return (
-    <div className="github-calendar-wrapper mt-10 rounded-lg border bg-card p-4">
-      <h2 className="mb-3 font-semibold text-sm">Recent Activity</h2>
+    <div className="github-calendar-wrapper mt-10">
+      <h2 className="mb-3 font-semibold text-base">Recent Activity</h2>
       <GitHubCalendar
         blockMargin={3}
         blockSize={11}
