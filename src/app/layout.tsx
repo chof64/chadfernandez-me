@@ -8,7 +8,7 @@ import { ThemeProvider } from "~/lib/theme-provider";
 export const metadata: Metadata = {
   title: "Chad Fernandez",
   description:
-    "I am a software engineer driven by the love for technology and a mission to build apps that make a difference in the community.",
+    "A self-taught full-stack developer with a BS in Information Technology. Driven by a love for technology and a curiosity to understand how things work. I build apps that aim to help people and communities — and stay active in hackathons, webinars, and the startup scene.",
   icons: {
     icon: "/favicon.ico",
   },

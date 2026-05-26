@@ -30,9 +30,10 @@ export default function IndexPage() {
         </p>
 
         <p className="animation-delay-300 mx-auto mt-4 max-w-sm animate-fade-up text-muted-foreground/80 text-sm leading-relaxed">
-          Software engineer specializing in full-stack web development. I build
-          robust, type-safe applications with modern tooling — from PostgreSQL
-          backends to polished, performant interfaces.
+          Self-taught full-stack developer with a BS in Information Technology.
+          I love exploring how technology works and building apps that help
+          people. When I'm not coding, you'll find me competing in hackathons,
+          working on my startup, or joining webinars.
         </p>
       </section>
 
