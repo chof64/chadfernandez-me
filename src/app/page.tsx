@@ -29,11 +29,11 @@ export default function IndexPage() {
           Software Engineer
         </p>
 
-        <p className="animation-delay-300 mx-auto mt-4 max-w-lg animate-fade-up text-muted-foreground/80 text-sm leading-relaxed">
+        <p className="animation-delay-300 mx-auto mt-4 animate-fade-up text-muted-foreground/80 leading-relaxed">
           Self-taught full-stack developer with a BS in Information Technology.
           I love exploring how technology works and building apps that help
           people. When I'm not coding, you'll find me competing in hackathons,
-          working on my startup, or joining webinars.
+          working on startup, or joining webinars.
         </p>
       </section>
 
