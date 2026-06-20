@@ -1,5 +1,7 @@
 @import "./globals.css";
 
+@plugin "@tailwindcss/typography";
+
 @theme {
   --font-sans:
     -apple-system, var(--font-inter), ui-sans-serif, system-ui, sans-serif,
@@ -8,4 +10,92 @@
 
 @utility container {
   @apply mx-auto max-w-7xl px-8;
+}
+
+@utility animate-fade-up {
+  opacity: 0;
+  animation: fadeUp 0.5s ease-out forwards;
+}
+
+@utility animate-fade-in {
+  opacity: 0;
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+@utility animation-delay-100 {
+  animation-delay: 100ms;
+}
+@utility animation-delay-200 {
+  animation-delay: 200ms;
+}
+@utility animation-delay-300 {
+  animation-delay: 300ms;
+}
+@utility animation-delay-400 {
+  animation-delay: 400ms;
+}
+@utility animation-delay-500 {
+  animation-delay: 500ms;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.5s ease-out,
+    transform 0.5s ease-out;
+}
+
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.github-calendar-wrapper .react-activity-calendar {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+}
+
+.github-calendar-wrapper
+  .react-activity-calendar__scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+.github-calendar-wrapper .react-activity-calendar__scroll-container {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.github-calendar-wrapper .react-activity-calendar__count {
+  font-size: 0.7rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.github-calendar-wrapper .react-activity-calendar text {
+  fill: var(--muted-foreground);
+}
+
+.github-calendar-wrapper .react-activity-calendar footer {
+  color: var(--muted-foreground);
 }
