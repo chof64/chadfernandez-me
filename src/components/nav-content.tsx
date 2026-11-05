@@ -7,12 +7,7 @@ import { cn } from "~/lib/utils";
 import NavRoot from "./nav-root";
 
 export default function NavContent() {
-  const items = [
-    { href: "/", label: "Home" },
-    { href: "/engagements", label: "Engagements" },
-    { href: "/projects", label: "Projects" },
-    { href: "/post", label: "All Posts" },
-  ] as const;
+  const items = [{ href: "/", label: "Home" }] as const;
 
   const [menuOpen, setMenuOpen] = React.useState(false);
 
