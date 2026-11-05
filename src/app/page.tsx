@@ -1,9 +1,7 @@
 import { Mail } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import HomeEngagements from "./home-engagements";
 import HomeGitHub from "./home-github";
-import HomeProjects from "./home-projects";
 import HomeSkills from "./home-skills";
 
 export default function IndexPage() {
@@ -41,8 +39,6 @@ export default function IndexPage() {
 
       <div className="mt-10">
         <HomeGitHub />
-        <HomeEngagements />
-        <HomeProjects />
 
         <section className="mt-10">
           <h2 className="font-semibold text-base">Contact</h2>
