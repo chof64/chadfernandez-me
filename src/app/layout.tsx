@@ -47,12 +47,26 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
+const themeScript = `
+(() => {
+  try {
+    const stored = localStorage.getItem("theme");
+    document.documentElement.classList.toggle(
+      "dark",
+      stored ? stored === "dark" : matchMedia("(prefers-color-scheme: dark)").matches
+    );
+  } catch {}
+})();
+`;
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html className={`${inter.variable}`} lang="en">
+    <html className={`${inter.variable}`} lang="en" suppressHydrationWarning>
       <body className="transition-colors duration-200">
+        {/* biome-ignore lint/security/noDangerouslySetInnerHtml: static theme bootstrap must run before paint */}
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <ThemeProvider>
           <Header />
           <main>{children}</main>
