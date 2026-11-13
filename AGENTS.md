@@ -1,7 +1,7 @@
 # AGENTS.md
 
 ## Project
-Personal website: Next.js 16 (App Router), Tailwind v4, shadcn/ui (hugeicons), Biome linting.
+Personal website: Next.js 16 (App Router), Tailwind v4, shadcn/ui (lucide), Biome linting.
 
 ## Critical Rules
 1. Use `~/` path alias for all imports (maps to `src/`)
