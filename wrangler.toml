@@ -1,0 +1,13 @@
+#:schema node_modules/wrangler/config-schema.json
+
+name = "chadfernandez-me"
+compatibility_date = "2026-11-13"
+
+[assets]
+directory = "./dist"
+
+[observability]
+enabled = true
+
+# Build-time only (Workers Builds > Settings > Build); not a runtime [vars] entry.
+# BASE_URL = "https://chadfernandez.me"
