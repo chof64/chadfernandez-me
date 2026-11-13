@@ -1,0 +1,70 @@
+---
+import { Font } from "astro:assets";
+import Header from "~/components/header.astro";
+import { siteUrl } from "~/lib/site";
+import "~/styles/local.css";
+
+interface Props {
+  description?: string;
+  title?: string;
+}
+
+const {
+  title = "Chad Fernandez",
+  description = "A self-taught full-stack developer with a BS in Information Technology. Driven by a love for technology and a curiosity to understand how things work. I build apps that aim to help people and communities — and stay active in hackathons, webinars, and the startup scene.",
+} = Astro.props;
+
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl);
+const ogImage = new URL("/opengraph-image.png", siteUrl);
+const twitterImage = new URL("/twitter-image.png", siteUrl);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/favicon.ico" rel="icon">
+    <title>{title}</title>
+    <meta content={description} name="description">
+    <link href={canonicalUrl} rel="canonical">
+    <meta content="Chad Fernandez" property="og:site_name">
+    <meta content={canonicalUrl} property="og:url">
+    <meta content="en_US" property="og:locale">
+    <meta content="website" property="og:type">
+    <meta content={title} property="og:title">
+    <meta content={description} property="og:description">
+    <meta content={ogImage} property="og:image">
+    <meta content="1200" property="og:image:width">
+    <meta content="630" property="og:image:height">
+    <meta content="image/png" property="og:image:type">
+    <meta content="Chad Fernandez" property="og:image:alt">
+    <meta content="summary_large_image" name="twitter:card">
+    <meta content={title} name="twitter:title">
+    <meta content={description} name="twitter:description">
+    <meta content={twitterImage} name="twitter:image">
+    <meta content="1200" name="twitter:image:width">
+    <meta content="630" name="twitter:image:height">
+    <meta content="Chad Fernandez" name="twitter:image:alt">
+    <Font cssVariable="--font-inter" preload />
+    <script is:inline>
+      (() => {
+        try {
+          const stored = localStorage.getItem("theme");
+          document.documentElement.classList.toggle(
+            "dark",
+            stored
+              ? stored === "dark"
+              : matchMedia("(prefers-color-scheme: dark)").matches
+          );
+        } catch {
+          // localStorage can be unavailable in private browsing.
+        }
+      })();
+    </script>
+  </head>
+  <body class="transition-colors duration-200">
+    <Header />
+    <main><slot /></main>
+  </body>
+</html>

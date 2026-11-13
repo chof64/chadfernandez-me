@@ -17,11 +17,6 @@
   animation: fadeUp 0.5s ease-out forwards;
 }
 
-@utility animate-fade-in {
-  opacity: 0;
-  animation: fadeIn 0.4s ease-out forwards;
-}
-
 @utility animation-delay-100 {
   animation-delay: 100ms;
 }
@@ -98,4 +93,8 @@
 
 .github-calendar-wrapper .react-activity-calendar footer {
   color: var(--muted-foreground);
+}
+
+body:has(#site-menu:popover-open) {
+  overflow: hidden;
 }

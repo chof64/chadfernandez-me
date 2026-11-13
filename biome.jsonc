@@ -14,13 +14,22 @@
       "nursery": {
         "useSortedClasses": {
           "level": "warn",
-          "fix": "safe",
-          "options": {
-            "functions": ["clsx", "cva", "cn"]
-          }
+          "fix": "safe"
         }
       }
     }
   },
-  "extends": ["ultracite/biome/core", "ultracite/biome/next"]
+  "overrides": [
+    {
+      "includes": ["**/*.astro"],
+      "linter": {
+        "rules": {
+          "correctness": {
+            "useJsxKeyInIterable": "off"
+          }
+        }
+      }
+    }
+  ],
+  "extends": ["ultracite/biome/core", "ultracite/biome/astro"]
 }
