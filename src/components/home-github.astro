@@ -222,6 +222,12 @@ const skeletonCells = 53 * 7;
       scrollElement &&
       hintElement
     ) {
+      const scrollToLatest = () => {
+        scrollElement.scrollLeft = scrollElement.scrollWidth;
+      };
+
+      scrollToLatest();
+
       const load = async () => {
         const response = await fetch(
           `https://github-contributions-api.jogruber.de/v4/${username}?y=last`
@@ -268,7 +274,7 @@ const skeletonCells = 53 * 7;
         );
 
         renderMonths(monthsElement, weeks);
-        scrollElement.scrollLeft = scrollElement.scrollWidth;
+        scrollToLatest();
       };
 
       load().catch(() => {
