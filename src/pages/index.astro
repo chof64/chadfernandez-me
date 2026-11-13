@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import heroPortrait from "~/assets/hero-portrait.jpeg";
-import HomeGitHub from "~/components/home-github";
+import HomeGitHub from "~/components/home-github.astro";
 import HomeSkills from "~/components/home-skills.astro";
 import Layout from "~/layouts/layout.astro";
 ---
@@ -46,7 +46,7 @@ import Layout from "~/layouts/layout.astro";
     <HomeSkills />
 
     <div class="mt-10">
-      <HomeGitHub client:load />
+      <HomeGitHub />
 
       <section class="mt-10">
         <h2 class="font-semibold text-base">Contact</h2>

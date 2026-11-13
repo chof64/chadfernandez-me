@@ -66,33 +66,69 @@
   transform: translateY(0);
 }
 
-.github-calendar-wrapper .react-activity-calendar {
-  font-family: var(--font-sans);
-  font-size: 0.75rem;
-  color: var(--muted-foreground);
+.contribution-scroll {
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: thin;
 }
 
-.github-calendar-wrapper
-  .react-activity-calendar__scroll-container::-webkit-scrollbar {
-  display: none;
+.contribution-canvas {
+  width: max-content;
 }
 
-.github-calendar-wrapper .react-activity-calendar__scroll-container {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+.contribution-grid,
+.contribution-months {
+  display: grid;
+  grid-template-columns: repeat(var(--contribution-weeks, 53), 10px);
+  gap: 3px;
 }
 
-.github-calendar-wrapper .react-activity-calendar__count {
-  font-size: 0.7rem;
-  font-variant-numeric: tabular-nums;
+.contribution-grid {
+  grid-template-rows: repeat(7, auto);
+  grid-auto-flow: column;
 }
 
-.github-calendar-wrapper .react-activity-calendar text {
-  fill: var(--muted-foreground);
+.contribution-cell {
+  background-color: var(--github-0);
+  border-radius: 2px;
 }
 
-.github-calendar-wrapper .react-activity-calendar footer {
-  color: var(--muted-foreground);
+.contribution-cell[data-level="1"] {
+  background-color: var(--github-1);
+}
+
+.contribution-cell[data-level="2"] {
+  background-color: var(--github-2);
+}
+
+.contribution-cell[data-level="3"] {
+  background-color: var(--github-3);
+}
+
+.contribution-cell[data-level="4"] {
+  background-color: var(--github-4);
+}
+
+@media (hover: hover) {
+  .contribution-cell:hover {
+    outline: 1px solid var(--foreground);
+    outline-offset: 1px;
+  }
+}
+
+@media (min-width: 40rem) {
+  .contribution-canvas {
+    width: 100%;
+  }
+
+  .contribution-grid,
+  .contribution-months {
+    grid-template-columns: repeat(
+        var(--contribution-weeks, 53),
+        minmax(0, 1fr)
+      );
+    gap: 2px;
+  }
 }
 
 body:has(#site-menu:popover-open) {

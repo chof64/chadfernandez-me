@@ -1,11 +1,11 @@
 # AGENTS.md
 
 ## Project
-Personal website: Astro 7, Tailwind v4, React only for the GitHub calendar island, Biome linting.
+Personal website: Astro 7, Tailwind v4, Biome linting.
 
 ## Critical Rules
 1. Use `~/` path alias for all imports (maps to `src/`)
-2. Prefer `.astro` components. Hydrate React only where interactivity requires it; `home-github.tsx` is the only island.
+2. Prefer `.astro` components; the site has no React runtime.
 3. Keep the existing Tailwind tokens and `globals.css`/`local.css` structure.
 
 ## After Making Changes
