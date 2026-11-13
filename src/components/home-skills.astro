@@ -1,0 +1,46 @@
+---
+const skills = [
+  "TypeScript",
+  "Next.js",
+  "Tailwind CSS",
+  "Convex",
+  "tRPC",
+  "Prisma ORM",
+  "PostgreSQL",
+  "Python",
+  "Docker",
+];
+---
+
+<section class="scroll-reveal mt-16" data-skill-reveal>
+  <h2 class="font-semibold text-base">Tech Stack</h2>
+  <div class="mt-4 flex flex-wrap gap-2">
+    {skills.map((skill) => (
+        <span class="cursor-default rounded-full border bg-muted/50 px-3 py-1 text-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-muted">
+          {skill}
+        </span>
+      ))}
+  </div>
+</section>
+
+<script>
+  const sections = document.querySelectorAll("[data-skill-reveal]");
+
+  if (sections.length > 0) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("revealed");
+            observer.unobserve(entry.target);
+          }
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    for (const section of sections) {
+      observer.observe(section);
+    }
+  }
+</script>

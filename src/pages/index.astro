@@ -1,0 +1,121 @@
+---
+import { Image } from "astro:assets";
+import heroPortrait from "~/assets/hero-portrait.jpeg";
+import HomeGitHub from "~/components/home-github";
+import HomeSkills from "~/components/home-skills.astro";
+import Layout from "~/layouts/layout.astro";
+---
+
+<Layout>
+  <div class="container my-16 max-w-2xl">
+    <section class="mt-24 text-center">
+      <div class="animate-fade-up">
+        <Image
+          alt="Portrait"
+          class="mx-auto h-24 w-24 rounded-lg object-cover"
+          fetchpriority="high"
+          height={96}
+          loading="eager"
+          src={heroPortrait}
+          width={96}
+        />
+      </div>
+
+      <h1
+        class="animation-delay-100 mt-6 animate-fade-up font-semibold text-2xl tracking-tight"
+      >
+        Chad Fernandez
+      </h1>
+
+      <p
+        class="animation-delay-200 mt-1 animate-fade-up font-medium text-muted-foreground text-sm"
+      >
+        Software Engineer
+      </p>
+
+      <p
+        class="animation-delay-300 mx-auto mt-4 animate-fade-up text-muted-foreground/80 leading-relaxed"
+      >
+        Self-taught full-stack developer with a BS in Information Technology. I
+        love exploring how technology works and building apps that help people.
+        When I'm not coding, you'll find me competing in hackathons, working on
+        startup, or joining webinars.
+      </p>
+    </section>
+
+    <HomeSkills />
+
+    <div class="mt-10">
+      <HomeGitHub client:load />
+
+      <section class="mt-10">
+        <h2 class="font-semibold text-base">Contact</h2>
+        <p class="mt-2 text-muted-foreground/80 text-sm">
+          I'm open to projects and collaborations. Let's connect.
+        </p>
+        <div class="mt-4 flex items-center gap-4">
+          <a
+            class="group flex items-center gap-2 text-sm"
+            href="mailto:contact@chadfernandez.me"
+          >
+            <svg
+              aria-hidden="true"
+              class="size-4 opacity-70 group-hover:opacity-100"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path>
+              <rect height="16" rx="2" width="20" x="2" y="4"></rect>
+            </svg>
+            <span class="text-muted-foreground/80 group-hover:text-foreground">
+              email me
+            </span>
+          </a>
+          <a
+            class="group flex items-center gap-2 text-sm"
+            href="https://github.com/chof64"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <img
+              alt="GitHub"
+              class="size-4 opacity-70 group-hover:opacity-100"
+              height="16"
+              loading="lazy"
+              src="/images/github.svg"
+              width="16"
+            >
+            <span class="text-muted-foreground/80 group-hover:text-foreground">
+              GitHub
+            </span>
+          </a>
+          <a
+            class="group flex items-center gap-2 text-sm"
+            href="https://www.linkedin.com/in/chof64"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <img
+              alt="LinkedIn"
+              class="size-4 opacity-70 group-hover:opacity-100"
+              height="16"
+              loading="lazy"
+              src="/images/linkedin.svg"
+              width="16"
+            >
+            <span class="text-muted-foreground/80 group-hover:text-foreground">
+              LinkedIn
+            </span>
+          </a>
+        </div>
+      </section>
+    </div>
+  </div>
+</Layout>

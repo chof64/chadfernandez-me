@@ -1,0 +1,132 @@
+---
+const themeToggleClass =
+  "rounded-md p-1.5 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground";
+const menuButtonClass =
+  "inline-flex h-9 shrink-0 select-none items-center justify-center gap-1.5 whitespace-nowrap rounded-4xl border border-transparent px-3 font-medium text-sm transition-colors hover:bg-muted hover:text-foreground focus-visible:ring-[3px] focus-visible:ring-ring/50 aria-expanded:bg-muted aria-expanded:text-foreground";
+---
+
+<header class="container relative z-50 max-w-2xl py-4">
+  <div class="flex items-center justify-between">
+    <div class="flex items-center gap-4">
+      <a class="font-medium text-base tracking-tight" href="/">
+        Chad Fernandez
+      </a>
+      <button
+        aria-label="Toggle color theme"
+        class={themeToggleClass}
+        data-theme-toggle
+        type="button"
+      >
+        <svg
+          class="size-4 dark:hidden"
+          fill="none"
+          role="img"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+        >
+          <title>Moon icon</title>
+          <path
+            d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></path>
+        </svg>
+        <svg
+          class="hidden size-4 dark:block"
+          fill="none"
+          role="img"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+        >
+          <title>Sun icon</title>
+          <path
+            d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364-.707-.707M6.343 6.343l-.707-.707m12.728 0-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0z"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></path>
+        </svg>
+      </button>
+    </div>
+
+    <button
+      aria-controls="site-menu"
+      aria-expanded="false"
+      class={menuButtonClass}
+      popovertarget="site-menu"
+      type="button"
+    >
+      <div class="relative flex h-8 w-4 items-center justify-center">
+        <div class="relative size-4">
+          <span
+            class="menu-line absolute top-1 left-0 block h-0.5 w-4 bg-foreground transition-all duration-100"
+          ></span>
+          <span
+            class="menu-line absolute top-2.5 left-0 block h-0.5 w-4 bg-foreground transition-all duration-100"
+          ></span>
+        </div>
+        <span class="sr-only">Toggle Menu</span>
+      </div>
+      <span class="flex h-8 items-center font-medium text-base leading-none">
+        Menu
+      </span>
+    </button>
+  </div>
+
+  <div
+    class="fixed inset-x-0 top-[4.25rem] bottom-auto m-0 h-[calc(100dvh-4.25rem)] max-h-none w-full max-w-none overflow-y-auto border-0 bg-background/90 p-0 text-foreground shadow-none backdrop-blur"
+    id="site-menu"
+    popover
+  >
+    <div class="h-full">
+      <div class="container my-6 max-w-2xl px-6">
+        <div class="flex flex-col gap-3">
+          <a
+            class="pt-2 pb-3 font-medium text-muted-foreground/90 text-xl hover:text-foreground"
+            href="/"
+            >Home</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<style>
+  [aria-expanded="true"] .menu-line:first-child {
+    top: 0.4rem;
+    transform: rotate(-45deg);
+  }
+
+  [aria-expanded="true"] .menu-line:last-child {
+    top: 0.4rem;
+    transform: rotate(45deg);
+  }
+</style>
+
+<script>
+  const themeToggle = document.querySelector("[data-theme-toggle]");
+  themeToggle?.addEventListener("click", () => {
+    const dark = document.documentElement.classList.toggle("dark");
+    localStorage.setItem("theme", dark ? "dark" : "light");
+  });
+
+  const menu = document.getElementById("site-menu");
+  const menuButton = document.querySelector<HTMLButtonElement>(
+    "[popovertarget='site-menu']"
+  );
+
+  menu?.addEventListener("toggle", () => {
+    menuButton?.setAttribute(
+      "aria-expanded",
+      String(menu.matches(":popover-open"))
+    );
+  });
+
+  if (menu) {
+    for (const link of menu.querySelectorAll("a")) {
+      link.addEventListener("click", () => menu.hidePopover());
+    }
+  }
+</script>
