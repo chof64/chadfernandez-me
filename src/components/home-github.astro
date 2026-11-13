@@ -1,6 +1,8 @@
 ---
 const username = "chof64";
 const skeletonCells = 53 * 7;
+const contributionCellClass =
+  "aspect-square rounded-[2px] bg-(--github-0) data-[level=1]:bg-(--github-1) data-[level=2]:bg-(--github-2) data-[level=3]:bg-(--github-3) data-[level=4]:bg-(--github-4) hover:outline-1 hover:outline-offset-1 hover:outline-foreground";
 ---
 
 <section data-github-card data-username={username}>
@@ -19,26 +21,29 @@ const skeletonCells = 53 * 7;
     <div
       aria-describedby="contribution-scroll-hint"
       aria-label="GitHub contribution activity for the last year"
-      class="contribution-scroll rounded-sm focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-4"
+      class="overflow-x-auto overscroll-x-contain rounded-sm [scrollbar-width:thin] focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-4"
       data-github-scroll
       role="region"
       tabindex="0"
     >
-      <div class="contribution-canvas" data-github-canvas>
+      <div class="w-max sm:w-full" data-github-canvas>
         <div
           aria-hidden="true"
-          class="contribution-months h-3 text-[10px] text-muted-foreground leading-none"
+          class="grid h-3 grid-cols-[repeat(var(--contribution-weeks,53),10px)] gap-[3px] text-[10px] text-muted-foreground leading-none sm:grid-cols-[repeat(var(--contribution-weeks,53),minmax(0,1fr))] sm:gap-0.5"
           data-github-months
         ></div>
         <div
           aria-busy="true"
           aria-label="GitHub contribution activity for the last year"
-          class="contribution-grid mt-2 motion-safe:animate-pulse"
+          class="mt-2 grid grid-flow-col grid-rows-[repeat(7,auto)] grid-cols-[repeat(var(--contribution-weeks,53),10px)] gap-[3px] motion-safe:animate-pulse sm:grid-cols-[repeat(var(--contribution-weeks,53),minmax(0,1fr))] sm:gap-0.5"
           data-github-grid
           role="img"
         >
           {Array.from({ length: skeletonCells }, () => (
-              <div aria-hidden="true" class="contribution-cell aspect-square" />
+              <div
+                aria-hidden="true"
+                class={contributionCellClass}
+              />
             ))}
         </div>
       </div>
@@ -72,6 +77,8 @@ const skeletonCells = 53 * 7;
   }
 
   const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
+  const contributionCellClass =
+    "aspect-square rounded-[2px] bg-(--github-0) data-[level=1]:bg-(--github-1) data-[level=2]:bg-(--github-2) data-[level=3]:bg-(--github-3) data-[level=4]:bg-(--github-4) hover:outline-1 hover:outline-offset-1 hover:outline-foreground";
   const numberFormatter = new Intl.NumberFormat("en-US");
   const dateFormatter = new Intl.DateTimeFormat("en-US", {
     dateStyle: "medium",
@@ -137,7 +144,7 @@ const skeletonCells = 53 * 7;
     for (const week of weeks) {
       for (const contribution of week) {
         const cell = document.createElement("div");
-        cell.className = "contribution-cell aspect-square";
+        cell.className = contributionCellClass;
         cell.setAttribute("aria-hidden", "true");
 
         if (contribution) {

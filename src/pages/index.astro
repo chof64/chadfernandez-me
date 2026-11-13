@@ -7,9 +7,9 @@ import Layout from "~/layouts/layout.astro";
 ---
 
 <Layout>
-  <div class="container my-16 max-w-2xl">
+  <div class="mx-auto my-16 max-w-2xl px-8">
     <section class="mt-24 text-center">
-      <div class="animate-fade-up">
+      <div class="animate-fade-up opacity-0">
         <Image
           alt="Portrait"
           class="mx-auto h-24 w-24 rounded-lg object-cover"
@@ -22,19 +22,19 @@ import Layout from "~/layouts/layout.astro";
       </div>
 
       <h1
-        class="animation-delay-100 mt-6 animate-fade-up font-semibold text-2xl tracking-tight"
+        class="mt-6 animate-fade-up font-semibold text-2xl tracking-tight opacity-0 [animation-delay:100ms]"
       >
         Chad Fernandez
       </h1>
 
       <p
-        class="animation-delay-200 mt-1 animate-fade-up font-medium text-muted-foreground text-sm"
+        class="mt-1 animate-fade-up font-medium text-muted-foreground text-sm opacity-0 [animation-delay:200ms]"
       >
         Software Engineer
       </p>
 
       <p
-        class="animation-delay-300 mx-auto mt-4 animate-fade-up text-muted-foreground/80 leading-relaxed"
+        class="mx-auto mt-4 animate-fade-up text-muted-foreground/80 leading-relaxed opacity-0 [animation-delay:300ms]"
       >
         Self-taught full-stack developer with a BS in Information Technology. I
         love exploring how technology works and building apps that help people.
