@@ -2,6 +2,8 @@
 
 name = "chadfernandez-me"
 compatibility_date = "2026-11-13"
+# Required by Workers Builds branch previews; no preview-specific overrides.
+previews = { }
 
 [assets]
 directory = "./dist"
