@@ -5,6 +5,9 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
+  build: {
+    inlineStylesheets: "always",
+  },
   env: {
     schema: {
       BASE_URL: envField.string({
