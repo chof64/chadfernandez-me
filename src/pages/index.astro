@@ -22,19 +22,19 @@ import Layout from "~/layouts/layout.astro";
       </div>
 
       <h1
-        class="mt-6 animate-fade-up font-semibold text-2xl tracking-tight opacity-0 [animation-delay:100ms]"
+        class="mt-6 animate-fade-up font-semibold text-2xl tracking-tight opacity-0 [animation-delay:60ms]"
       >
         Chad Fernandez
       </h1>
 
       <p
-        class="mt-1 animate-fade-up font-medium text-muted-foreground text-sm opacity-0 [animation-delay:200ms]"
+        class="mt-1 animate-fade-up font-medium text-muted-foreground text-sm opacity-0 [animation-delay:90ms]"
       >
         Software Engineer
       </p>
 
       <p
-        class="mx-auto mt-4 animate-fade-up text-muted-foreground/80 leading-relaxed opacity-0 [animation-delay:300ms]"
+        class="mx-auto mt-4 animate-fade-up text-muted-foreground/80 leading-relaxed opacity-0 [animation-delay:120ms]"
       >
         Self-taught full-stack developer with a BS in Information Technology. I
         love exploring how technology works and building apps that help people.
@@ -60,7 +60,7 @@ import Layout from "~/layouts/layout.astro";
           >
             <svg
               aria-hidden="true"
-              class="size-4 opacity-70 group-hover:opacity-100"
+              class="size-4 opacity-70 transition-opacity duration-150 group-hover:opacity-100"
               fill="none"
               height="24"
               stroke="currentColor"
@@ -74,7 +74,9 @@ import Layout from "~/layouts/layout.astro";
               <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path>
               <rect height="16" rx="2" width="20" x="2" y="4"></rect>
             </svg>
-            <span class="text-muted-foreground/80 group-hover:text-foreground">
+            <span
+              class="text-muted-foreground/80 transition-colors duration-150 group-hover:text-foreground"
+            >
               email me
             </span>
           </a>
@@ -86,13 +88,15 @@ import Layout from "~/layouts/layout.astro";
           >
             <img
               alt="GitHub"
-              class="size-4 opacity-70 group-hover:opacity-100"
+              class="size-4 opacity-70 transition-opacity duration-150 group-hover:opacity-100"
               height="16"
               loading="lazy"
               src="/images/github.svg"
               width="16"
             >
-            <span class="text-muted-foreground/80 group-hover:text-foreground">
+            <span
+              class="text-muted-foreground/80 transition-colors duration-150 group-hover:text-foreground"
+            >
               GitHub
             </span>
           </a>
@@ -104,13 +108,15 @@ import Layout from "~/layouts/layout.astro";
           >
             <img
               alt="LinkedIn"
-              class="size-4 opacity-70 group-hover:opacity-100"
+              class="size-4 opacity-70 transition-opacity duration-150 group-hover:opacity-100"
               height="16"
               loading="lazy"
               src="/images/linkedin.svg"
               width="16"
             >
-            <span class="text-muted-foreground/80 group-hover:text-foreground">
+            <span
+              class="text-muted-foreground/80 transition-colors duration-150 group-hover:text-foreground"
+            >
               LinkedIn
             </span>
           </a>

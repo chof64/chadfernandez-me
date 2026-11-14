@@ -6,7 +6,8 @@
   --font-sans:
     -apple-system, var(--font-inter), ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --animate-fade-up: fadeUp 0.5s ease-out forwards;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --animate-fade-up: fadeUp 300ms var(--ease-out) forwards;
 }
 
 @keyframes fadeUp {
@@ -17,5 +18,12 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up {
+    opacity: 1;
+    animation: none;
   }
 }
