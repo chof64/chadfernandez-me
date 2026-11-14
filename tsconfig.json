@@ -4,8 +4,6 @@
     "allowJs": true,
     "verbatimModuleSyntax": true,
     "noUncheckedIndexedAccess": true,
-    "jsx": "react-jsx",
-    "jsxImportSource": "react",
     "baseUrl": ".",
     "paths": {
       "~/*": ["./src/*"]

@@ -63,7 +63,9 @@ const twitterImage = new URL("/twitter-image.png", siteUrl);
       })();
     </script>
   </head>
-  <body class="transition-colors duration-200">
+  <body
+    class="transition-colors duration-200 has-[#site-menu:popover-open]:overflow-hidden"
+  >
     <Header />
     <main><slot /></main>
   </body>
