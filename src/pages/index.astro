@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import heroPortrait from "~/assets/hero-portrait.jpeg";
+import ContactLink from "~/components/contact-link.astro";
 import HomeGitHub from "~/components/home-github.astro";
 import HomeSkills from "~/components/home-skills.astro";
 import Layout from "~/layouts/layout.astro";
@@ -54,72 +55,23 @@ import Layout from "~/layouts/layout.astro";
           I'm open to projects and collaborations. Let's connect.
         </p>
         <div class="mt-4 flex items-center gap-4">
-          <a
-            class="group flex items-center gap-2 text-sm"
+          <ContactLink
             href="mailto:contact@chadfernandez.me"
-          >
-            <svg
-              aria-hidden="true"
-              class="size-4 opacity-70 transition-opacity duration-150 group-hover:opacity-100"
-              fill="none"
-              height="24"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              viewBox="0 0 24 24"
-              width="24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path>
-              <rect height="16" rx="2" width="20" x="2" y="4"></rect>
-            </svg>
-            <span
-              class="text-muted-foreground/80 transition-colors duration-150 group-hover:text-foreground"
-            >
-              email me
-            </span>
-          </a>
-          <a
-            class="group flex items-center gap-2 text-sm"
+            icon="email"
+            label="email me"
+          />
+          <ContactLink
+            external
             href="https://github.com/chof64"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <img
-              alt="GitHub"
-              class="size-4 opacity-70 transition-opacity duration-150 group-hover:opacity-100"
-              height="16"
-              loading="lazy"
-              src="/images/github.svg"
-              width="16"
-            >
-            <span
-              class="text-muted-foreground/80 transition-colors duration-150 group-hover:text-foreground"
-            >
-              GitHub
-            </span>
-          </a>
-          <a
-            class="group flex items-center gap-2 text-sm"
+            icon="github"
+            label="GitHub"
+          />
+          <ContactLink
+            external
             href="https://www.linkedin.com/in/chof64"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <img
-              alt="LinkedIn"
-              class="size-4 opacity-70 transition-opacity duration-150 group-hover:opacity-100"
-              height="16"
-              loading="lazy"
-              src="/images/linkedin.svg"
-              width="16"
-            >
-            <span
-              class="text-muted-foreground/80 transition-colors duration-150 group-hover:text-foreground"
-            >
-              LinkedIn
-            </span>
-          </a>
+            icon="linkedin"
+            label="LinkedIn"
+          />
         </div>
       </section>
     </div>

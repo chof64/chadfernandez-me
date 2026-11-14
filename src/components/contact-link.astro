@@ -1,0 +1,52 @@
+---
+interface Props {
+  external?: boolean;
+  href: string;
+  icon: "email" | "github" | "linkedin";
+  label: string;
+}
+
+const { external = false, href, icon, label } = Astro.props;
+const iconClass =
+  "size-4 opacity-70 transition-opacity duration-150 group-hover:opacity-100";
+---
+
+<a
+  class="group flex items-center gap-2 text-sm"
+  href={href}
+  rel={external ? "noopener noreferrer" : undefined}
+  target={external ? "_blank" : undefined}
+>
+  {icon === "email" ? (
+    <svg
+      aria-hidden="true"
+      class={iconClass}
+      fill="none"
+      height="24"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" />
+      <rect height="16" rx="2" width="20" x="2" y="4" />
+    </svg>
+  ) : (
+    <img
+      alt=""
+      class={iconClass}
+      height="16"
+      loading="lazy"
+      src={`/images/${icon}.svg`}
+      width="16"
+    />
+  )}
+  <span
+    class="text-muted-foreground/80 transition-colors duration-150 group-hover:text-foreground"
+  >
+    {label}
+  </span>
+</a>

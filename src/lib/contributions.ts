@@ -14,6 +14,55 @@ const monthFormatter = new Intl.DateTimeFormat("en-US", {
 
 export const dateFromIso = (date: string) => new Date(`${date}T00:00:00Z`);
 
+const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
+
+export const isContribution = (value: unknown): value is Contribution => {
+  if (typeof value !== "object" || value === null) {
+    return false;
+  }
+
+  const record = value as Record<string, unknown>;
+
+  return (
+    typeof record.date === "string" &&
+    ISO_DATE.test(record.date) &&
+    typeof record.count === "number" &&
+    Number.isInteger(record.count) &&
+    record.count >= 0 &&
+    typeof record.level === "number" &&
+    Number.isInteger(record.level) &&
+    record.level >= 0 &&
+    record.level <= 4
+  );
+};
+
+export const toWeeks = (contributions: Contribution[]) => {
+  const first = contributions[0];
+
+  if (!first) {
+    throw new Error("Missing contribution data");
+  }
+
+  const leadingDays = dateFromIso(first.date).getUTCDay();
+  const days: (Contribution | null)[] = [
+    ...Array.from({ length: leadingDays }, () => null),
+    ...contributions,
+  ];
+  const weeks: (Contribution | null)[][] = [];
+
+  for (let index = 0; index < days.length; index += 7) {
+    const week = days.slice(index, index + 7);
+
+    while (week.length < 7) {
+      week.push(null);
+    }
+
+    weeks.push(week);
+  }
+
+  return weeks;
+};
+
 const MIN_MONTH_LABEL_COLUMNS = 2;
 
 export const getMonthLabels = (weeks: (Contribution | null)[][]) => {

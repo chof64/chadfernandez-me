@@ -4,6 +4,8 @@ import {
   type Contribution,
   dateFromIso,
   getMonthLabels,
+  isContribution,
+  toWeeks,
 } from "./contributions.ts";
 
 const DAY = 86_400_000;
@@ -56,4 +58,30 @@ test("keeps the current month label when it has one week", () => {
 
 test("keeps the current month label when it has two weeks", () => {
   assertLabels(weeksEnding("2026-11-14"), "Nov");
+});
+
+test("aligns a Monday-first payload to Sunday columns", () => {
+  const contributions = [
+    "2026-11-09",
+    "2026-11-10",
+    "2026-11-11",
+    "2026-11-12",
+    "2026-11-13",
+    "2026-11-14",
+    "2026-11-15",
+  ].map((date) => ({ count: 1, date, level: 1 }));
+  const weeks = toWeeks(contributions);
+
+  assert.equal(weeks.length, 2);
+  assert.equal(weeks[0]?.[0], null);
+  assert.equal(weeks[0]?.[1]?.date, "2026-11-09");
+  assert.equal(weeks[1]?.[0]?.date, "2026-11-15");
+  assert.equal(weeks[1]?.[6], null);
+});
+
+test("rejects an invalid contribution level", () => {
+  assert.equal(
+    isContribution({ count: 1, date: "2026-11-09", level: 5 }),
+    false
+  );
 });
