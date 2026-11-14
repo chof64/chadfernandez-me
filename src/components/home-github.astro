@@ -63,17 +63,14 @@ const username = "chof64";
   import {
     type Contribution,
     contributionCellClass,
-    dateFromIso,
+    contributionDayLabel,
     getMonthLabels,
     isContribution,
     toWeeks,
+    trailingYearStart,
   } from "~/lib/contributions";
 
   const numberFormatter = new Intl.NumberFormat("en-US");
-  const dateFormatter = new Intl.DateTimeFormat("en-US", {
-    dateStyle: "medium",
-    timeZone: "UTC",
-  });
 
   const buildCells = (weeks: (Contribution | null)[][]) => {
     const cells: HTMLDivElement[] = [];
@@ -85,11 +82,9 @@ const username = "chof64";
         cell.setAttribute("aria-hidden", "true");
 
         if (contribution) {
-          const unit =
-            contribution.count === 1 ? "contribution" : "contributions";
-
           cell.dataset.level = String(contribution.level);
-          cell.title = `${dateFormatter.format(dateFromIso(contribution.date))}: ${numberFormatter.format(contribution.count)} ${unit}`;
+          cell.dataset.date = contribution.date;
+          cell.dataset.count = String(contribution.count);
         } else {
           cell.classList.add("invisible");
         }
@@ -166,7 +161,10 @@ const username = "chof64";
           throw new Error("Invalid contribution response");
         }
 
-        const contributions = payload.contributions;
+        const start = trailingYearStart(new Date());
+        const contributions = payload.contributions.filter(
+          (contribution) => contribution.date >= start
+        );
         const weeks = toWeeks(contributions);
 
         gridElement.replaceChildren(...buildCells(weeks));
@@ -186,14 +184,42 @@ const username = "chof64";
         );
         const formattedTotal = numberFormatter.format(total);
         const unit = total === 1 ? "contribution" : "contributions";
+        const totalLabel = `${formattedTotal} ${unit} last year`;
 
-        totalElement.textContent = `${formattedTotal} ${unit} last year`;
+        totalElement.textContent = totalLabel;
         gridElement.setAttribute(
           "aria-label",
           `GitHub contribution activity: ${formattedTotal} ${unit} in the last year`
         );
 
         renderMonths(monthsElement, weeks);
+
+        gridElement.addEventListener("pointerover", (event) => {
+          if (event.pointerType === "touch") {
+            return;
+          }
+
+          const target = event.target;
+
+          if (!(target instanceof Element)) {
+            return;
+          }
+
+          const { date, count } =
+            target.closest<HTMLElement>("[data-date]")?.dataset ?? {};
+
+          if (date && count !== undefined) {
+            totalElement.textContent = contributionDayLabel(
+              date,
+              Number(count)
+            );
+          }
+        });
+
+        gridElement.addEventListener("pointerleave", () => {
+          totalElement.textContent = totalLabel;
+        });
+
         scrollToLatest();
       };
 

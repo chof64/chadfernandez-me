@@ -14,6 +14,21 @@ const monthFormatter = new Intl.DateTimeFormat("en-US", {
 
 export const dateFromIso = (date: string) => new Date(`${date}T00:00:00Z`);
 
+const dayFormatter = new Intl.DateTimeFormat("en-US", {
+  dateStyle: "medium",
+  timeZone: "UTC",
+});
+
+export const contributionDayLabel = (date: string, count: number) =>
+  `${count} ${count === 1 ? "contribution" : "contributions"} on ${dayFormatter.format(dateFromIso(date))}`;
+
+export const trailingYearStart = (today: Date) =>
+  new Date(
+    Date.UTC(today.getFullYear() - 1, today.getMonth(), today.getDate() + 1)
+  )
+    .toISOString()
+    .slice(0, 10);
+
 const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
 
 export const isContribution = (value: unknown): value is Contribution => {

@@ -2,10 +2,12 @@ import assert from "node:assert/strict";
 import { test } from "node:test";
 import {
   type Contribution,
+  contributionDayLabel,
   dateFromIso,
   getMonthLabels,
   isContribution,
   toWeeks,
+  trailingYearStart,
 } from "./contributions.ts";
 
 const DAY = 86_400_000;
@@ -84,4 +86,21 @@ test("rejects an invalid contribution level", () => {
     isContribution({ count: 1, date: "2026-11-09", level: 5 }),
     false
   );
+});
+
+test("formats a contribution day label", () => {
+  assert.equal(
+    contributionDayLabel("2026-11-10", 2),
+    "2 contributions on Nov 10, 2026"
+  );
+  assert.equal(
+    contributionDayLabel("2026-11-10", 1),
+    "1 contribution on Nov 10, 2026"
+  );
+});
+
+test("starts the trailing year after the same date last year", () => {
+  assert.equal(trailingYearStart(new Date(2026, 10, 15)), "2025-11-16");
+  assert.equal(trailingYearStart(new Date(2026, 0, 1)), "2025-01-02");
+  assert.equal(trailingYearStart(new Date(2026, 11, 31)), "2026-01-01");
 });
