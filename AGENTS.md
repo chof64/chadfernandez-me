@@ -9,7 +9,7 @@ Personal website: Astro 7, Tailwind v4, Biome linting.
 3. Keep the existing Tailwind tokens and `globals.css`/`local.css` structure.
 
 ## After Making Changes
-Run `pnpm check` and `pnpm typecheck` to verify lint, formatting (Biome), and types.
+Run `pnpm check`, `pnpm typecheck`, and `pnpm test` to verify lint, formatting (Biome), types, and the contribution label logic.
 Run `pnpm build` when changing build config, dependencies, routes, or assets.
 
 ## Commands
@@ -23,6 +23,7 @@ Run `pnpm build` when changing build config, dependencies, routes, or assets.
 | `pnpm check:write` | Fix safe Biome issues |
 | `pnpm check:unsafe` | Fix all Biome issues |
 | `pnpm typecheck` | Astro sync and type check |
+| `pnpm test` | Node test runner for contribution label logic |
 
 ## Environment
 - Required in production: `BASE_URL`

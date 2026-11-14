@@ -10,6 +10,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "test": "node --test",
     "wrangler": "wrangler",
     "check": "biome check .",
     "check:unsafe": "biome check --write --unsafe .",
