@@ -1,8 +1,5 @@
 ---
-import { contributionCellClass } from "~/lib/contributions";
-
 const username = "chof64";
-const skeletonCells = 53 * 7;
 ---
 
 <section data-github-card data-username={username}>
@@ -35,17 +32,10 @@ const skeletonCells = 53 * 7;
         <div
           aria-busy="true"
           aria-label="GitHub contribution activity for the last year"
-          class="mt-2 grid grid-flow-col grid-rows-[repeat(7,auto)] grid-cols-[repeat(var(--contribution-weeks,53),10px)] gap-[3px] motion-safe:animate-pulse sm:grid-cols-[repeat(var(--contribution-weeks,53),minmax(0,1fr))] sm:gap-0.5"
+          class="mt-2 grid min-h-[88px] grid-flow-col grid-rows-[repeat(7,auto)] grid-cols-[repeat(var(--contribution-weeks,53),10px)] gap-[3px] bg-muted/20 motion-safe:animate-pulse sm:min-h-[78px] sm:grid-cols-[repeat(var(--contribution-weeks,53),minmax(0,1fr))] sm:gap-0.5"
           data-github-grid
           role="img"
-        >
-          {Array.from({ length: skeletonCells }, () => (
-              <div
-                aria-hidden="true"
-                class={contributionCellClass}
-              />
-            ))}
-        </div>
+        ></div>
       </div>
     </div>
     <p
@@ -200,8 +190,6 @@ const skeletonCells = 53 * 7;
         scrollElement.scrollLeft = scrollElement.scrollWidth;
       };
 
-      scrollToLatest();
-
       const load = async () => {
         const response = await fetch(
           `https://github-contributions-api.jogruber.de/v4/${username}?y=last`,
@@ -228,7 +216,10 @@ const skeletonCells = 53 * 7;
         const weeks = toWeeks(contributions);
 
         gridElement.replaceChildren(...buildCells(weeks));
-        gridElement.classList.remove("motion-safe:animate-pulse");
+        gridElement.classList.remove(
+          "motion-safe:animate-pulse",
+          "bg-muted/20"
+        );
         gridElement.removeAttribute("aria-busy");
         scrollElement.style.setProperty(
           "--contribution-weeks",
@@ -252,11 +243,19 @@ const skeletonCells = 53 * 7;
         scrollToLatest();
       };
 
-      load().catch(() => {
-        totalElement.textContent = "Contribution activity unavailable.";
-        scrollElement.hidden = true;
-        hintElement.hidden = true;
-      });
+      const start = () => {
+        load().catch(() => {
+          totalElement.textContent = "Contribution activity unavailable.";
+          scrollElement.hidden = true;
+          hintElement.hidden = true;
+        });
+      };
+
+      if (document.readyState === "complete") {
+        start();
+      } else {
+        window.addEventListener("load", start, { once: true });
+      }
     }
   }
 </script>
