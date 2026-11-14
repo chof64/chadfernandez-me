@@ -164,11 +164,13 @@ const contributionCellClass =
     return cells;
   };
 
+  const MIN_MONTH_LABEL_COLUMNS = 2;
+
   const getMonthLabels = (weeks: (Contribution | null)[][]) => {
     const labels: { label: string; start: number; end: number }[] = [];
 
     for (const [index, week] of weeks.entries()) {
-      const day = week.find(
+      const day = week.findLast(
         (contribution): contribution is Contribution => contribution !== null
       );
 
@@ -186,7 +188,19 @@ const contributionCellClass =
       }
     }
 
-    return labels.filter(({ start, end }) => end - start >= 4);
+    const current = labels.at(-1);
+    const previous = labels.at(-2);
+
+    if (current && current.end - current.start < MIN_MONTH_LABEL_COLUMNS) {
+      current.start = Math.max(0, current.end - MIN_MONTH_LABEL_COLUMNS);
+      if (previous) {
+        previous.end = current.start;
+      }
+    }
+
+    return labels.filter(
+      ({ start, end }) => end - start >= MIN_MONTH_LABEL_COLUMNS
+    );
   };
 
   const renderMonths = (
