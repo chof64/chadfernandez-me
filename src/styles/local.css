@@ -1,7 +1,5 @@
 @import "./globals.css";
 
-@plugin "@tailwindcss/typography";
-
 @theme {
   --font-sans:
     -apple-system, var(--font-inter), ui-sans-serif, system-ui, sans-serif,

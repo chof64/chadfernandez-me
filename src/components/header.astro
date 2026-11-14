@@ -66,7 +66,6 @@ const menuButtonClass =
             class="absolute top-[0.4rem] left-0 block h-0.5 w-4 translate-y-[0.225rem] bg-foreground transition-transform duration-100 group-aria-expanded:translate-y-0 group-aria-expanded:rotate-45"
           ></span>
         </div>
-        <span class="sr-only">Toggle Menu</span>
       </div>
       <span class="flex h-8 items-center font-medium text-base leading-none">
         Menu
@@ -97,7 +96,12 @@ const menuButtonClass =
   const themeToggle = document.querySelector("[data-theme-toggle]");
   themeToggle?.addEventListener("click", () => {
     const dark = document.documentElement.classList.toggle("dark");
-    localStorage.setItem("theme", dark ? "dark" : "light");
+
+    try {
+      localStorage.setItem("theme", dark ? "dark" : "light");
+    } catch {
+      // localStorage can be unavailable in private browsing.
+    }
   });
 
   const menu = document.getElementById("site-menu");
