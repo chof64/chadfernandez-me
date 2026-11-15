@@ -14,6 +14,14 @@ const monthFormatter = new Intl.DateTimeFormat("en-US", {
 
 export const dateFromIso = (date: string) => new Date(`${date}T00:00:00Z`);
 
+const dayFormatter = new Intl.DateTimeFormat("en-US", {
+  dateStyle: "medium",
+  timeZone: "UTC",
+});
+
+export const contributionDayLabel = (date: string, count: number) =>
+  `${count} ${count === 1 ? "contribution" : "contributions"} on ${dayFormatter.format(dateFromIso(date))}`;
+
 const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
 
 export const isContribution = (value: unknown): value is Contribution => {
@@ -51,13 +59,7 @@ export const toWeeks = (contributions: Contribution[]) => {
   const weeks: (Contribution | null)[][] = [];
 
   for (let index = 0; index < days.length; index += 7) {
-    const week = days.slice(index, index + 7);
-
-    while (week.length < 7) {
-      week.push(null);
-    }
-
-    weeks.push(week);
+    weeks.push(days.slice(index, index + 7));
   }
 
   return weeks;

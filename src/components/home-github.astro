@@ -63,58 +63,18 @@ const username = "chof64";
   import {
     type Contribution,
     contributionCellClass,
-    dateFromIso,
+    contributionDayLabel,
     getMonthLabels,
     isContribution,
     toWeeks,
   } from "~/lib/contributions";
 
   const numberFormatter = new Intl.NumberFormat("en-US");
-  const dateFormatter = new Intl.DateTimeFormat("en-US", {
-    dateStyle: "medium",
-    timeZone: "UTC",
-  });
 
-  const buildCells = (weeks: (Contribution | null)[][]) => {
-    const cells: HTMLDivElement[] = [];
-
-    for (const week of weeks) {
-      for (const contribution of week) {
-        const cell = document.createElement("div");
-        cell.className = contributionCellClass;
-        cell.setAttribute("aria-hidden", "true");
-
-        if (contribution) {
-          const unit =
-            contribution.count === 1 ? "contribution" : "contributions";
-
-          cell.dataset.level = String(contribution.level);
-          cell.title = `${dateFormatter.format(dateFromIso(contribution.date))}: ${numberFormatter.format(contribution.count)} ${unit}`;
-        } else {
-          cell.classList.add("invisible");
-        }
-
-        cells.push(cell);
-      }
-    }
-
-    return cells;
-  };
-
-  const renderMonths = (
-    element: HTMLElement,
-    weeks: (Contribution | null)[][]
-  ) => {
-    element.replaceChildren(
-      ...getMonthLabels(weeks).map(({ label, start, end }) => {
-        const month = document.createElement("span");
-        month.className = "truncate";
-        month.style.gridColumn = `${start + 1} / ${end + 1}`;
-        month.textContent = label;
-        return month;
-      })
-    );
-  };
+  const cellHtml = (contribution: Contribution | null) =>
+    contribution
+      ? `<div class="${contributionCellClass}" aria-hidden="true" data-level="${contribution.level}" data-date="${contribution.date}" data-count="${contribution.count}"></div>`
+      : `<div class="${contributionCellClass} invisible" aria-hidden="true"></div>`;
 
   const card = document.querySelector<HTMLElement>("[data-github-card]");
 
@@ -140,10 +100,6 @@ const username = "chof64";
       scrollElement &&
       hintElement
     ) {
-      const scrollToLatest = () => {
-        scrollElement.scrollLeft = scrollElement.scrollWidth;
-      };
-
       const load = async () => {
         const response = await fetch(
           `https://github-contributions-api.jogruber.de/v4/${username}?y=last`,
@@ -169,7 +125,7 @@ const username = "chof64";
         const contributions = payload.contributions;
         const weeks = toWeeks(contributions);
 
-        gridElement.replaceChildren(...buildCells(weeks));
+        gridElement.innerHTML = weeks.flat().map(cellHtml).join("");
         gridElement.classList.remove(
           "motion-safe:animate-pulse",
           "bg-muted/20"
@@ -186,30 +142,48 @@ const username = "chof64";
         );
         const formattedTotal = numberFormatter.format(total);
         const unit = total === 1 ? "contribution" : "contributions";
+        const totalLabel = `${formattedTotal} ${unit} last year`;
 
-        totalElement.textContent = `${formattedTotal} ${unit} last year`;
+        totalElement.textContent = totalLabel;
         gridElement.setAttribute(
           "aria-label",
           `GitHub contribution activity: ${formattedTotal} ${unit} in the last year`
         );
 
-        renderMonths(monthsElement, weeks);
-        scrollToLatest();
+        monthsElement.innerHTML = getMonthLabels(weeks)
+          .map(
+            ({ label, start, end }) =>
+              `<span class="truncate" style="grid-column:${start + 1}/${end + 1}">${label}</span>`
+          )
+          .join("");
+
+        gridElement.onpointerover = (event) => {
+          if (event.pointerType === "touch") {
+            return;
+          }
+
+          const { date, count } = (event.target as HTMLElement).dataset;
+
+          if (date && count !== undefined) {
+            totalElement.textContent = contributionDayLabel(
+              date,
+              Number(count)
+            );
+          }
+        };
+
+        gridElement.onpointerleave = () => {
+          totalElement.textContent = totalLabel;
+        };
+
+        scrollElement.scrollLeft = scrollElement.scrollWidth;
       };
 
-      const start = () => {
-        load().catch(() => {
-          totalElement.textContent = "Contribution activity unavailable.";
-          scrollElement.hidden = true;
-          hintElement.hidden = true;
-        });
-      };
-
-      if (document.readyState === "complete") {
-        start();
-      } else {
-        window.addEventListener("load", start, { once: true });
-      }
+      load().catch(() => {
+        totalElement.textContent = "Contribution activity unavailable.";
+        scrollElement.hidden = true;
+        hintElement.hidden = true;
+      });
     }
   }
 </script>
