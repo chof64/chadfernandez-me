@@ -7,7 +7,6 @@ import {
   getMonthLabels,
   isContribution,
   toWeeks,
-  trailingYearStart,
 } from "./contributions.ts";
 
 const DAY = 86_400_000;
@@ -78,7 +77,22 @@ test("aligns a Monday-first payload to Sunday columns", () => {
   assert.equal(weeks[0]?.[0], null);
   assert.equal(weeks[0]?.[1]?.date, "2026-11-09");
   assert.equal(weeks[1]?.[0]?.date, "2026-11-15");
-  assert.equal(weeks[1]?.[6], null);
+  assert.equal(weeks[1]?.length, 1);
+});
+
+test("keeps a 371-day payload as 53 weeks", () => {
+  const contributions = Array.from({ length: 371 }, (_, index) => ({
+    count: 0,
+    date: new Date(Date.UTC(2025, 10, 9) + index * DAY)
+      .toISOString()
+      .slice(0, 10),
+    level: 0,
+  }));
+  const weeks = toWeeks(contributions);
+
+  assert.equal(weeks.length, 53);
+  assert.equal(weeks[0]?.[0]?.date, "2025-11-09");
+  assert.equal(weeks[52]?.[6]?.date, "2026-11-14");
 });
 
 test("rejects an invalid contribution level", () => {
@@ -97,10 +111,4 @@ test("formats a contribution day label", () => {
     contributionDayLabel("2026-11-10", 1),
     "1 contribution on Nov 10, 2026"
   );
-});
-
-test("starts the trailing year after the same date last year", () => {
-  assert.equal(trailingYearStart(new Date(2026, 10, 15)), "2025-11-16");
-  assert.equal(trailingYearStart(new Date(2026, 0, 1)), "2025-01-02");
-  assert.equal(trailingYearStart(new Date(2026, 11, 31)), "2026-01-01");
 });

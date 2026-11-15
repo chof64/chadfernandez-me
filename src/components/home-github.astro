@@ -67,49 +67,14 @@ const username = "chof64";
     getMonthLabels,
     isContribution,
     toWeeks,
-    trailingYearStart,
   } from "~/lib/contributions";
 
   const numberFormatter = new Intl.NumberFormat("en-US");
 
-  const buildCells = (weeks: (Contribution | null)[][]) => {
-    const cells: HTMLDivElement[] = [];
-
-    for (const week of weeks) {
-      for (const contribution of week) {
-        const cell = document.createElement("div");
-        cell.className = contributionCellClass;
-        cell.setAttribute("aria-hidden", "true");
-
-        if (contribution) {
-          cell.dataset.level = String(contribution.level);
-          cell.dataset.date = contribution.date;
-          cell.dataset.count = String(contribution.count);
-        } else {
-          cell.classList.add("invisible");
-        }
-
-        cells.push(cell);
-      }
-    }
-
-    return cells;
-  };
-
-  const renderMonths = (
-    element: HTMLElement,
-    weeks: (Contribution | null)[][]
-  ) => {
-    element.replaceChildren(
-      ...getMonthLabels(weeks).map(({ label, start, end }) => {
-        const month = document.createElement("span");
-        month.className = "truncate";
-        month.style.gridColumn = `${start + 1} / ${end + 1}`;
-        month.textContent = label;
-        return month;
-      })
-    );
-  };
+  const cellHtml = (contribution: Contribution | null) =>
+    contribution
+      ? `<div class="${contributionCellClass}" aria-hidden="true" data-level="${contribution.level}" data-date="${contribution.date}" data-count="${contribution.count}"></div>`
+      : `<div class="${contributionCellClass} invisible" aria-hidden="true"></div>`;
 
   const card = document.querySelector<HTMLElement>("[data-github-card]");
 
@@ -135,10 +100,6 @@ const username = "chof64";
       scrollElement &&
       hintElement
     ) {
-      const scrollToLatest = () => {
-        scrollElement.scrollLeft = scrollElement.scrollWidth;
-      };
-
       const load = async () => {
         const response = await fetch(
           `https://github-contributions-api.jogruber.de/v4/${username}?y=last`,
@@ -161,13 +122,10 @@ const username = "chof64";
           throw new Error("Invalid contribution response");
         }
 
-        const start = trailingYearStart(new Date());
-        const contributions = payload.contributions.filter(
-          (contribution) => contribution.date >= start
-        );
+        const contributions = payload.contributions;
         const weeks = toWeeks(contributions);
 
-        gridElement.replaceChildren(...buildCells(weeks));
+        gridElement.innerHTML = weeks.flat().map(cellHtml).join("");
         gridElement.classList.remove(
           "motion-safe:animate-pulse",
           "bg-muted/20"
@@ -192,21 +150,19 @@ const username = "chof64";
           `GitHub contribution activity: ${formattedTotal} ${unit} in the last year`
         );
 
-        renderMonths(monthsElement, weeks);
+        monthsElement.innerHTML = getMonthLabels(weeks)
+          .map(
+            ({ label, start, end }) =>
+              `<span class="truncate" style="grid-column:${start + 1}/${end + 1}">${label}</span>`
+          )
+          .join("");
 
-        gridElement.addEventListener("pointerover", (event) => {
+        gridElement.onpointerover = (event) => {
           if (event.pointerType === "touch") {
             return;
           }
 
-          const target = event.target;
-
-          if (!(target instanceof Element)) {
-            return;
-          }
-
-          const { date, count } =
-            target.closest<HTMLElement>("[data-date]")?.dataset ?? {};
+          const { date, count } = (event.target as HTMLElement).dataset;
 
           if (date && count !== undefined) {
             totalElement.textContent = contributionDayLabel(
@@ -214,28 +170,20 @@ const username = "chof64";
               Number(count)
             );
           }
-        });
+        };
 
-        gridElement.addEventListener("pointerleave", () => {
+        gridElement.onpointerleave = () => {
           totalElement.textContent = totalLabel;
-        });
+        };
 
-        scrollToLatest();
+        scrollElement.scrollLeft = scrollElement.scrollWidth;
       };
 
-      const start = () => {
-        load().catch(() => {
-          totalElement.textContent = "Contribution activity unavailable.";
-          scrollElement.hidden = true;
-          hintElement.hidden = true;
-        });
-      };
-
-      if (document.readyState === "complete") {
-        start();
-      } else {
-        window.addEventListener("load", start, { once: true });
-      }
+      load().catch(() => {
+        totalElement.textContent = "Contribution activity unavailable.";
+        scrollElement.hidden = true;
+        hintElement.hidden = true;
+      });
     }
   }
 </script>
